@@ -127,7 +127,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/自然语言处理基础/" data-id="cj9ecvo6b000c81jxlxorhcx1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/自然语言处理基础/" data-id="cj9ecwuw0000893jxpea6r87i" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NLP/">NLP</a></li></ul>
@@ -175,17 +175,17 @@
 </li>
 </ol>
 <p>逻辑判断 &gt; &lt; &gt;= &lt;= == !== , 赋值直接使用=<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat /etc/passwd | awk '&#123;FS=":"&#125; $3&lt;10 &#123;print $1 "\t" $3&#125;'</div></pre></td></tr></table></figure></p>
-<p> 首先定义分隔符为:, 然后判断, 注意看, 判断没有写在{}中, 然后执行动作, FS=”:”这是一个动作, 赋值动作, 不是一个判断, 所以不写在{}中<br>BEGIN END , 给程序员一个初始化和收尾的工作, BEGIN之后列出的操作在{}内将在awk开始扫描输入之前执行, 而END{}内的操作, 将在扫描完输入文件后执行.<br>awk ‘/test/ {print NR}’ abc 将带有test的行的行号打印出来, 注意//之间可以使用正则表达式<br>awk {}内, 可以使用 if else ,for(i=0;i&lt;10;i++), i=1 while(i&lt;NF)<br>可见, awk的很多用法都等同于C语言, 比如”\t” 分隔符, print的格式, if, while, for 等等</p>
+<p> 首先定义分隔符为:, 然后判断, 注意看, 判断没有写在{}中, 然后执行动作, FS=”:”这是一个动作, 赋值动作, 不是一个判断, 所以不写在{}中<br>BEGIN END , 给程序员一个初始化和收尾的工作, BEGIN之后列出的操作在{}内将在awk开始扫描输入之前执行, 而END{}内的操作, 将在扫描完输入文件后执行.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">awk &apos;/test/ &#123;print NR&#125;&apos; abc</div></pre></td></tr></table></figure></p>
+<p>将带有test的行的行号打印出来, 注意//之间可以使用正则表达式<br>awk {}内, 可以使用 if else ,for(i=0;i&lt;10;i++), i=1 while(i&lt;NF)<br>可见, awk的很多用法都等同于C语言, 比如”\t” 分隔符, print的格式, if, while, for 等等</p>
 <ul>
 <li><p>awk 是相当复杂的工具, 真正使用时, 再补充吧. (有关工具的picture)</p>
 </li>
-<li><p>sed(关键字: 编辑) 以行为单位的文本编辑工具 sed可以直接修改档案, 不过一般不推荐这么做, 可以分析 standard input<br>基本工作方式: sed [-nef] ‘[动作]’ [输入文本]<br>-n : 安静模式, 一般sed用法中, 来自stdin的数据一般会被列出到屏幕上, 如果使用-n参数后, 只有经过sed处理的那一行被列出来.<br>-e : 多重编辑, 比如你同时又想删除某行, 又想改变其他行, 那么可以用 sed -e ‘1,5d’ -e ‘s/abc/xxx/g’ filename<br>-f : 首先将 sed的动作写在一个档案内, 然后通过 sed -f scriptfile 就可以直接执行 scriptfile 内的sed动作 (没有实验成功, 不推荐使用)<br>-i : 直接编辑, 这回就是真的改变文件中的内容了, 别的都只是改变显示. (不推荐使用)<br>动作:<br>a 新增, a 后面可以接字符串, 而这个字符串会在新的一行出现. (下一行)<br>c 取代, c 后面的字符串, 这些字符串可以取代 n1,n2之间的行<br>d 删除, 后面不接任何东西<br>i 插入, 后面的字符串, 会在上一行出现<br>p 打印, 将选择的资料列出, 通常和 sed -n 一起运作 sed -n ‘3p’ 只打印第3行<br>s 取代, 类似vi中的取代, 1,20s/old/new/g</p>
-</li>
-</ul>
+<li><p>sed(关键字: 编辑) 以行为单位的文本编辑工具 sed可以直接修改档案, 不过一般不推荐这么做, 可以分析 standard input</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">基本工作方式: sed [-nef] &apos;[动作]&apos; [输入文本]</div><div class="line">-n : 安静模式, 一般sed用法中, 来自stdin的数据一般会被列出到屏幕上, 如果使用-n参数后, 只有经过sed处理的那一行被列出来.</div><div class="line">-e : 多重编辑, 比如你同时又想删除某行, 又想改变其他行, 那么可以用 sed -e &apos;1,5d&apos; -e &apos;s/abc/xxx/g&apos; filename</div><div class="line">-f : 首先将 sed的动作写在一个档案内, 然后通过 sed -f scriptfile 就可以直接执行 scriptfile 内的sed动作 (没有实验成功, 不推荐使用)</div><div class="line">-i : 直接编辑, 这回就是真的改变文件中的内容了, 别的都只是改变显示. (不推荐使用)</div><div class="line">动作:</div><div class="line">a 新增, a 后面可以接字符串, 而这个字符串会在新的一行出现. (下一行)</div><div class="line">c 取代, c 后面的字符串, 这些字符串可以取代 n1,n2之间的行</div><div class="line">d 删除, 后面不接任何东西</div><div class="line">i 插入, 后面的字符串, 会在上一行出现</div><div class="line">p 打印, 将选择的资料列出, 通常和 sed -n 一起运作 sed -n &apos;3p&apos; 只打印第3行</div><div class="line">s 取代, 类似vi中的取代, 1,20s/old/new/g</div></pre></td></tr></table></figure>
 <p>[line-address]q 退出, 匹配到某行退出, 提高效率</p>
 <p>[line-address]r 匹配到的行读取某文件 例如: sed ‘1r qqq’ abc , 注意, 写入的文本是写在了第1行的后边, 也就是第2行</p>
 <p>[line-address]w file, 匹配到的行写入某文件  例如: sed -n ‘/m/w qqq’ abc , 从abc中读取带m的行写到qqq文件中, 注意, 这个写入带有覆盖性.</p>
-<ul>
+</li>
 <li><p>举例:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">sed &apos;1d&apos; abc 删除 abc 档案里的第一行, 注意, 这时会显示除了第一行之外的所有行, 因为第一行已经被删除了(实际文件并没有被删除,而只是显示的时候被删除了)</div><div class="line">sed -n &apos;1d&apos; abc 什么内容也不显示, 因为经过sed处理的行, 是个删除操作, 所以不现实.</div><div class="line">sed &apos;2,$d&apos; abc 删除abc中从第二行到最后一行所有的内容, 注意, $符号正则表达式中表示行末尾, 但是这里并没有说那行末尾, 就会指最后一行末尾, ^开头, 如果没有指定哪行开头, 那么就是第一行开头</div><div class="line">sed &apos;$d&apos; abc 只删除了最后一行, 因为并没有指定是那行末尾, 就认为是最后一行末尾</div><div class="line">sed &apos;/test/d&apos; abc 文件中所有带 test 的行, 全部删除</div><div class="line">sed &apos;/test/a RRRRRRR&apos; abc 将 RRRRRRR 追加到所有的带 test 行的下一行 也有可能通过行 sed &apos;1,5c RRRRRRR&apos; abc</div><div class="line">sed &apos;/test/c RRRRRRR&apos; abc 将 RRRRRRR 替换所有带 test 的行, 当然, 这里也可以是通过行来进行替换, 比如 sed &apos;1,5c RRRRRRR&apos; abc</div></pre></td></tr></table></figure>
 </li>
@@ -197,7 +197,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/Linux基础/" data-id="cj9ecvo63000181jxzlldukrm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/Linux基础/" data-id="cj9ecwuvw000393jxi5vyh7yz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
@@ -447,7 +447,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/Java基础/" data-id="cj9ecvo66000381jxh8vxjbck" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/Java基础/" data-id="cj9ecwuvt000193jxqf7vemwb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -488,7 +488,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/Markdown的基本语法/" data-id="cj9ecvo69000981jxjjr42mqb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/Markdown的基本语法/" data-id="cj9ecwuvx000493jxyro5qwxd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/">Markdown</a></li></ul>
@@ -546,7 +546,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/Hexo搭建和使用/" data-id="cj9ecvo5z000081jxpl8xqjkq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/Hexo搭建和使用/" data-id="cj9ecwuvn000093jxqiulvqzy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
@@ -593,7 +593,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/hello-world/" data-id="cj9ecvo6a000a81jxhiem3s1f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/hello-world/" data-id="cj9ecwuvy000593jxcpnwoh3z" class="article-share-link">Share</a>
       
       
     </footer>
