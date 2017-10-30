@@ -127,7 +127,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/自然语言处理基础/" data-id="cj9e9xa1k0008i4jxij5v6nd0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/自然语言处理基础/" data-id="cj9ecokq800083ljxkp4uopcx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NLP/">NLP</a></li></ul>
@@ -161,18 +161,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id=""><a href="#" class="headerlink" title=""></a><!-- # Linux基础 --></h2><h3 id="awk-grep-sed"><a href="#awk-grep-sed" class="headerlink" title="awk grep sed"></a>awk grep sed</h3><ul>
-<li>gerp 查找, sed 编辑, awk 根据内容分析并处理.</li>
-</ul>
+        <h2 id=""><a href="#" class="headerlink" title=""></a><!-- # Linux基础 --></h2><h3 id="awk-grep-sed"><a href="#awk-grep-sed" class="headerlink" title="awk grep sed"></a>awk grep sed</h3><p>gerp 查找, sed 编辑, awk 根据内容分析并处理.</p>
 <ul>
-<li>awk(关键字:分析&amp;处理) 一行一行的分析处理 awk ‘条件类型1{动作1}条件类型2{动作2}’ filename, awk 也可以读取来自前一个指令的 standard input<br>相对于sed常常用于一整行处理, awk则比较倾向于一行当中分成数个”字段”(区域)来处理, 默认的分隔符是空格键或tab键<br>例如:<br>last -n 5 | awk ‘{print $1 “\t” $3}’ 这里大括号内$1”\t”$3 之间不加空格也可以, 不过最好还是加上个空格, 另外注意”\t”是有双引号的, 因为本身这些内容都在单引号内<br>$0 代表整行 $1代表第一个区域, 依此类推<br>awk的处理流程是:<ol>
-<li>读第一行, 将第一行资料填入变量 $0, $1… 等变量中</li>
-<li>依据条件限制, 执行动作</li>
-<li>接下来执行下一行<br>所以, AWK一次处理是一行, 而一次中处理的最小单位是一个区域<br>另外还有3个变量, NF: 每一行处理的字段数, NR 目前处理到第几行 FS 目前的分隔符<br>逻辑判断 &gt; &lt; &gt;= &lt;= == !== , 赋值直接使用=<br>cat /etc/passwd | awk ‘{FS=”:”} $3&lt;10 {print $1 “\t” $3}’ 首先定义分隔符为:, 然后判断, 注意看, 判断没有写在{}中, 然后执行动作, FS=”:”这是一个动作, 赋值动作, 不是一个判断, 所以不写在{}中<br>BEGIN END , 给程序员一个初始化和收尾的工作, BEGIN之后列出的操作在{}内将在awk开始扫描输入之前执行, 而END{}内的操作, 将在扫描完输入文件后执行.<br>awk ‘/test/ {print NR}’ abc 将带有test的行的行号打印出来, 注意//之间可以使用正则表达式<br>awk {}内, 可以使用 if else ,for(i=0;i&lt;10;i++), i=1 while(i&lt;NF)<br>可见, awk的很多用法都等同于C语言, 比如”\t” 分隔符, print的格式, if, while, for 等等</li>
-</ol>
+<li>awk(关键字:分析&amp;处理) 以行为处理单位<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">awk &apos;条件类型1&#123;动作1&#125;条件类型2&#123;动作2&#125;&apos; filename</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>awk 是相当复杂的工具, 真正使用时, 再补充吧. (有关工具的picture)</p>
+<p>awk 也可以读取来自前一个指令的 standard input，相对于sed常常用于一整行处理, awk则比较倾向于一行当中分成数个”字段”(区域)来处理, 默认的分隔符是空格键或tab键<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">例子：</div><div class="line">last -n 5 | awk &apos;&#123;print $1 &quot;\t&quot; $3&#125;&apos;</div><div class="line">这里大括号内$1&quot;\t&quot;$3 之间不加空格也可以, 不过最好还是加上个空格, 另外注意&quot;\t&quot;是有双引号的, 因为本身这些内容都在单引号内</div><div class="line">$0 代表整行 $1代表第一个区域, 依此类推</div></pre></td></tr></table></figure></p>
+<p>awk的处理流程是:</p>
+<ol>
+<li>读第一行, 将第一行资料填入变量 $0, $1… 等变量中</li>
+<li>依据条件限制, 执行动作</li>
+<li>接下来执行下一行<br>所以, AWK一次处理是一行, 而一次中处理的最小单位是一个区域<br>另外还有3个变量,<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">NF: 每一行处理的字段数</div><div class="line">NR 目前处理到第几行</div><div class="line">FS 目前的分隔符</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>逻辑判断 &gt; &lt; &gt;= &lt;= == !== , 赋值直接使用=<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat /etc/passwd | awk &apos;&#123;FS=&quot;:&quot;&#125; $3&lt;10 &#123;print $1 &quot;\t&quot; $3&#125;&apos;</div></pre></td></tr></table></figure></p>
+<p> 首先定义分隔符为:, 然后判断, 注意看, 判断没有写在{}中, 然后执行动作, FS=”:”这是一个动作, 赋值动作, 不是一个判断, 所以不写在{}中<br>BEGIN END , 给程序员一个初始化和收尾的工作, BEGIN之后列出的操作在{}内将在awk开始扫描输入之前执行, 而END{}内的操作, 将在扫描完输入文件后执行.<br>awk ‘/test/ {print NR}’ abc 将带有test的行的行号打印出来, 注意//之间可以使用正则表达式<br>awk {}内, 可以使用 if else ,for(i=0;i&lt;10;i++), i=1 while(i&lt;NF)<br>可见, awk的很多用法都等同于C语言, 比如”\t” 分隔符, print的格式, if, while, for 等等</p>
+<ul>
+<li>awk 是相当复杂的工具, 真正使用时, 再补充吧. (有关工具的picture)</li>
+</ul>
 <ul>
 <li>sed(关键字: 编辑) 以行为单位的文本编辑工具 sed可以直接修改档案, 不过一般不推荐这么做, 可以分析 standard input<br>基本工作方式: sed [-nef] ‘[动作]’ [输入文本]<br>-n : 安静模式, 一般sed用法中, 来自stdin的数据一般会被列出到屏幕上, 如果使用-n参数后, 只有经过sed处理的那一行被列出来.<br>-e : 多重编辑, 比如你同时又想删除某行, 又想改变其他行, 那么可以用 sed -e ‘1,5d’ -e ‘s/abc/xxx/g’ filename<br>-f : 首先将 sed的动作写在一个档案内, 然后通过 sed -f scriptfile 就可以直接执行 scriptfile 内的sed动作 (没有实验成功, 不推荐使用)<br>-i : 直接编辑, 这回就是真的改变文件中的内容了, 别的都只是改变显示. (不推荐使用)<br>动作:<br>a 新增, a 后面可以接字符串, 而这个字符串会在新的一行出现. (下一行)<br>c 取代, c 后面的字符串, 这些字符串可以取代 n1,n2之间的行<br>d 删除, 后面不接任何东西<br>i 插入, 后面的字符串, 会在上一行出现<br>p 打印, 将选择的资料列出, 通常和 sed -n 一起运作 sed -n ‘3p’ 只打印第3行<br>s 取代, 类似vi中的取代, 1,20s/old/new/g</li>
 </ul>
@@ -187,7 +193,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/Linux基础/" data-id="cj9e9xa1h0004i4jx3xvx8h4i" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/Linux基础/" data-id="cj9ecokq400033ljxpaw0vfku" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
@@ -437,7 +443,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/Java基础/" data-id="cj9e9xa190000i4jx2f2w0c1f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/Java基础/" data-id="cj9ecokq100013ljxi07wdo1x" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -478,7 +484,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/Markdown的基本语法/" data-id="cj9e9xa1i0005i4jx1dzx0z5t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/Markdown的基本语法/" data-id="cj9ecokq500043ljxd3aufx61" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/">Markdown</a></li></ul>
@@ -536,7 +542,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/Hexo搭建和使用/" data-id="cj9e9xa1d0001i4jxng7vrmee" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/Hexo搭建和使用/" data-id="cj9ecokpx00003ljxe9m4jnxx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
@@ -583,7 +589,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/hello-world/" data-id="cj9e9xa1g0003i4jxd7khsck3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/hello-world/" data-id="cj9ecokq600053ljx1qlc2lfn" class="article-share-link">Share</a>
       
       
     </footer>
