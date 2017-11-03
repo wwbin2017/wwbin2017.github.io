@@ -56,9 +56,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -98,12 +98,18 @@
 <p>这样命令的输出很容易分辨。</p>
 <h4 id="设置SSH-Key"><a href="#设置SSH-Key" class="headerlink" title="设置SSH Key"></a>设置SSH Key</h4><p>Github上连接已有的仓库时的认证，是通过ssh的公开密钥认证方式进行的。因此需要创建SSH Key，并且添加到github中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;your_email@163.com&quot;</div></pre></td></tr></table></figure></p>
 <p>在 “~/.ssh”文件中有id_rsa  id_rsa.pub 文件，其中id_rsa.pub是共有密钥。</p>
-<h4 id="添加公开密钥"><a href="#添加公开密钥" class="headerlink" title="添加公开密钥"></a>添加公开密钥</h4><p>进入 “setting” 点击右 ”Add SSH Key” 输入公开密钥（id_rsa.pub中的内容）。<br>.gitignore文件把不需要版本管理的文件记录在其中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git init</div><div class="line">git dif</div><div class="line">git statues</div></pre></td></tr></table></figure></p>
+<h4 id="添加公开密钥"><a href="#添加公开密钥" class="headerlink" title="添加公开密钥"></a>添加公开密钥</h4><p>进入 “setting” 点击右 ”Add SSH Key” 输入公开密钥（id_rsa.pub中的内容）。<br>.gitignore文件把不需要版本管理的文件记录在其中。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git init # 初始化仓库</div><div class="line">git status # 查看仓库的状态</div><div class="line">git add # 向暂存区中添加文件</div></pre></td></tr></table></figure>
+<h4 id="git-commit-保存仓库的历史记录"><a href="#git-commit-保存仓库的历史记录" class="headerlink" title="git commit 保存仓库的历史记录"></a>git commit 保存仓库的历史记录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -m “描述性的文字”</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git log # 查看提交日志</div><div class="line">git log --pretty=short # 查看提交日志</div><div class="line">git log -p # 显示文件的改动</div><div class="line">git log --graph # 以图表的形式查看分支</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git diff # 查看更改后的差别</div><div class="line">git diff HEAD # 查看工作树和最新提交的差别</div></pre></td></tr></table></figure>
+<h4 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h4><p>在进行多个并行任务时，会用到分支。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git branch # 显示分支 ，带*表示当前分支</div><div class="line">git checkout -b ‘分支名’ #创建分支，并且切换</div><div class="line"># 或者</div><div class="line">git branch ’分支名’ # 创建分支</div><div class="line">git checkout ‘分支名’ # 切换分支</div></pre></td></tr></table></figure></p>
+<h4 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h4><p>首先需要切换到master主分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git merge --no-ff &apos;分支名&apos;</div></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/02/Git使用基础/" data-id="cj9jz4ue80001unjxvdl07mcc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/02/Git使用基础/" data-id="cj9jz5vuj0001w0jxjwh6s5az" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub基础/">GitHub基础</a></li></ul>
@@ -161,7 +167,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/02/GitHub基础/" data-id="cj9jz4ue40000unjxzm9cuxgy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/02/GitHub基础/" data-id="cj9jz5vuf0000w0jx02is8p3o" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub基础/">GitHub基础</a></li></ul>
@@ -208,7 +214,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/02/hello-world/" data-id="cj9jz4ufp000iunjxjqq28f02" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/02/hello-world/" data-id="cj9jz5vuv000cw0jxqy3qotj6" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -247,7 +253,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/02/VSCode安装/" data-id="cj9jz4ufu000kunjxmqq19ivy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/02/VSCode安装/" data-id="cj9jz5vuu0009w0jx0fbdhbza" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VSCode/">VSCode</a></li></ul>
@@ -317,7 +323,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/自然语言处理基础/" data-id="cj9jz4uf8000dunjxunjws557" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/自然语言处理基础/" data-id="cj9jz5vvo000mw0jxf2dtq5t4" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NLP/">NLP</a></li></ul>
@@ -387,7 +393,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/Linux基础/" data-id="cj9jz4uf7000cunjx4oq4dsvy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/Linux基础/" data-id="cj9jz5vun0005w0jxn3z3s638" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
@@ -637,7 +643,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/Java基础/" data-id="cj9jz4uef0004unjx0avqwez5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/Java基础/" data-id="cj9jz5vum0004w0jxg0gn4j3i" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -678,7 +684,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/Markdown的基本语法/" data-id="cj9jz4uft000junjxl3nc042q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/Markdown的基本语法/" data-id="cj9jz5vus0008w0jxrd8558oy" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/">Markdown</a></li></ul>
@@ -736,7 +742,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/Hexo搭建和使用/" data-id="cj9jz4uee0003unjxj2u9bm24" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/Hexo搭建和使用/" data-id="cj9jz5vul0003w0jxyhh11ond" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
@@ -758,7 +764,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub基础/">GitHub基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSCode/">VSCode</a></li></ul>
     </div>
@@ -768,7 +774,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
       <a href="/tags/GitHub基础/" style="font-size: 20px;">GitHub基础</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a>
     </div>
@@ -787,7 +793,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -824,7 +830,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 wwbin<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
