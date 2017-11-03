@@ -5,18 +5,18 @@
   
   <title>Git使用基础 | wwbin的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="123git initgit difgit statues">
+  <meta name="description" content="git初始设置设置用户名和邮箱地址12git config --global user.name &amp;quot;username&amp;quot;git config --global user.email &amp;quot;email@email.com&amp;quot; 上诉命令会在 “~/.gitconfig”中生成相应的信息，可以直接修改，可以使用任何的用户名和邮箱。 提高可读性设置1git config">
 <meta name="keywords" content="GitHub基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git使用基础">
 <meta property="og:url" content="http://yoursite.com/2017/11/02/Git使用基础/index.html">
 <meta property="og:site_name" content="wwbin的博客">
-<meta property="og:description" content="123git initgit difgit statues">
+<meta property="og:description" content="git初始设置设置用户名和邮箱地址12git config --global user.name &amp;quot;username&amp;quot;git config --global user.email &amp;quot;email@email.com&amp;quot; 上诉命令会在 “~/.gitconfig”中生成相应的信息，可以直接修改，可以使用任何的用户名和邮箱。 提高可读性设置1git config">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-02T14:30:46.084Z">
+<meta property="og:updated_time" content="2017-11-03T14:06:55.548Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git使用基础">
-<meta name="twitter:description" content="123git initgit difgit statues">
+<meta name="twitter:description" content="git初始设置设置用户名和邮箱地址12git config --global user.name &amp;quot;username&amp;quot;git config --global user.email &amp;quot;email@email.com&amp;quot; 上诉命令会在 “~/.gitconfig”中生成相应的信息，可以直接修改，可以使用任何的用户名和邮箱。 提高可读性设置1git config">
   
     <link rel="alternate" href="/atom.xml" title="wwbin的博客" type="application/atom+xml">
   
@@ -91,12 +91,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git init</div><div class="line">git dif</div><div class="line">git statues</div></pre></td></tr></table></figure>
+        <hr>
+<h3 id="git初始设置"><a href="#git初始设置" class="headerlink" title="git初始设置"></a>git初始设置</h3><h4 id="设置用户名和邮箱地址"><a href="#设置用户名和邮箱地址" class="headerlink" title="设置用户名和邮箱地址"></a>设置用户名和邮箱地址</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;username&quot;</div><div class="line">git config --global user.email &quot;email@email.com&quot;</div></pre></td></tr></table></figure>
+<p>上诉命令会在 “~/.gitconfig”中生成相应的信息，可以直接修改，可以使用任何的用户名和邮箱。</p>
+<h4 id="提高可读性设置"><a href="#提高可读性设置" class="headerlink" title="提高可读性设置"></a>提高可读性设置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --global color.ui auto</div></pre></td></tr></table></figure>
+<p>这样命令的输出很容易分辨。</p>
+<h4 id="设置SSH-Key"><a href="#设置SSH-Key" class="headerlink" title="设置SSH Key"></a>设置SSH Key</h4><p>Github上连接已有的仓库时的认证，是通过ssh的公开密钥认证方式进行的。因此需要创建SSH Key，并且添加到github中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;your_email@163.com&quot;</div></pre></td></tr></table></figure></p>
+<p>在 “~/.ssh”文件中有id_rsa  id_rsa.pub 文件，其中id_rsa.pub是共有密钥。</p>
+<h4 id="添加公开密钥"><a href="#添加公开密钥" class="headerlink" title="添加公开密钥"></a>添加公开密钥</h4><p>进入 “setting” 点击右 ”Add SSH Key” 输入公开密钥（id_rsa.pub中的内容）。<br>.gitignore文件把不需要版本管理的文件记录在其中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git init</div><div class="line">git dif</div><div class="line">git statues</div></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/02/Git使用基础/" data-id="cj9ikjjza0001fyjx0c1ca8mq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/02/Git使用基础/" data-id="cj9jz4ue80001unjxvdl07mcc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub基础/">GitHub基础</a></li></ul>

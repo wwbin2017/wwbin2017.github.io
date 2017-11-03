@@ -91,12 +91,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git init</div><div class="line">git dif</div><div class="line">git statues</div></pre></td></tr></table></figure>
+        <hr>
+<h3 id="git初始设置"><a href="#git初始设置" class="headerlink" title="git初始设置"></a>git初始设置</h3><h4 id="设置用户名和邮箱地址"><a href="#设置用户名和邮箱地址" class="headerlink" title="设置用户名和邮箱地址"></a>设置用户名和邮箱地址</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;username&quot;</div><div class="line">git config --global user.email &quot;email@email.com&quot;</div></pre></td></tr></table></figure>
+<p>上诉命令会在 “~/.gitconfig”中生成相应的信息，可以直接修改，可以使用任何的用户名和邮箱。</p>
+<h4 id="提高可读性设置"><a href="#提高可读性设置" class="headerlink" title="提高可读性设置"></a>提高可读性设置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --global color.ui auto</div></pre></td></tr></table></figure>
+<p>这样命令的输出很容易分辨。</p>
+<h4 id="设置SSH-Key"><a href="#设置SSH-Key" class="headerlink" title="设置SSH Key"></a>设置SSH Key</h4><p>Github上连接已有的仓库时的认证，是通过ssh的公开密钥认证方式进行的。因此需要创建SSH Key，并且添加到github中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;your_email@163.com&quot;</div></pre></td></tr></table></figure></p>
+<p>在 “~/.ssh”文件中有id_rsa  id_rsa.pub 文件，其中id_rsa.pub是共有密钥。</p>
+<h4 id="添加公开密钥"><a href="#添加公开密钥" class="headerlink" title="添加公开密钥"></a>添加公开密钥</h4><p>进入 “setting” 点击右 ”Add SSH Key” 输入公开密钥（id_rsa.pub中的内容）。<br>.gitignore文件把不需要版本管理的文件记录在其中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git init</div><div class="line">git dif</div><div class="line">git statues</div></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/02/Git使用基础/" data-id="cj9ikjjza0001fyjx0c1ca8mq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/02/Git使用基础/" data-id="cj9jz4ue80001unjxvdl07mcc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub基础/">GitHub基础</a></li></ul>
@@ -154,7 +161,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/02/GitHub基础/" data-id="cj9ikjjz60000fyjxhzqjxlcv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/02/GitHub基础/" data-id="cj9jz4ue40000unjxzm9cuxgy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub基础/">GitHub基础</a></li></ul>
@@ -201,7 +208,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/02/hello-world/" data-id="cj9ikjjzp000cfyjxe69fhauz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/02/hello-world/" data-id="cj9jz4ufp000iunjxjqq28f02" class="article-share-link">Share</a>
       
       
     </footer>
@@ -240,7 +247,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/02/VSCode安装/" data-id="cj9ikjjzn0009fyjxb8c64k2q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/02/VSCode安装/" data-id="cj9jz4ufu000kunjxmqq19ivy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VSCode/">VSCode</a></li></ul>
@@ -310,7 +317,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/自然语言处理基础/" data-id="cj9ikjjzq000dfyjxd2nnhtm4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/自然语言处理基础/" data-id="cj9jz4uf8000dunjxunjws557" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NLP/">NLP</a></li></ul>
@@ -380,7 +387,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/Linux基础/" data-id="cj9ikjjzk0005fyjxii1531n7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/Linux基础/" data-id="cj9jz4uf7000cunjx4oq4dsvy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
@@ -630,7 +637,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/Java基础/" data-id="cj9ikjjzj0004fyjx2jrtrt5v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/Java基础/" data-id="cj9jz4uef0004unjx0avqwez5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -671,7 +678,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/Markdown的基本语法/" data-id="cj9ikjjzm0008fyjxved6xww4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/Markdown的基本语法/" data-id="cj9jz4uft000junjxl3nc042q" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/">Markdown</a></li></ul>
@@ -729,7 +736,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/Hexo搭建和使用/" data-id="cj9ikjjzi0003fyjxdp17yh30" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/Hexo搭建和使用/" data-id="cj9jz4uee0003unjxj2u9bm24" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
