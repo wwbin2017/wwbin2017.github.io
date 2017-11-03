@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="wwbin的博客">
 <meta property="og:description" content="git初始设置设置用户名和邮箱地址12git config --global user.name &amp;quot;username&amp;quot;git config --global user.email &amp;quot;email@email.com&amp;quot; 上诉命令会在 “~/.gitconfig”中生成相应的信息，可以直接修改，可以使用任何的用户名和邮箱。 提高可读性设置1git config">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-03T14:53:52.738Z">
+<meta property="og:updated_time" content="2017-11-03T15:00:58.694Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git使用基础">
 <meta name="twitter:description" content="git初始设置设置用户名和邮箱地址12git config --global user.name &amp;quot;username&amp;quot;git config --global user.email &amp;quot;email@email.com&amp;quot; 上诉命令会在 “~/.gitconfig”中生成相应的信息，可以直接修改，可以使用任何的用户名和邮箱。 提高可读性设置1git config">
@@ -99,7 +99,7 @@
 <h4 id="设置SSH-Key"><a href="#设置SSH-Key" class="headerlink" title="设置SSH Key"></a>设置SSH Key</h4><p>Github上连接已有的仓库时的认证，是通过ssh的公开密钥认证方式进行的。因此需要创建SSH Key，并且添加到github中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;your_email@163.com&quot;</div></pre></td></tr></table></figure></p>
 <p>在 “~/.ssh”文件中有id_rsa  id_rsa.pub 文件，其中id_rsa.pub是共有密钥。</p>
 <h4 id="添加公开密钥"><a href="#添加公开密钥" class="headerlink" title="添加公开密钥"></a>添加公开密钥</h4><p>进入 “setting” 点击右 ”Add SSH Key” 输入公开密钥（id_rsa.pub中的内容）。<br>.gitignore文件把不需要版本管理的文件记录在其中。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git init # 初始化仓库</div><div class="line">git status # 查看仓库的状态</div><div class="line">git add # 向暂存区中添加文件</div></pre></td></tr></table></figure>
+<h4 id="Git基本命令"><a href="#Git基本命令" class="headerlink" title="Git基本命令"></a>Git基本命令</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git init # 初始化仓库</div><div class="line">git status # 查看仓库的状态</div><div class="line">git add # 向暂存区中添加文件</div></pre></td></tr></table></figure>
 <h4 id="git-commit-保存仓库的历史记录"><a href="#git-commit-保存仓库的历史记录" class="headerlink" title="git commit 保存仓库的历史记录"></a>git commit 保存仓库的历史记录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -m “描述性的文字”</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git log # 查看提交日志，当前状态为终点的历史日志</div><div class="line">git log --pretty=short # 查看提交日志</div><div class="line">git log -p # 显示文件的改动</div><div class="line">git log --graph # 以图表的形式查看分支</div><div class="line">git relog # 查看操作日志</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git diff # 查看更改后的差别</div><div class="line">git diff HEAD # 查看工作树和最新提交的差别</div></pre></td></tr></table></figure>
@@ -112,7 +112,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/02/Git使用基础/" data-id="cj9k0zkjs0001n0jx3mt67733" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/02/Git使用基础/" data-id="cj9k106pj0000nzjxn68nic3l" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub基础/">GitHub基础</a></li></ul>
