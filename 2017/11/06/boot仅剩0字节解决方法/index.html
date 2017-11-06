@@ -3,18 +3,19 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>Tag: NLP | wwbin的博客</title>
+  <title>boot仅剩0字节解决方法 | wwbin的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="选择性记录，习惯性遗忘">
-<meta property="og:type" content="website">
-<meta property="og:title" content="wwbin的博客">
-<meta property="og:url" content="http://yoursite.com/tags/NLP/index.html">
+  <meta name="description" content="当boot存储空间不够时，是因为之前的linux内核还在boot中，因此需要删除旧的内核。首先查看当前linux内核版本，留下当前的版本其他的删除就行1uname -a 查看当强有哪些linux内核版本1sudo dpkg --get-selections |grep linux-image 删除对应的版本，例如 linux-image-4.4.0-78-generic1sudo apt-get">
+<meta property="og:type" content="article">
+<meta property="og:title" content="boot仅剩0字节解决方法">
+<meta property="og:url" content="http://yoursite.com/2017/11/06/boot仅剩0字节解决方法/index.html">
 <meta property="og:site_name" content="wwbin的博客">
-<meta property="og:description" content="选择性记录，习惯性遗忘">
+<meta property="og:description" content="当boot存储空间不够时，是因为之前的linux内核还在boot中，因此需要删除旧的内核。首先查看当前linux内核版本，留下当前的版本其他的删除就行1uname -a 查看当强有哪些linux内核版本1sudo dpkg --get-selections |grep linux-image 删除对应的版本，例如 linux-image-4.4.0-78-generic1sudo apt-get">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-06T11:25:18.708Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wwbin的博客">
-<meta name="twitter:description" content="选择性记录，习惯性遗忘">
+<meta name="twitter:title" content="boot仅剩0字节解决方法">
+<meta name="twitter:description" content="当boot存储空间不够时，是因为之前的linux内核还在boot中，因此需要删除旧的内核。首先查看当前linux内核版本，留下当前的版本其他的删除就行1uname -a 查看当强有哪些linux内核版本1sudo dpkg --get-selections |grep linux-image 删除对应的版本，例如 linux-image-4.4.0-78-generic1sudo apt-get">
   
     <link rel="alternate" href="/atom.xml" title="wwbin的博客" type="application/atom+xml">
   
@@ -67,39 +68,55 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/10/30/自然语言处理基础/" class="archive-article-date">
-  <time datetime="2017-10-30T14:14:58.000Z" itemprop="datePublished">Oct 30</time>
+        <section id="main"><article id="post-boot仅剩0字节解决方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/06/boot仅剩0字节解决方法/" class="article-date">
+  <time datetime="2017-11-06T11:16:46.000Z" itemprop="datePublished">2017-11-06</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/30/自然语言处理基础/">自然语言处理基础</a>
+    <h1 class="article-title" itemprop="name">
+      boot仅剩0字节解决方法
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当boot存储空间不够时，是因为之前的linux内核还在boot中，因此需要删除旧的内核。首先查看当前linux内核版本，留下当前的版本其他的删除就行<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">uname -a</div></pre></td></tr></table></figure></p>
+<p>查看当强有哪些linux内核版本<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo dpkg --get-selections |grep linux-image</div></pre></td></tr></table></figure></p>
+<p>删除对应的版本，例如 linux-image-4.4.0-78-generic<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get purge linux-image-4.4.0-78-generic</div></pre></td></tr></table></figure></p>
+<p>查看boot空间大小<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">df</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/06/boot仅剩0字节解决方法/" data-id="cj9o3od0k0005mfjxnd0b038r" class="article-share-link">Share</a>
+      
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/11/03/推送到GitHub/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">推送到GitHub</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         

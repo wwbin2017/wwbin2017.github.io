@@ -3,12 +3,12 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>Archives | wwbin的博客</title>
+  <title>wwbin的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="选择性记录，习惯性遗忘">
 <meta property="og:type" content="website">
 <meta property="og:title" content="wwbin的博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="wwbin的博客">
 <meta property="og:description" content="选择性记录，习惯性遗忘">
 <meta property="og:locale" content="zh-Hans">
@@ -69,212 +69,68 @@
       <div class="outer">
         <section id="main">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/11/06/boot仅剩0字节解决方法/" class="archive-article-date">
-  <time datetime="2017-11-06T11:16:46.000Z" itemprop="datePublished">Nov 6</time>
+    <article id="post-Hexo搭建和使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/30/Hexo搭建和使用/" class="article-date">
+  <time datetime="2017-10-30T13:24:23.000Z" itemprop="datePublished">2017-10-30</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/06/boot仅剩0字节解决方法/">boot仅剩0字节解决方法</a>
+      <a class="article-title" href="/2017/10/30/Hexo搭建和使用/">Hexo搭建和使用</a>
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/11/03/推送到GitHub/" class="archive-article-date">
-  <time datetime="2017-11-03T14:58:33.000Z" itemprop="datePublished">Nov 3</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/03/推送到GitHub/">推送到GitHub</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/11/02/Git使用基础/" class="archive-article-date">
-  <time datetime="2017-11-02T14:29:41.000Z" itemprop="datePublished">Nov 2</time>
-</a>
+        <p>主要简单介绍在ubuntu环境下Hexo的搭建以及一些常用配置和命令的使用</p>
+<h3 id="hexo环境搭建和使用"><a href="#hexo环境搭建和使用" class="headerlink" title="hexo环境搭建和使用"></a>hexo环境搭建和使用</h3><h5 id="hexo环境搭建"><a href="#hexo环境搭建" class="headerlink" title="hexo环境搭建"></a>hexo环境搭建</h5><ul>
+<li>主要参考 <a href="https://hexo.io/" target="_blank" rel="external">Hexo官方文档</a> <a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">中文文档</a>总结</li>
+<li>首先需要安装git和Node.js</li>
+<li><p>安装git</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Windows：下载并安装 git.</div><div class="line">Mac：使用 Homebrew, MacPorts ：brew install git;或下载 安装程序 安装。</div><div class="line">Linux (Ubuntu, Debian)：sudo apt-get install git-core</div><div class="line">Linux (Fedora, Red Hat, CentOS)：sudo yum install git-core</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装Node.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">安装 Node.js 的最佳方式是使用 nvm。</div><div class="line">cURL:</div><div class="line">$ curl https://raw.github.com/creationix/nvm/master/install.sh | sh</div><div class="line">Wget:</div><div class="line">$ wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh</div><div class="line">安装完成后， 重启终端 并执行下列命令即可安装 Node.js。</div><div class="line">$ nvm install stable</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装好上述环境后，就可以安装Hexo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo-cli  不要加sudo</div></pre></td></tr></table></figure>
+</li>
+<li><p>为了部署到github需要安装一个扩展</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+</li>
+<li><p>有时候需要改变用户名和邮箱</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">设置你的用户名</div><div class="line">git config --global user.name &quot;user_name&quot;  </div><div class="line">设置你的邮箱</div><div class="line">git config --global user.email &quot;email@gmail.com&quot;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="hexo使用"><a href="#hexo使用" class="headerlink" title="hexo使用"></a>hexo使用</h3>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/02/Git使用基础/">Git使用基础</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/11/02/GitHub基础/" class="archive-article-date">
-  <time datetime="2017-11-02T14:08:21.000Z" itemprop="datePublished">Nov 2</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/10/30/Hexo搭建和使用/" data-id="cj9o3od0i0003mfjxt6rp8iue" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/02/GitHub基础/">GitHub基础</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/11/02/hello-world/" class="archive-article-date">
-  <time datetime="2017-11-02T11:00:48.759Z" itemprop="datePublished">Nov 2</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/02/hello-world/">Hello World</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/11/02/VSCode安装/" class="archive-article-date">
-  <time datetime="2017-11-02T05:41:41.000Z" itemprop="datePublished">Nov 2</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/02/VSCode安装/">VSCode安装</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/10/30/自然语言处理基础/" class="archive-article-date">
-  <time datetime="2017-10-30T14:14:58.000Z" itemprop="datePublished">Oct 30</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/30/自然语言处理基础/">自然语言处理基础</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/10/30/Linux基础/" class="archive-article-date">
-  <time datetime="2017-10-30T14:04:24.000Z" itemprop="datePublished">Oct 30</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/30/Linux基础/">Linux基础</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/10/30/Java基础/" class="archive-article-date">
-  <time datetime="2017-10-30T14:01:29.000Z" itemprop="datePublished">Oct 30</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/30/Java基础/">Java基础</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/10/30/Markdown的基本语法/" class="archive-article-date">
-  <time datetime="2017-10-30T13:24:58.000Z" itemprop="datePublished">Oct 30</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/30/Markdown的基本语法/">Markdown的基本语法</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
 
   <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">__('next') &raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
   </nav>
 </section>
         

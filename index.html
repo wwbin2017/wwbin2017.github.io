@@ -69,6 +69,46 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-boot仅剩0字节解决方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/06/boot仅剩0字节解决方法/" class="article-date">
+  <time datetime="2017-11-06T11:16:46.000Z" itemprop="datePublished">2017-11-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/06/boot仅剩0字节解决方法/">boot仅剩0字节解决方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当boot存储空间不够时，是因为之前的linux内核还在boot中，因此需要删除旧的内核。首先查看当前linux内核版本，留下当前的版本其他的删除就行<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">uname -a</div></pre></td></tr></table></figure></p>
+<p>查看当强有哪些linux内核版本<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo dpkg --get-selections |grep linux-image</div></pre></td></tr></table></figure></p>
+<p>删除对应的版本，例如 linux-image-4.4.0-78-generic<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get purge linux-image-4.4.0-78-generic</div></pre></td></tr></table></figure></p>
+<p>查看boot空间大小<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">df</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/06/boot仅剩0字节解决方法/" data-id="cj9o3od0k0005mfjxnd0b038r" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-推送到GitHub" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/11/03/推送到GitHub/" class="article-date">
@@ -101,7 +141,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/03/推送到GitHub/" data-id="cj9kqdw59000djkjxg7vkgdl3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/03/推送到GitHub/" data-id="cj9o3od0m0009mfjxominkktd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub基础/">GitHub基础</a></li></ul>
@@ -156,7 +196,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/02/Git使用基础/" data-id="cj9kqdw4v0001jkjxqb99v8tn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/02/Git使用基础/" data-id="cj9o3od0r000hmfjx30p58de1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub基础/">GitHub基础</a></li></ul>
@@ -214,7 +254,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/02/GitHub基础/" data-id="cj9kqdw4r0000jkjxx599uvja" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/02/GitHub基础/" data-id="cj9o3od0n000bmfjxirxew5vu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub基础/">GitHub基础</a></li></ul>
@@ -261,7 +301,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/02/hello-world/" data-id="cj9kqdw58000cjkjxbnm8hb3t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/02/hello-world/" data-id="cj9o3od0o000dmfjxsmw4m539" class="article-share-link">Share</a>
       
       
     </footer>
@@ -300,7 +340,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/02/VSCode安装/" data-id="cj9kqdw570009jkjx5htyay7f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/02/VSCode安装/" data-id="cj9o3od0l0008mfjxpyub4lax" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VSCode/">VSCode</a></li></ul>
@@ -365,12 +405,11 @@
 <li>大量歧义（ambiguity）现象</li>
 <li>大量未知语言现象</li>
 </ul>
-<p>##</p>
-
+<h1 id=""><a href="#" class="headerlink" title="#"></a>#</h1>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/自然语言处理基础/" data-id="cj9kqdw5a000fjkjxh0xdq7ro" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/自然语言处理基础/" data-id="cj9o3od0q000fmfjxquta41fz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NLP/">NLP</a></li></ul>
@@ -440,7 +479,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/Linux基础/" data-id="cj9kqdw530004jkjx2xkaz6ar" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/Linux基础/" data-id="cj9o3od0f0001mfjx06rvzgag" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
@@ -690,7 +729,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/Java基础/" data-id="cj9kqdw540005jkjx2ge9m29a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/Java基础/" data-id="cj9o3od070000mfjx9pxx8g7n" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -725,13 +764,13 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ul>
-<li>markdown注释：可以使用 <strong>&lt;!– 注释 –&gt;</strong></li>
+<li>markdown注释：可以使用 <strong>&lt;!— 注释 —&gt;</strong></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/Markdown的基本语法/" data-id="cj9kqdw560008jkjx0cum7cdp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/Markdown的基本语法/" data-id="cj9o3od0j0004mfjxkb36nx3p" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/">Markdown</a></li></ul>
@@ -743,65 +782,11 @@
 
 
   
-    <article id="post-Hexo搭建和使用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/10/30/Hexo搭建和使用/" class="article-date">
-  <time datetime="2017-10-30T13:24:23.000Z" itemprop="datePublished">2017-10-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/30/Hexo搭建和使用/">Hexo搭建和使用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>主要简单介绍在ubuntu环境下Hexo的搭建以及一些常用配置和命令的使用</p>
-<h3 id="hexo环境搭建和使用"><a href="#hexo环境搭建和使用" class="headerlink" title="hexo环境搭建和使用"></a>hexo环境搭建和使用</h3><h5 id="hexo环境搭建"><a href="#hexo环境搭建" class="headerlink" title="hexo环境搭建"></a>hexo环境搭建</h5><ul>
-<li>主要参考 <a href="https://hexo.io/" target="_blank" rel="external">Hexo官方文档</a> <a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">中文文档</a>总结</li>
-<li>首先需要安装git和Node.js</li>
-<li><p>安装git</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Windows：下载并安装 git.</div><div class="line">Mac：使用 Homebrew, MacPorts ：brew install git;或下载 安装程序 安装。</div><div class="line">Linux (Ubuntu, Debian)：sudo apt-get install git-core</div><div class="line">Linux (Fedora, Red Hat, CentOS)：sudo yum install git-core</div></pre></td></tr></table></figure>
-</li>
-<li><p>安装Node.js</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">安装 Node.js 的最佳方式是使用 nvm。</div><div class="line">cURL:</div><div class="line">$ curl https://raw.github.com/creationix/nvm/master/install.sh | sh</div><div class="line">Wget:</div><div class="line">$ wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh</div><div class="line">安装完成后， 重启终端 并执行下列命令即可安装 Node.js。</div><div class="line">$ nvm install stable</div></pre></td></tr></table></figure>
-</li>
-<li><p>安装好上述环境后，就可以安装Hexo</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo-cli  不要加sudo</div></pre></td></tr></table></figure>
-</li>
-<li><p>为了部署到github需要安装一个扩展</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
-</li>
-<li><p>有时候需要改变用户名和邮箱</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">设置你的用户名</div><div class="line">git config --global user.name &quot;user_name&quot;  </div><div class="line">设置你的邮箱</div><div class="line">git config --global user.email &quot;email@gmail.com&quot;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="hexo使用"><a href="#hexo使用" class="headerlink" title="hexo使用"></a>hexo使用</h3>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/Hexo搭建和使用/" data-id="cj9kqdw520003jkjxcgzv35lq" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
 
 
-  
-
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
+  </nav>
 </section>
         
           <aside id="sidebar">
@@ -845,6 +830,10 @@
       <ul>
         
           <li>
+            <a href="/2017/11/06/boot仅剩0字节解决方法/">boot仅剩0字节解决方法</a>
+          </li>
+        
+          <li>
             <a href="/2017/11/03/推送到GitHub/">推送到GitHub</a>
           </li>
         
@@ -858,10 +847,6 @@
         
           <li>
             <a href="/2017/11/02/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2017/11/02/VSCode安装/">VSCode安装</a>
           </li>
         
       </ul>
