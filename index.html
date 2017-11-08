@@ -322,7 +322,7 @@
 </li>
 <li><p>变异算子</p>
 <ul>
-<li>针对第$i$个基准向量$x_i(t)$的变异操作是：从种群中选择三个向量$x_r1(t)$，$x_r2(t)$，$x_r3(t)$，其中r1，r2，r3是互不相同的整数,F是DE的缩放因子，在[0,1]之间。<br>DE/rand/1<br>$$V_i(t) = x_{r1}(t) + F*(x_{r2}(t) - x_{r3}(t))$$</li>
+<li>针对第$i$个基准向量$x_i(t)$的变异操作是：从种群中选择三个向量$x_{r1}(t)$，$x_{r2}(t)$，$x_{r3}(t)$，其中$r1$，$r2$，$r3$是互不相同的整数,F是DE的缩放因子，在[0,1]之间。<br>DE/rand/1<br>$$V_i(t) = x_{r1}(t) + F*(x_{r2}(t) - x_{r3}(t))$$</li>
 <li>其他变异算子<br>DE/rand/2<br>$$V_i(t) = x_{r1}(t) + F*(x_{r2}(t) - x_{r3}(t)) + F*(x_{r4}(t) - x_{r5}(t))$$<br>DE/best/1<br>$$V_i(t) = x_{best}(t) + F*(x_{r2}(t) - x_{r3}(t))$$<br>DE/best/2<br>$$V_i(t) = x_{best}(t) + F*(x_{r2}(t) - x_{r3}(t) + F*(x_{r4}(t) - x_{r5}(t)$$<br>DE/current-to-best/1<br>$$V_i(t) = x_{i}(t) + F*(x_{best}(t) - x_{i}(t) + F*(x_{r1}(t) - x_{r2}(t)$$  </li>
 </ul>
 </li>
@@ -331,6 +331,9 @@
 <li><p>杂交算子<br>if $ rand_{i}[0,1]&lt;Cr$ or $j=j_{rand}$<br>$$u_{i,j}(t) = v_{i,j}(t) $$<br>otherwise<br>$$u_{i,j}(t) = x_{i,j}(t) $$</p>
 </li>
 <li><p>选择算子<br>DE的选择操作是一种基于贪婪的选择机制，哪个好，选择哪个<br>if $f(X_{i}(t))$&lt;$f(u_{i}(t))$<br>$$X_{i}(t+1)=X_{i}(t)$$<br>if $f(X_{i}(t))$&gt;$f(u_{i}(t))$<br>$$X_{i}(t+1)=u_{i}(t)$$</p>
+</li>
+<li><p>Matlab代码</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">clear all</div><div class="line">clc</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
