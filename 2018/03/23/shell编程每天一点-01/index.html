@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="选择性记录，习惯性遗忘">
+<meta name="description" content="date显示当前时间 后台运行程序12source test.sh &amp;amp; #注销会停止nohup test.sh &amp;amp;   # 退出继续运行 定时任务命令 crontab基本格式 :    1 2 3 4 5 6     * * * * * command   分　 时　 日　 月　 周　 命令    第1列表示分钟1～59 每分钟用*或者 */1表示 第2列表示小时1～23（0表示0">
 <meta name="keywords" content="SHELL编程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="shell编程每天一点 01">
 <meta property="og:url" content="http://yoursite.com/2018/03/23/shell编程每天一点-01/index.html">
 <meta property="og:site_name" content="wwbin的博客">
-<meta property="og:description" content="选择性记录，习惯性遗忘">
+<meta property="og:description" content="date显示当前时间 后台运行程序12source test.sh &amp;amp; #注销会停止nohup test.sh &amp;amp;   # 退出继续运行 定时任务命令 crontab基本格式 :    1 2 3 4 5 6     * * * * * command   分　 时　 日　 月　 周　 命令    第1列表示分钟1～59 每分钟用*或者 */1表示 第2列表示小时1～23（0表示0">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-23T15:53:42.648Z">
+<meta property="og:updated_time" content="2018-03-23T16:10:33.875Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shell编程每天一点 01">
-<meta name="twitter:description" content="选择性记录，习惯性遗忘">
+<meta name="twitter:description" content="date显示当前时间 后台运行程序12source test.sh &amp;amp; #注销会停止nohup test.sh &amp;amp;   # 退出继续运行 定时任务命令 crontab基本格式 :    1 2 3 4 5 6     * * * * * command   分　 时　 日　 月　 周　 命令    第1列表示分钟1～59 每分钟用*或者 */1表示 第2列表示小时1～23（0表示0">
 
 
 
@@ -310,7 +310,47 @@
       
 
       
-        
+        <h4 id="date"><a href="#date" class="headerlink" title="date"></a>date</h4><p>显示当前时间</p>
+<h4 id="后台运行程序"><a href="#后台运行程序" class="headerlink" title="后台运行程序"></a>后台运行程序</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">source test.sh &amp; #注销会停止</div><div class="line">nohup test.sh &amp;   # 退出继续运行</div></pre></td></tr></table></figure>
+<h4 id="定时任务"><a href="#定时任务" class="headerlink" title="定时任务"></a>定时任务</h4><p>命令 crontab<br>基本格式 :</p>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td style="text-align:center">*</td>
+<td style="text-align:center">*</td>
+<td style="text-align:center">*</td>
+<td style="text-align:center">*</td>
+<td style="text-align:center">command</td>
+</tr>
+<tr>
+<td>分　</td>
+<td style="text-align:center">时　</td>
+<td style="text-align:center">日　</td>
+<td style="text-align:center">月　</td>
+<td style="text-align:center">周　</td>
+<td style="text-align:center">命令</td>
+</tr>
+</tbody>
+</table>
+<p>第1列表示分钟1～59 每分钟用*或者 */1表示</p>
+<p>第2列表示小时1～23（0表示0点）</p>
+<p>第3列表示日期1～31</p>
+<p>第4列表示月份1～12</p>
+<p>第5列标识号星期0～6（0表示星期天）</p>
+<p>第6列要运行的命令<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash">crontab -e <span class="comment"># 默认使用vim打开crontab</span></span></div></pre></td></tr></table></figure></p>
+<p>crontab文件的一些例子：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash">每晚的21:30重启apache。</span></div><div class="line">30 21 * * * /usr/local/etc/rc.d/lighttpd restart</div><div class="line"><span class="meta">#</span><span class="bash">每月1、10、22日</span></div><div class="line">45 4 1,10,22 * * /usr/local/etc/rc.d/lighttpd restart</div><div class="line"><span class="meta">#</span><span class="bash">每天早上6点10分</span></div><div class="line">10 6 * * * date</div><div class="line"><span class="meta">#</span><span class="bash">每两个小时</span></div><div class="line">0 */2 * * * date</div><div class="line"><span class="meta">#</span><span class="bash">晚上11点到早上8点之间每两个小时，早上8点</span></div><div class="line">0 23-7/2，8 * * * date</div><div class="line"><span class="meta">#</span><span class="bash">每个月的4号和每个礼拜的礼拜一到礼拜三的早上11点</span></div><div class="line">0 11 4 * mon-wed date</div><div class="line"><span class="meta">#</span><span class="bash">1月份日早上4点</span></div><div class="line">0 4 1 jan * date</div></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -400,8 +440,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -454,6 +503,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#date"><span class="nav-number">1.</span> <span class="nav-text">date</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#后台运行程序"><span class="nav-number">2.</span> <span class="nav-text">后台运行程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定时任务"><span class="nav-number">3.</span> <span class="nav-text">定时任务</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
