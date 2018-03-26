@@ -242,6 +242,127 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/26/shell编程每天一点-03/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wwbin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wwbin的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/26/shell编程每天一点-03/" itemprop="url">shell编程每天一点 03</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-26T23:00:14+08:00">
+                2018-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>shell shift<br>Shell中判断语句if中-z至-d的意思</p>
+<p>sed<br>crontab 进程不能执行原因<br>linux ssh 到远程服务器执行命令和crontab中执行命令提示命令找不到的问题</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/26/shell编程每天一点-02/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -313,7 +434,8 @@
       
         
           
-            <h4 id="常用的"><a href="#常用的" class="headerlink" title="常用的$"></a>常用的$</h4><table>
+            <h4 id="常用的"><a href="#常用的" class="headerlink" title="常用的$"></a>常用的$</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>符号</th>
@@ -351,6 +473,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>$<em> 和 $@ 的区别<br>$</em> 和 $@ 都表示传递给函数或脚本的所有参数，不被双引号(“ “)包含时，都以”$1” “$2” … “$n” 的形式输出所有参数。  但是当它们被双引号(“ “)包含时，”$*“ 会将所有的参数作为一个整体，以”$1 $2 … $n”的形式输出所有参数；”$@” 会将各个参数分开，以”$1” “$2” … “$n” 的形式输出所有参数。</p>
 <p>$()与``都是用于命令替换的<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></div><div class="line">a=$(date +%Y%m%d)</div><div class="line">b=`date +%Y%m%d`</div><div class="line">echo $a</div><div class="line">echo $b</div></pre></td></tr></table></figure></p>
 <p>${} 待补充</p>
@@ -360,6 +483,7 @@
 <p>表达式和运算符之间要有空格，例如 2+2 是不对的，必须写成 2 + 2，这与我们熟悉的大多数编程语言不一样。<br>完整的表达式要被 ` ` 包含，注意这个字符不是常用的单引号.</p>
 <p>[] <em>左右两边有空格</em><br>条件表达式要放在方括号之间，并且要有空格，例如: [$a==$b] 是错误的，必须写成 [ $a == $b ]。</p>
 <h4 id="shell-表达式"><a href="#shell-表达式" class="headerlink" title="shell 表达式"></a>shell 表达式</h4><h5 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h5><p>下表列出了常用的算术运算符，假定变量 a 为 10，变量 b 为 20：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -411,8 +535,10 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>注意：条件表达式要放在方括号之间，并且要有空格，例如: [$a==$b] 是错误的，必须写成 [ $a == $b ]。</p>
 <h5 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h5><p>关系运算符只支持数字，不支持字符串，除非字符串的值是数字。<br>下表列出了常用的关系运算符，假定变量 a 为 10，变量 b 为 20：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -454,7 +580,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h5 id="布尔运算符"><a href="#布尔运算符" class="headerlink" title="布尔运算符"></a>布尔运算符</h5><p>下表列出了常用的布尔运算符，假定变量 a 为 10，变量 b 为 20：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -481,7 +609,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h5 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h5><p>以下介绍 Shell 的逻辑运算符，假定变量 a 为 10，变量 b 为 20:</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -505,6 +635,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 
           
         
@@ -870,6 +1001,7 @@
             <h4 id="date"><a href="#date" class="headerlink" title="date"></a>date</h4><p>显示当前时间</p>
 <h4 id="后台运行程序"><a href="#后台运行程序" class="headerlink" title="后台运行程序"></a>后台运行程序</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">source test.sh &amp; #注销会停止</div><div class="line">nohup test.sh &amp;   # 退出继续运行</div></pre></td></tr></table></figure>
 <h4 id="定时任务"><a href="#定时任务" class="headerlink" title="定时任务"></a>定时任务</h4><p>命令 crontab<br>基本格式 :</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -900,6 +1032,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>第1列表示分钟1～59 每分钟用*或者 */1表示</p>
 <p>第2列表示小时1～23（0表示0点）</p>
 <p>第3列表示日期1～31</p>
@@ -1161,8 +1294,9 @@
       
         
           
-            <h2 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h2><h5 id="新建博客页，md文件"><a href="#新建博客页，md文件" class="headerlink" title="新建博客页，md文件"></a>新建博客页，md文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> hexo new [layout] &lt;title&gt;</span></div></pre></td></tr></table></figure>
-<h5 id="生成静态网页"><a href="#生成静态网页" class="headerlink" title="生成静态网页"></a>生成静态网页</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> hexo generate</span></div><div class="line"><span class="meta">$</span><span class="bash"> hexo -g</span></div></pre></td></tr></table></figure>
+            <h2 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h2><h5 id="新建博客页，md文件"><a href="#新建博客页，md文件" class="headerlink" title="新建博客页，md文件"></a>新建博客页，md文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> hexo new [layout] &lt;title&gt;</div></pre></td></tr></table></figure>
+<h5 id="生成静态网页"><a href="#生成静态网页" class="headerlink" title="生成静态网页"></a>生成静态网页</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> hexo generate</div><div class="line"><span class="meta">$</span> hexo -g</div></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1172,17 +1306,19 @@
 </thead>
 <tbody>
 <tr>
-<td>-d，–deploy</td>
+<td>-d，—deploy</td>
 <td style="text-align:center">文件生成后立即部署网站</td>
 </tr>
 <tr>
-<td>-w， –watch</td>
+<td>-w， —watch</td>
 <td style="text-align:center">监视文件变动</td>
 </tr>
 </tbody>
 </table>
-<h5 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h5><p>server<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> hexo server</span></div></pre></td></tr></table></figure></p>
+</div>
+<h5 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h5><p>server<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> hexo server</div></pre></td></tr></table></figure></p>
 <p>启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/。" target="_blank" rel="external">http://localhost:4000/。</a></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1192,19 +1328,20 @@
 </thead>
 <tbody>
 <tr>
-<td>-p, –port</td>
+<td>-p, —port</td>
 <td style="text-align:center">重设端口</td>
 </tr>
 <tr>
-<td>-s, –static</td>
+<td>-s, —static</td>
 <td style="text-align:center">只使用静态文件</td>
 </tr>
 <tr>
-<td>-l, –log</td>
+<td>-l, —log</td>
 <td style="text-align:center">启动日记记录，使用覆盖记录格式</td>
 </tr>
 </tbody>
 </table>
+</div>
 
           
         
@@ -1581,149 +1718,28 @@
 <h4 id="差分算法原理"><a href="#差分算法原理" class="headerlink" title="差分算法原理"></a>差分算法原理</h4><ul>
 <li><p>初始化</p>
 <ul>
-<li>设$D$为个体的维数，$NP$为种群的规模，$t$为进化的代数，$X(t)$为$t$代种群，首先初始化第0代种群：<br>$$X(0) ={x_1(0),…, x_{NP}(0)}$$</li>
+<li>设$D$为个体的维数，$NP$为种群的规模，$t$为进化的代数，$X(t)$为$t$代种群，首先初始化第0代种群：  <script type="math/tex; mode=display">X(0) ={x\_1(0),..., x\_{NP}(0)}</script></li>
 </ul>
 </li>
 <li><p>变异算子</p>
 <ul>
-<li>针对第$i$个基准向量$x_i(t)$的变异操作是：从种群中选择三个向量$x_{r1}(t)$，$x_{r2}(t)$，$x_{r3}(t)$，其中$r1$，$r2$，$r3$是互不相同的整数,F是DE的缩放因子，在[0,1]之间。<br>DE/rand/1<br>$$V_i(t) = x_{r1}(t) + F*(x_{r2}(t) - x_{r3}(t))$$</li>
-<li>其他变异算子<br>DE/rand/2<br>$$V_i(t) = x_{r1}(t) + F*(x_{r2}(t) - x_{r3}(t)) + F*(x_{r4}(t) - x_{r5}(t))$$<br>DE/best/1<br>$$V_i(t) = x_{best}(t) + F*(x_{r2}(t) - x_{r3}(t))$$<br>DE/best/2<br>$$V_i(t) = x_{best}(t) + F*(x_{r2}(t) - x_{r3}(t) + F*(x_{r4}(t) - x_{r5}(t)$$<br>DE/current-to-best/1<br>$$V_i(t) = x_{i}(t) + F*(x_{best}(t) - x_{i}(t) + F*(x_{r1}(t) - x_{r2}(t)$$  </li>
+<li>针对第$i$个基准向量$x_i(t)$的变异操作是：从种群中选择三个向量$x_{r1}(t)$，$x_{r2}(t)$，$x_{r3}(t)$，其中$r1$，$r2$，$r3$是互不相同的整数,F是DE的缩放因子，在[0,1]之间。<br>DE/rand/1<script type="math/tex; mode=display">V\_i(t) = x\_{r1}(t) + F*(x\_{r2}(t) - x\_{r3}(t))</script></li>
+<li>其他变异算子<br>DE/rand/2<script type="math/tex; mode=display">V\_i(t) = x\_{r1}(t) + F\*(x\_{r2}(t) - x\_{r3}(t)) + F\*(x\_{r4}(t) - x\_{r5}(t))</script>DE/best/1  <script type="math/tex; mode=display">V\_i(t) = x\_{best}(t) + F\*(x\_{r2}(t) - x\_{r3}(t))</script>DE/best/2  <script type="math/tex; mode=display">V\_i(t) = x\_{best}(t) + F\*(x\_{r2}(t) - x\_{r3}(t) + F\*(x\_{r4}(t) - x\_{r5}(t)</script>DE/current-to-best/1<script type="math/tex; mode=display">V\_i(t) = x\_{i}(t) + F\*(x\_{best}(t) - x\_{i}(t) + F\*(x\_{r1}(t) - x\_{r2}(t)</script></li>
 </ul>
 </li>
 <li><p>修补算子</p>
 </li>
-<li><p>杂交算子<br>if $ rand_{i}[0,1]&lt;Cr$ or $j=j_{rand}$<br>$$u_{i,j}(t) = v_{i,j}(t) $$<br>otherwise<br>$$u_{i,j}(t) = x_{i,j}(t) $$</p>
-</li>
-<li><p>选择算子<br>DE的选择操作是一种基于贪婪的选择机制，哪个好，选择哪个<br>if $f(X_{i}(t))$&lt;$f(u_{i}(t))$<br>$$X_{i}(t+1)=X_{i}(t)$$<br>if $f(X_{i}(t))$&gt;$f(u_{i}(t))$<br>$$X_{i}(t+1)=u_{i}(t)$$</p>
-</li>
+<li><p>杂交算子<br>if $ rand_{i}[0,1]&lt;Cr$ or $j=j_{rand}$  </p>
+<script type="math/tex; mode=display">u\_{i,j}(t) = v\_{i,j}(t)</script><p>otherwise  </p>
+<script type="math/tex; mode=display">u\_{i,j}(t) = x\_{i,j}(t)</script></li>
+<li><p>选择算子<br>DE的选择操作是一种基于贪婪的选择机制，哪个好，选择哪个<br>if $f(X_{i}(t))$&lt;$f(u_{i}(t))$</p>
+<script type="math/tex; mode=display">X\_{i}(t+1)=X\_{i}(t)</script><p>if $f(X_{i}(t))$&gt;$f(u_{i}(t))$</p>
+<script type="math/tex; mode=display">X\_{i}(t+1)=u\_{i}(t)</script></li>
 <li><p>Matlab代码</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">clear all</div><div class="line">clc</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/06/中文分词/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wwbin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wwbin的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/06/中文分词/" itemprop="url">中文分词</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-06T19:29:21+08:00">
-                2017-11-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="来自数学之美"><a href="#来自数学之美" class="headerlink" title="来自数学之美"></a>来自数学之美</h4><p>词典（或者直接列举所有的可能的切分）+统计模型<br>按照语料，计算每种可能的概率，选择最大的一个作为分词结果。</p>
-<p>当然穷举所有可能，计算量很大，因此可以使用动态规划方法（DP），使用维特比算法（Viterbi）快速找到最佳分词</p>
-<h4 id="深度学习的方法"><a href="#深度学习的方法" class="headerlink" title="深度学习的方法"></a>深度学习的方法</h4><p>使用双向的Lstm（Bi-Lstm，可以多层）提取上下文的信息，然后做一个标注，比如最长用的BIO标注，每个词初始化为一个随机的向量，作为Bi-Lstm的输入。</p>
-<p>或者使用Bi-Lstm-CRF。</p>
 
           
         
@@ -1809,7 +1825,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
