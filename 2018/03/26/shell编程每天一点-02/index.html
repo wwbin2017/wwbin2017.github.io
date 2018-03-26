@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="wwbin的博客">
 <meta property="og:description" content="常用的$   符号 意义     $0 当前脚本的文件名     $n 传递给脚本或函数的参数。n 是一个数字，表示第几个参数。例如，第一个参数是$1，第二个参数是$2。     $# 传递给脚本或函数的参数个数。     $* 传递给脚本或函数的所有参数。     $@ 传递给脚本或函数的所有参数。被双引号(“ “)包含时，与 $* 稍有不同，下面将会讲到。     $? 上个命令的退出状态，或">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-26T15:09:34.390Z">
+<meta property="og:updated_time" content="2018-03-26T15:16:20.571Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shell编程每天一点 02">
 <meta name="twitter:description" content="常用的$   符号 意义     $0 当前脚本的文件名     $n 传递给脚本或函数的参数。n 是一个数字，表示第几个参数。例如，第一个参数是$1，第二个参数是$2。     $# 传递给脚本或函数的参数个数。     $* 传递给脚本或函数的所有参数。     $@ 传递给脚本或函数的所有参数。被双引号(“ “)包含时，与 $* 稍有不同，下面将会讲到。     $? 上个命令的退出状态，或">
@@ -501,6 +501,120 @@
 </tbody>
 </table>
 <p>使用[[]]</p>
+<h5 id="字符串运算符"><a href="#字符串运算符" class="headerlink" title="字符串运算符"></a>字符串运算符</h5><p>下表列出了常用的字符串运算符，假定变量 a 为 “abc”，变量 b 为 “efg”：</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=</td>
+<td style="text-align:center">检测两个字符串是否相等，相等返回 true。</td>
+<td style="text-align:center">[ $a = $b ] 返回 false。</td>
+</tr>
+<tr>
+<td>!=</td>
+<td style="text-align:center">检测两个字符串是否相等，不相等返回 true。</td>
+<td style="text-align:center">[ $a != $b ] 返回 true。</td>
+</tr>
+<tr>
+<td>-z</td>
+<td style="text-align:center">检测字符串长度是否为0，为0返回 true。</td>
+<td style="text-align:center">[ -z $a ] 返回 false。</td>
+</tr>
+<tr>
+<td>-n</td>
+<td style="text-align:center">检测字符串长度是否为0，不为0返回 true。</td>
+<td style="text-align:center">[ -n $a ] 返回 true。</td>
+</tr>
+<tr>
+<td>str</td>
+<td style="text-align:center">检测字符串是否为空，不为空返回 true。</td>
+<td style="text-align:center">[ $a ] 返回 true。</td>
+</tr>
+</tbody>
+</table>
+<h5 id="文件测试运算符"><a href="#文件测试运算符" class="headerlink" title="文件测试运算符"></a>文件测试运算符</h5><p>文件测试运算符用于检测 Unix 文件的各种属性。<br>属性检测描述如下：</p>
+<table>
+<thead>
+<tr>
+<th>操作符</th>
+<th style="text-align:center">说明</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-b</td>
+<td style="text-align:center">file    检测文件是否是块设备文件，如果是，则返回 true。</td>
+<td>[ -b $file ] 返回 false。</td>
+</tr>
+<tr>
+<td>-c</td>
+<td style="text-align:center">file    检测文件是否是字符设备文件，如果是，则返回 true。</td>
+<td>[ -c $file ] 返回 false。</td>
+</tr>
+<tr>
+<td>-d</td>
+<td style="text-align:center">file    检测文件是否是目录，如果是，则返回 true。</td>
+<td>[ -d $file ] 返回 false。</td>
+</tr>
+<tr>
+<td>-f</td>
+<td style="text-align:center">file    检测文件是否是普通文件（既不是目录，也不是设备文件），如果是，则返回 true。</td>
+<td>[ -f $file ] 返回 true。</td>
+</tr>
+<tr>
+<td>-g</td>
+<td style="text-align:center">file    检测文件是否设置了 SGID 位，如果是，则返回 true。</td>
+<td>[ -g $file ] 返回 false。</td>
+</tr>
+<tr>
+<td>-k</td>
+<td style="text-align:center">file    检测文件是否设置了粘着位(Sticky Bit)，如果是，则返回 true。</td>
+<td>[ -k $file ] 返回 false。</td>
+</tr>
+<tr>
+<td>-p</td>
+<td style="text-align:center">file    检测文件是否是有名管道，如果是，则返回 true。</td>
+<td>[ -p $file ] 返回 false。</td>
+</tr>
+<tr>
+<td>-u</td>
+<td style="text-align:center">file    检测文件是否设置了 SUID 位，如果是，则返回 true。</td>
+<td>[ -u $file ] 返回 false。</td>
+</tr>
+<tr>
+<td>-r</td>
+<td style="text-align:center">file    检测文件是否可读，如果是，则返回 true。</td>
+<td>[ -r $file ] 返回 true。</td>
+</tr>
+<tr>
+<td>-w</td>
+<td style="text-align:center">file    检测文件是否可写，如果是，则返回 true。</td>
+<td>[ -w $file ] 返回 true。</td>
+</tr>
+<tr>
+<td>-x</td>
+<td style="text-align:center">file    检测文件是否可执行，如果是，则返回 true。</td>
+<td>[ -x $file ] 返回 true。</td>
+</tr>
+<tr>
+<td>-s</td>
+<td style="text-align:center">file    检测文件是否为空（文件大小是否大于0），不为空返回 true。</td>
+<td>[ -s $file ] 返回 true。</td>
+</tr>
+<tr>
+<td>-e</td>
+<td style="text-align:center">file    检测文件（包括目录）是否存在，如果是，则返回 true。</td>
+<td>[ -e $file ] 返回 true。</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -668,7 +782,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#常用的"><span class="nav-number">1.</span> <span class="nav-text">常用的$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#shell-表达式"><span class="nav-number">2.</span> <span class="nav-text">shell 表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#算术运算符"><span class="nav-number">2.1.</span> <span class="nav-text">算术运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关系运算符"><span class="nav-number">2.2.</span> <span class="nav-text">关系运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#布尔运算符"><span class="nav-number">2.3.</span> <span class="nav-text">布尔运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#逻辑运算符"><span class="nav-number">2.4.</span> <span class="nav-text">逻辑运算符</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#常用的"><span class="nav-number">1.</span> <span class="nav-text">常用的$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#shell-表达式"><span class="nav-number">2.</span> <span class="nav-text">shell 表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#算术运算符"><span class="nav-number">2.1.</span> <span class="nav-text">算术运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关系运算符"><span class="nav-number">2.2.</span> <span class="nav-text">关系运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#布尔运算符"><span class="nav-number">2.3.</span> <span class="nav-text">布尔运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#逻辑运算符"><span class="nav-number">2.4.</span> <span class="nav-text">逻辑运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串运算符"><span class="nav-number">2.5.</span> <span class="nav-text">字符串运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#文件测试运算符"><span class="nav-number">2.6.</span> <span class="nav-text">文件测试运算符</span></a></li></ol></li></ol></div>
             
 
           </div>
