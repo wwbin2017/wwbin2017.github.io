@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="wwbin的博客">
 <meta property="og:description" content="查看标签12git taggit tag -l &apos;v1.4.2.*&apos; # 查看特定的标签 新建标签1git tag -a v1.4 -m &apos;my version 1.0&apos; 查看标签具体信息 1git show 版本 分享标签 默认情况下，git push 并不会把标签传送到远端服务器上，只有通过显式命令才能分享标签到远端仓库。其命令格式如同推送分支，运行 git push origin [tagn">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-27T14:17:55.932Z">
+<meta property="og:updated_time" content="2018-03-27T14:32:31.345Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git使用基础 03 之标签">
 <meta name="twitter:description" content="查看标签12git taggit tag -l &apos;v1.4.2.*&apos; # 查看特定的标签 新建标签1git tag -a v1.4 -m &apos;my version 1.0&apos; 查看标签具体信息 1git show 版本 分享标签 默认情况下，git push 并不会把标签传送到远端服务器上，只有通过显式命令才能分享标签到远端仓库。其命令格式如同推送分支，运行 git push origin [tagn">
@@ -315,6 +315,7 @@
 <h4 id="查看标签具体信息"><a href="#查看标签具体信息" class="headerlink" title="查看标签具体信息"></a>查看标签具体信息</h4> <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git show 版本</div></pre></td></tr></table></figure>
 <h4 id="分享标签"><a href="#分享标签" class="headerlink" title="分享标签"></a>分享标签</h4><p> 默认情况下，git push 并不会把标签传送到远端服务器上，只有通过显式命令才能分享标签到远端仓库。其命令格式如同推送分支，运行 git push origin [tagname] 即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin v1.5</div></pre></td></tr></table></figure></p>
 <p> 如果要一次推送所有本地新增的标签上去，可以使用 –tags 选项：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin --tags</div></pre></td></tr></table></figure></p>
+<h4 id="删除标签"><a href="#删除标签" class="headerlink" title="删除标签"></a>删除标签</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git tag -d v1.0</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -482,7 +483,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#查看标签"><span class="nav-number">1.</span> <span class="nav-text">查看标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新建标签"><span class="nav-number">2.</span> <span class="nav-text">新建标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看标签具体信息"><span class="nav-number">3.</span> <span class="nav-text">查看标签具体信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分享标签"><span class="nav-number">4.</span> <span class="nav-text">分享标签</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#查看标签"><span class="nav-number">1.</span> <span class="nav-text">查看标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新建标签"><span class="nav-number">2.</span> <span class="nav-text">新建标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看标签具体信息"><span class="nav-number">3.</span> <span class="nav-text">查看标签具体信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分享标签"><span class="nav-number">4.</span> <span class="nav-text">分享标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除标签"><span class="nav-number">5.</span> <span class="nav-text">删除标签</span></a></li></ol></div>
             
 
           </div>
