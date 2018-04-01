@@ -388,7 +388,7 @@
 </tbody>
 </table>
 <p>可以看出，如果词A和类别B独立，则这两个表应该很相近，因此我们计算其卡方值有：<br>$$\chi^2=\frac{(50-31)^2}{31} + \frac{(5-24)^2}{24} + \frac{(10-29)^2}{29} + \frac{(40-21)^2}{21}$$</p>
-<p>因此我们可以就算每个词和每个类别的卡方值，选择其中值比较大的作为其特征，也就是显著与原假设不符的，也即不独立，是相关的。设置阈值。</p>
+<p><strong>因此我们可以就算每个词和每个类别的卡方值，选择其中值比较大的作为其特征，也就是显著与原假设不符的，也即不独立，是相关的。设置阈值。</strong></p>
 <p>对于四表格$\chi^2$的值可以使用如下公式计算：</p>
 <table>
 <thead>
@@ -414,14 +414,14 @@
 </tr>
 <tr>
 <td>统计</td>
-<td style="text-align:center">A+c</td>
+<td style="text-align:center">A+C</td>
 <td>B+D</td>
 <td>A+B+C+D</td>
 </tr>
 </tbody>
 </table>
 <p>$$\chi^2=\frac{N*(AD-BC)^2}{(A+B)(C+D)(A+C)(B+D)}$$</p>
-<p>推导如下：<br>$$\chi^2=\frac{(A-p(A+B))^2}{p(A+B)} + $$<br>$$ \frac{(B-(1-p)(A+B))^2}{(1-p)(A+B)} + $$<br>$$ \frac{(C-p(C+D))^2}{p(C+D)} + $$<br>$$\frac{(D-(1-p)(C+D))^2}{(1-p)(C+D)} $$ $$=\frac{N*(AD-BC)^2}{(A+B)(C+D)(A+C)(B+D)}$$</p>
+<p>推导如下：<br>$$\chi^2=\frac{(A-p(A+B))^2}{p(A+B)} + $$<br>$$ \frac{(B-(1-p)(A+B))^2}{(1-p)(A+B)} + $$<br>$$ \frac{(C-p(C+D))^2}{p(C+D)} + $$<br>$$\frac{(D-(1-p)(C+D))^2}{(1-p)(C+D)}$$ $$=\frac{N*(AD-BC)^2}{(A+B)(C+D)(A+C)(B+D)}$$</p>
 
           
         
