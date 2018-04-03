@@ -242,6 +242,177 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/03/Linux基础-01-awk用法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wwbin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wwbin的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/03/Linux基础-01-awk用法/" itemprop="url">Linux基础 01 awk用法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-03T21:57:57+08:00">
+                2018-04-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="awk基本用法"><a href="#awk基本用法" class="headerlink" title="awk基本用法"></a>awk基本用法</h4><table>
+<thead>
+<tr>
+<th>变量名</th>
+<th style="text-align:center">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ARGC</td>
+<td style="text-align:center">命令行变元个数</td>
+</tr>
+<tr>
+<td>ARGV</td>
+<td style="text-align:center">命令行变元数组</td>
+</tr>
+<tr>
+<td>FILENAME</td>
+<td style="text-align:center">当前输入文件名,  <em>得注意别重名了</em></td>
+</tr>
+<tr>
+<td>FNR</td>
+<td style="text-align:center">当前文件中的记录号</td>
+</tr>
+<tr>
+<td>FS</td>
+<td style="text-align:center">输入域分隔符，默认为一个空格</td>
+</tr>
+<tr>
+<td>RS</td>
+<td style="text-align:center">输入记录分隔符</td>
+</tr>
+<tr>
+<td>NF</td>
+<td style="text-align:center">当前记录里域个数</td>
+</tr>
+<tr>
+<td>NR</td>
+<td style="text-align:center">到目前为止记录数</td>
+</tr>
+<tr>
+<td>OFS</td>
+<td style="text-align:center">输出域分隔符</td>
+</tr>
+<tr>
+<td>ORS</td>
+<td style="text-align:center">输出记录分隔符</td>
+</tr>
+</tbody>
+</table>
+<p>在awk中调用系统变量必须用单引号，如果是双引号，则表示字符串<br>str=abcd<br>awk ‘{print ‘$str’}’   结果为abcd<br>awk ‘{print  “$str”}’   结果为$Flag</p>
+<p>awk获取外部变量，直接引用不行<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">test='awk code'</div><div class="line">echo | awk '&#123;print test&#125;' test="$test"</div><div class="line">echo | awk -v test="$test" '&#123;print test&#125;'</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/01/卡方检验/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2271,126 +2442,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/25/HIVE基础-01/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wwbin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wwbin的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/25/HIVE基础-01/" itemprop="url">HIVE基础 01</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-25T23:32:10+08:00">
-                2018-03-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Hive 架构图<br><img src="/2018/03/25/HIVE基础-01/Hive架构.png" alt="HIVE架构图"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2441,7 +2492,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

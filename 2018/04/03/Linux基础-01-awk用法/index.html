@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="HIVE基础," />
+  <meta name="keywords" content="Linux," />
 
 
 
@@ -79,20 +79,18 @@
 
 
 
-<meta name="description" content="Hive 架构图">
-<meta name="keywords" content="HIVE基础">
+<meta name="description" content="awk基本用法   变量名 意义     ARGC 命令行变元个数   ARGV 命令行变元数组   FILENAME 当前输入文件名,  得注意别重名了   FNR 当前文件中的记录号   FS 输入域分隔符，默认为一个空格   RS 输入记录分隔符   NF 当前记录里域个数   NR 到目前为止记录数   OFS 输出域分隔符   ORS 输出记录分隔符    在awk中调用系统变量必须用单">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HIVE基础 01">
-<meta property="og:url" content="http://yoursite.com/2018/03/25/HIVE基础-01/index.html">
+<meta property="og:title" content="Linux基础 01 awk用法">
+<meta property="og:url" content="http://yoursite.com/2018/04/03/Linux基础-01-awk用法/index.html">
 <meta property="og:site_name" content="wwbin的博客">
-<meta property="og:description" content="Hive 架构图">
+<meta property="og:description" content="awk基本用法   变量名 意义     ARGC 命令行变元个数   ARGV 命令行变元数组   FILENAME 当前输入文件名,  得注意别重名了   FNR 当前文件中的记录号   FS 输入域分隔符，默认为一个空格   RS 输入记录分隔符   NF 当前记录里域个数   NR 到目前为止记录数   OFS 输出域分隔符   ORS 输出记录分隔符    在awk中调用系统变量必须用单">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/03/25/HIVE基础-01/Hive架构.png">
-<meta property="og:updated_time" content="2018-03-26T15:20:06.851Z">
+<meta property="og:updated_time" content="2018-04-03T14:28:17.162Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HIVE基础 01">
-<meta name="twitter:description" content="Hive 架构图">
-<meta name="twitter:image" content="http://yoursite.com/2018/03/25/HIVE基础-01/Hive架构.png">
+<meta name="twitter:title" content="Linux基础 01 awk用法">
+<meta name="twitter:description" content="awk基本用法   变量名 意义     ARGC 命令行变元个数   ARGV 命令行变元数组   FILENAME 当前输入文件名,  得注意别重名了   FNR 当前文件中的记录号   FS 输入域分隔符，默认为一个空格   RS 输入记录分隔符   NF 当前记录里域个数   NR 到目前为止记录数   OFS 输出域分隔符   ORS 输出记录分隔符    在awk中调用系统变量必须用单">
 
 
 
@@ -122,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/25/HIVE基础-01/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/03/Linux基础-01-awk用法/"/>
 
 
 
 
 
-  <title>HIVE基础 01 | wwbin的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Linux基础 01 awk用法 | wwbin的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -245,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/25/HIVE基础-01/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/03/Linux基础-01-awk用法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wwbin">
@@ -262,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HIVE基础 01</h1>
+          <h1 class="post-title" itemprop="name headline">Linux基础 01 awk用法</h1>
         
 
         <div class="post-meta">
@@ -274,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-25T23:32:10+08:00">
-                2018-03-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-03T21:57:57+08:00">
+                2018-04-03
               </time>
             
 
@@ -312,7 +310,58 @@
       
 
       
-        <p>Hive 架构图<br><img src="/2018/03/25/HIVE基础-01/Hive架构.png" alt="HIVE架构图"></p>
+        <h4 id="awk基本用法"><a href="#awk基本用法" class="headerlink" title="awk基本用法"></a>awk基本用法</h4><table>
+<thead>
+<tr>
+<th>变量名</th>
+<th style="text-align:center">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ARGC</td>
+<td style="text-align:center">命令行变元个数</td>
+</tr>
+<tr>
+<td>ARGV</td>
+<td style="text-align:center">命令行变元数组</td>
+</tr>
+<tr>
+<td>FILENAME</td>
+<td style="text-align:center">当前输入文件名,  <em>得注意别重名了</em></td>
+</tr>
+<tr>
+<td>FNR</td>
+<td style="text-align:center">当前文件中的记录号</td>
+</tr>
+<tr>
+<td>FS</td>
+<td style="text-align:center">输入域分隔符，默认为一个空格</td>
+</tr>
+<tr>
+<td>RS</td>
+<td style="text-align:center">输入记录分隔符</td>
+</tr>
+<tr>
+<td>NF</td>
+<td style="text-align:center">当前记录里域个数</td>
+</tr>
+<tr>
+<td>NR</td>
+<td style="text-align:center">到目前为止记录数</td>
+</tr>
+<tr>
+<td>OFS</td>
+<td style="text-align:center">输出域分隔符</td>
+</tr>
+<tr>
+<td>ORS</td>
+<td style="text-align:center">输出记录分隔符</td>
+</tr>
+</tbody>
+</table>
+<p>在awk中调用系统变量必须用单引号，如果是双引号，则表示字符串<br>str=abcd<br>awk ‘{print ‘$str’}’   结果为abcd<br>awk ‘{print  “$str”}’   结果为$Flag</p>
+<p>awk获取外部变量，直接引用不行<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">test='awk code'</div><div class="line">echo | awk '&#123;print test&#125;' test="$test"</div><div class="line">echo | awk -v test="$test" '&#123;print test&#125;'</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -330,7 +379,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/HIVE基础/" rel="tag"># HIVE基础</a>
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
           
         </div>
       
@@ -343,8 +392,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/24/HIVE基础/" rel="next" title="HIVE基础">
-                <i class="fa fa-chevron-left"></i> HIVE基础
+              <a href="/2018/04/01/卡方检验/" rel="next" title="卡方检验">
+                <i class="fa fa-chevron-left"></i> 卡方检验
               </a>
             
           </div>
@@ -352,10 +401,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/26/shell编程每天一点-02/" rel="prev" title="shell编程每天一点 02">
-                shell编程每天一点 02 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -407,8 +452,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -461,6 +515,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#awk基本用法"><span class="nav-number">1.</span> <span class="nav-text">awk基本用法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
