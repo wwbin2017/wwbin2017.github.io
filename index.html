@@ -242,6 +242,125 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/14/机器学习-主题模型-pLSA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wwbin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wwbin的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/14/机器学习-主题模型-pLSA/" itemprop="url">机器学习 主题模型 pLSA</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-14T12:57:39+08:00">
+                2018-04-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="主题模型原理"><a href="#主题模型原理" class="headerlink" title="主题模型原理"></a>主题模型原理</h4>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/03/Linux基础-01-awk用法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2075,435 +2194,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/26/shell编程每天一点-02/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wwbin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wwbin的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/26/shell编程每天一点-02/" itemprop="url">shell编程每天一点 02</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-26T21:58:04+08:00">
-                2018-03-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="常用的"><a href="#常用的" class="headerlink" title="常用的$"></a>常用的$</h4><table>
-<thead>
-<tr>
-<th>符号</th>
-<th style="text-align:center">意义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$0</td>
-<td style="text-align:center">当前脚本的文件名  </td>
-</tr>
-<tr>
-<td>$n</td>
-<td style="text-align:center">传递给脚本或函数的参数。n 是一个数字，表示第几个参数。例如，第一个参数是$1，第二个参数是$2。  </td>
-</tr>
-<tr>
-<td>$#</td>
-<td style="text-align:center">传递给脚本或函数的参数个数。  </td>
-</tr>
-<tr>
-<td>$*</td>
-<td style="text-align:center">传递给脚本或函数的所有参数。  </td>
-</tr>
-<tr>
-<td>$@</td>
-<td style="text-align:center">传递给脚本或函数的所有参数。被双引号(“ “)包含时，与 $* 稍有不同，下面将会讲到。  </td>
-</tr>
-<tr>
-<td>$?</td>
-<td style="text-align:center">上个命令的退出状态，或函数的返回值。一般情况下，大部分命令执行成功会返回 0，失败返回 1。  </td>
-</tr>
-<tr>
-<td>$$</td>
-<td style="text-align:center">当前Shell进程ID。对于 Shell 脚本，就是这些脚本所在的进程ID。</td>
-</tr>
-</tbody>
-</table>
-<p>$<em> 和 $@ 的区别<br>$</em> 和 $@ 都表示传递给函数或脚本的所有参数，不被双引号(“ “)包含时，都以”$1” “$2” … “$n” 的形式输出所有参数。  但是当它们被双引号(“ “)包含时，”$*“ 会将所有的参数作为一个整体，以”$1 $2 … $n”的形式输出所有参数；”$@” 会将各个参数分开，以”$1” “$2” … “$n” 的形式输出所有参数。</p>
-<p>$()与``都是用于命令替换的<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></div><div class="line">a=$(date +%Y%m%d)</div><div class="line">b=`date +%Y%m%d`</div><div class="line">echo $a</div><div class="line">echo $b</div></pre></td></tr></table></figure></p>
-<p>${} 待补充</p>
-<p>$(()) 整数运算<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></div><div class="line">a=3;b=4;c=6;</div><div class="line">d=$(($a+$b*$c))</div><div class="line">echo d</div></pre></td></tr></table></figure></p>
-<p>$(( ))可以将其他进制转成十进制数显示出来。用法如下：<br>echo $((N#xx))<br>其中，N为进制，xx为该进制下某个数值，命令执行后可以得到该进制数转成十进制后的值。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></div><div class="line">echo $((2#110))</div></pre></td></tr></table></figure></p>
-<p>expr 数值运算<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></div><div class="line">a=10;b=20;</div><div class="line">val=`expr $a + $b`</div><div class="line">echo "a + b : $val"</div><div class="line">val=`expr $a \* $b`</div><div class="line">echo "a * b : $val"</div></pre></td></tr></table></figure></p>
-<p>表达式和运算符之间要有空格，例如 2+2 是不对的，必须写成 2 + 2，这与我们熟悉的大多数编程语言不一样。<br>完整的表达式要被 ` ` 包含，注意这个字符不是常用的单引号.</p>
-<p>[] <em>左右两边有空格</em><br>条件表达式要放在方括号之间，并且要有空格，例如: [$a==$b] 是错误的，必须写成 [ $a == $b ]。</p>
-<h4 id="shell-表达式"><a href="#shell-表达式" class="headerlink" title="shell 表达式"></a>shell 表达式</h4><h5 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h5><p>下表列出了常用的算术运算符，假定变量 a 为 10，变量 b 为 20：</p>
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th style="text-align:center">说明</th>
-<th style="text-align:center">举例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>+</td>
-<td style="text-align:center">加法</td>
-<td style="text-align:center"><code>expr $a + $b</code> 结果为 30。</td>
-</tr>
-<tr>
-<td>-</td>
-<td style="text-align:center">减法</td>
-<td style="text-align:center"><code>expr $a - $b</code> 结果为 -10。</td>
-</tr>
-<tr>
-<td>*</td>
-<td style="text-align:center">乘法</td>
-<td style="text-align:center"><code>expr $a \* $b</code> 结果为  200。</td>
-</tr>
-<tr>
-<td>/</td>
-<td style="text-align:center">除法</td>
-<td style="text-align:center"><code>expr $b / $a</code> 结果为 2。</td>
-</tr>
-<tr>
-<td>%</td>
-<td style="text-align:center">取余</td>
-<td style="text-align:center"><code>expr $b % $a</code> 结果为 0。</td>
-</tr>
-<tr>
-<td>=</td>
-<td style="text-align:center">赋值</td>
-<td style="text-align:center">a=$b 将把变量 b 的值赋给 a。</td>
-</tr>
-<tr>
-<td>==</td>
-<td style="text-align:center">相等</td>
-<td style="text-align:center">用于比较两个数字，相同则返回 true。    [ $a == $b ] 返回 false。</td>
-</tr>
-<tr>
-<td>!=</td>
-<td style="text-align:center">不相等</td>
-<td style="text-align:center">用于比较两个数字，不相同则返回 true。    [ $a != $b ] 返回 true。</td>
-</tr>
-</tbody>
-</table>
-<p>注意：条件表达式要放在方括号之间，并且要有空格，例如: [$a==$b] 是错误的，必须写成 [ $a == $b ]。</p>
-<h5 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h5><p>关系运算符只支持数字，不支持字符串，除非字符串的值是数字。<br>下表列出了常用的关系运算符，假定变量 a 为 10，变量 b 为 20：</p>
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th style="text-align:center">说明</th>
-<th style="text-align:center">举例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-eq</td>
-<td style="text-align:center">检测两个数是否相等，相等返回 true。</td>
-<td style="text-align:center">[ $a -eq $b ] 返回 false。</td>
-</tr>
-<tr>
-<td>-ne</td>
-<td style="text-align:center">检测两个数是否相等，不相等返回 true。</td>
-<td style="text-align:center">[ $a -ne $b ] 返回 true。</td>
-</tr>
-<tr>
-<td>-gt</td>
-<td style="text-align:center">检测左边的数是否大于右边的，如果是，则返回 true。</td>
-<td style="text-align:center">[ $a -gt $b ] 返回 false。</td>
-</tr>
-<tr>
-<td>-lt</td>
-<td style="text-align:center">检测左边的数是否小于右边的，如果是，则返回 true。</td>
-<td style="text-align:center">[ $a -lt $b ] 返回 true。</td>
-</tr>
-<tr>
-<td>-ge</td>
-<td style="text-align:center">检测左边的数是否大于等于右边的，如果是，则返回 true。</td>
-<td style="text-align:center">[ $a -ge $b ] 返回 false。</td>
-</tr>
-<tr>
-<td>-le</td>
-<td style="text-align:center">检测左边的数是否小于等于右边的，如果是，则返回 true。</td>
-<td style="text-align:center">[ $a -le $b ] 返回 true。</td>
-</tr>
-</tbody>
-</table>
-<h5 id="布尔运算符"><a href="#布尔运算符" class="headerlink" title="布尔运算符"></a>布尔运算符</h5><p>下表列出了常用的布尔运算符，假定变量 a 为 10，变量 b 为 20：</p>
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th style="text-align:center">说明</th>
-<th style="text-align:center">举例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>!</td>
-<td style="text-align:center">非运算，表达式为 true 则返回 false，否则返回 true。</td>
-<td style="text-align:center">[ ! false ] 返回 true。</td>
-</tr>
-<tr>
-<td>-o</td>
-<td style="text-align:center">或运算，有一个表达式为 true 则返回 true。</td>
-<td style="text-align:center">[ $a -lt 20 -o $b -gt 100 ] 返回 true。</td>
-</tr>
-<tr>
-<td>-a</td>
-<td style="text-align:center">与运算，两个表达式都为 true 才返回 true。</td>
-<td style="text-align:center">[ $a -lt 20 -a $b -gt 100 ] 返回 false。</td>
-</tr>
-</tbody>
-</table>
-<h5 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h5><p>以下介绍 Shell 的逻辑运算符，假定变量 a 为 10，变量 b 为 20:</p>
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th style="text-align:center">说明</th>
-<th style="text-align:center">举例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>&amp;&amp;</td>
-<td style="text-align:center">逻辑的 AND</td>
-<td style="text-align:center">[[ $a -lt 100 &amp;&amp; $b -gt 100 ]] 返回 false</td>
-</tr>
-<tr>
-<td> &#124;&#124;</td>
-<td style="text-align:center">逻辑的 OR</td>
-<td style="text-align:center">[[ $a -lt 100 &#124;&#124; $b -gt 100 ]] 返回 true</td>
-</tr>
-</tbody>
-</table>
-<p>使用[[]]</p>
-<h5 id="字符串运算符"><a href="#字符串运算符" class="headerlink" title="字符串运算符"></a>字符串运算符</h5><p>下表列出了常用的字符串运算符，假定变量 a 为 “abc”，变量 b 为 “efg”：</p>
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th style="text-align:center">说明</th>
-<th style="text-align:center">举例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>=</td>
-<td style="text-align:center">检测两个字符串是否相等，相等返回 true。</td>
-<td style="text-align:center">[ $a = $b ] 返回 false。</td>
-</tr>
-<tr>
-<td>!=</td>
-<td style="text-align:center">检测两个字符串是否相等，不相等返回 true。</td>
-<td style="text-align:center">[ $a != $b ] 返回 true。</td>
-</tr>
-<tr>
-<td>-z</td>
-<td style="text-align:center">检测字符串长度是否为0，为0返回 true。</td>
-<td style="text-align:center">[ -z $a ] 返回 false。</td>
-</tr>
-<tr>
-<td>-n</td>
-<td style="text-align:center">检测字符串长度是否为0，不为0返回 true。</td>
-<td style="text-align:center">[ -n $a ] 返回 true。</td>
-</tr>
-<tr>
-<td>str</td>
-<td style="text-align:center">检测字符串是否为空，不为空返回 true。</td>
-<td style="text-align:center">[ $a ] 返回 true。</td>
-</tr>
-</tbody>
-</table>
-<h5 id="文件测试运算符"><a href="#文件测试运算符" class="headerlink" title="文件测试运算符"></a>文件测试运算符</h5><p>文件测试运算符用于检测 Unix 文件的各种属性。<br>属性检测描述如下：</p>
-<table>
-<thead>
-<tr>
-<th>操作符</th>
-<th style="text-align:center">说明</th>
-<th>举例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-b</td>
-<td style="text-align:center">file    检测文件是否是块设备文件，如果是，则返回 true。</td>
-<td>[ -b $file ] 返回 false。</td>
-</tr>
-<tr>
-<td>-c</td>
-<td style="text-align:center">file    检测文件是否是字符设备文件，如果是，则返回 true。</td>
-<td>[ -c $file ] 返回 false。</td>
-</tr>
-<tr>
-<td>-d</td>
-<td style="text-align:center">file    检测文件是否是目录，如果是，则返回 true。</td>
-<td>[ -d $file ] 返回 false。</td>
-</tr>
-<tr>
-<td>-f</td>
-<td style="text-align:center">file    检测文件是否是普通文件（既不是目录，也不是设备文件），如果是，则返回 true。</td>
-<td>[ -f $file ] 返回 true。</td>
-</tr>
-<tr>
-<td>-g</td>
-<td style="text-align:center">file    检测文件是否设置了 SGID 位，如果是，则返回 true。</td>
-<td>[ -g $file ] 返回 false。</td>
-</tr>
-<tr>
-<td>-k</td>
-<td style="text-align:center">file    检测文件是否设置了粘着位(Sticky Bit)，如果是，则返回 true。</td>
-<td>[ -k $file ] 返回 false。</td>
-</tr>
-<tr>
-<td>-p</td>
-<td style="text-align:center">file    检测文件是否是有名管道，如果是，则返回 true。</td>
-<td>[ -p $file ] 返回 false。</td>
-</tr>
-<tr>
-<td>-u</td>
-<td style="text-align:center">file    检测文件是否设置了 SUID 位，如果是，则返回 true。</td>
-<td>[ -u $file ] 返回 false。</td>
-</tr>
-<tr>
-<td>-r</td>
-<td style="text-align:center">file    检测文件是否可读，如果是，则返回 true。</td>
-<td>[ -r $file ] 返回 true。</td>
-</tr>
-<tr>
-<td>-w</td>
-<td style="text-align:center">file    检测文件是否可写，如果是，则返回 true。</td>
-<td>[ -w $file ] 返回 true。</td>
-</tr>
-<tr>
-<td>-x</td>
-<td style="text-align:center">file    检测文件是否可执行，如果是，则返回 true。</td>
-<td>[ -x $file ] 返回 true。</td>
-</tr>
-<tr>
-<td>-s</td>
-<td style="text-align:center">file    检测文件是否为空（文件大小是否大于0），不为空返回 true。</td>
-<td>[ -s $file ] 返回 true。</td>
-</tr>
-<tr>
-<td>-e</td>
-<td style="text-align:center">file    检测文件（包括目录）是否存在，如果是，则返回 true。</td>
-<td>[ -e $file ] 返回 true。</td>
-</tr>
-</tbody>
-</table>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2549,7 +2244,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2562,7 +2257,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
