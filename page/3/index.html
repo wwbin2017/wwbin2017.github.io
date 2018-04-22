@@ -242,6 +242,149 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/08/差分进化算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wwbin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wwbin的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/08/差分进化算法/" itemprop="url">差分进化算法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-08T15:21:31+08:00">
+                2017-11-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="差分简介"><a href="#差分简介" class="headerlink" title="差分简介"></a>差分简介</h4><p>差分进化算法（differential evolution，DE）1995年Store和Price提出的一种计算方法。是一种基于种群的全局搜索算法。</p>
+<h4 id="差分算法原理"><a href="#差分算法原理" class="headerlink" title="差分算法原理"></a>差分算法原理</h4><ul>
+<li><p>初始化</p>
+<ul>
+<li>设$D$为个体的维数，$NP$为种群的规模，$t$为进化的代数，$X(t)$为$t$代种群，首先初始化第0代种群：<br>$$X(0) ={x_1(0),…, x_{NP}(0)}$$</li>
+</ul>
+</li>
+<li><p>变异算子</p>
+<ul>
+<li>针对第$i$个基准向量$x_i(t)$的变异操作是：从种群中选择三个向量$x_{r1}(t)$，$x_{r2}(t)$，$x_{r3}(t)$，其中$r1$，$r2$，$r3$是互不相同的整数,F是DE的缩放因子，在[0,1]之间。<br>DE/rand/1<br>$$V_i(t) = x_{r1}(t) + F*(x_{r2}(t) - x_{r3}(t))$$</li>
+<li>其他变异算子<br>DE/rand/2<br>$$V_i(t) = x_{r1}(t) + F*(x_{r2}(t) - x_{r3}(t)) + F*(x_{r4}(t) - x_{r5}(t))$$<br>DE/best/1<br>$$V_i(t) = x_{best}(t) + F*(x_{r2}(t) - x_{r3}(t))$$<br>DE/best/2<br>$$V_i(t) = x_{best}(t) + F*(x_{r2}(t) - x_{r3}(t) + F*(x_{r4}(t) - x_{r5}(t)$$<br>DE/current-to-best/1<br>$$V_i(t) = x_{i}(t) + F*(x_{best}(t) - x_{i}(t) + F*(x_{r1}(t) - x_{r2}(t)$$  </li>
+</ul>
+</li>
+<li><p>修补算子</p>
+</li>
+<li><p>杂交算子<br>if $ rand_{i}[0,1]&lt;Cr$ or $j=j_{rand}$<br>$$u_{i,j}(t) = v_{i,j}(t) $$<br>otherwise<br>$$u_{i,j}(t) = x_{i,j}(t) $$</p>
+</li>
+<li><p>选择算子<br>DE的选择操作是一种基于贪婪的选择机制，哪个好，选择哪个<br>if $f(X_{i}(t))$&lt;$f(u_{i}(t))$<br>$$X_{i}(t+1)=X_{i}(t)$$<br>if $f(X_{i}(t))$&gt;$f(u_{i}(t))$<br>$$X_{i}(t+1)=u_{i}(t)$$</p>
+</li>
+<li><p>Matlab代码</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">clear all</div><div class="line">clc</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/06/中文分词/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1432,337 +1575,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/30/Java基础/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wwbin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wwbin的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/30/Java基础/" itemprop="url">Java基础</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-30T22:01:29+08:00">
-                2017-10-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="java-基础"><a href="#java-基础" class="headerlink" title="java 基础"></a>java 基础</h1><hr>
-<h3 id="java-排序"><a href="#java-排序" class="headerlink" title="java 排序"></a>java 排序</h3><ul>
-<li>用法<ul>
-<li>Arrays.sort(a)</li>
-</ul>
-</li>
-<li>自定义排序<ul>
-<li>Arrays.sort(a, new MyComparator)</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Arrays;</div><div class="line"><span class="keyword">import</span> java.util.Comparator;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyComparator</span> <span class="keyword">implements</span> <span class="title">Comparator</span></span>&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Object arg0, Object arg1)</span></span>&#123;</div><div class="line">              <span class="keyword">return</span> <span class="number">1</span> ,-<span class="number">1</span>, <span class="number">0</span></div><div class="line">        &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-<hr>
-<h3 id="java中初始化执行顺序"><a href="#java中初始化执行顺序" class="headerlink" title="java中初始化执行顺序"></a>java中初始化执行顺序</h3><ul>
-<li>在java语言中，静态块在类的加载是就会被调用，因此可以在main()方法执行之前</li>
-<li><p>在java语言中，当实例化对象时，对象所在类的所有成员变量首先要进行初始化，只有当<br>所有的成员变量完成初始化后，才会调用对象所在类的构造函数创建对象。</p>
-<ul>
-<li>java程序初始化的一般遵循3个原则（优先级递减）：<ul>
-<li>静态对象（变量）优于非静态对象（变量），</li>
-<li>父类优于子类进行初始化</li>
-<li>按照定义顺序进行初始化</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>java中没有任何方法的接口 也叫标识接口，仅仅是充当标识的作用，java<br>中已经存在的标识接口有 Cloneable 和 Serializable ，经常用instanceof判断</p>
-</li>
-</ul>
-<h3 id="java中clone方法的作用"><a href="#java中clone方法的作用" class="headerlink" title="java中clone方法的作用"></a>java中clone方法的作用</h3><ul>
-<li>java处理基本数据类型（例如 int、char、double等）时，都是采用按值传递，除此之外<br>都是引用，对象除了在函数调用时是引用传递，在使用“=”赋值也是引用传递。</li>
-<li>浅层复制和深层复制</li>
-</ul>
-<h3 id="java中的反射机制"><a href="#java中的反射机制" class="headerlink" title="java中的反射机制"></a>java中的反射机制</h3><ul>
-<li>反射机制允许在运行是进行自我检查，也允许对内部的成员进行操作</li>
-<li>反射机制提供的主要功能有：<ul>
-<li>得到一个对象所属的的类</li>
-<li>获取一个类的所有成员变量和方法</li>
-<li>在运行时创建队象</li>
-<li>在运行时调用对象的方法</li>
-</ul>
-</li>
-<li>在反射机制中，class是一个非常重要的类，有3中方法可以获取class类<ul>
-<li>class.forName(“class path”)</li>
-<li>className.class</li>
-<li>实例.getClass()</li>
-</ul>
-</li>
-<li>实现函数指针功能<ul>
-<li>可以利用接口和类来实现该功能</li>
-<li>具体而言，应先定义一个接口，然后在接口中声明要调用的方法，接着实现这个接口，<br>最后把实现的类的一个对象作为参数传递给调用程序，从而实现回调函数的功能。</li>
-</ul>
-</li>
-</ul>
-<h3 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h3><ul>
-<li><p>在java语言中，多态主要有一下两种表现方式：</p>
-<ul>
-<li>方法重载（overload）（编译时多态） 。重载是指类中同名方法，但是参数个数不同或者参数类型不同。，</li>
-<li>方法覆盖（override）（运行时多态） 。</li>
-<li>覆盖的注意一下几点：<ul>
-<li>派生类中覆盖的方法必须与基类的方法有相同的函数名和参数</li>
-<li>返回值必须相同</li>
-<li>所抛出的异常必须和基类抛出的异常一致。</li>
-<li>基类中被覆盖的方法不能是private，否在子类并没有对其进行覆盖</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>抽象类（abstract class）与接口（interface）的异同</p>
-<ul>
-<li>接口中的方法都是抽象的，接口中的成员变量都是 static final</li>
-<li>相同点：<ul>
-<li>都不能实例化</li>
-</ul>
-</li>
-<li>不同点：<ul>
-<li>接口只有定义，抽象类可以有定义和实现。</li>
-<li>接口需要实现（implements），抽像类只能被 extends</li>
-<li>接口强调 “has-a”，abstract class ”is-a”</li>
-<li>接口中定义的成员变量默认是 public static final，必须赋初值，</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="获取父类的类名"><a href="#获取父类的类名" class="headerlink" title="获取父类的类名"></a>获取父类的类名</h3><ul>
-<li>getClass().getName()</li>
-<li>getClass().getSuperClass().getName()</li>
-</ul>
-<h3 id="this-和-super"><a href="#this-和-super" class="headerlink" title="this 和 super"></a>this 和 super</h3><ul>
-<li>当子类构造函数需要显示的调用父类的构造函数时，super()必须为构造函数的第一条语句。</li>
-</ul>
-<h3 id="final-finally-finalize"><a href="#final-finally-finalize" class="headerlink" title="final finally finalize"></a>final finally finalize</h3><ul>
-<li>final用于声明属性、方法和类。分别表示属性不可变、方法不可覆盖和类不可被继承。<ul>
-<li>fianl属性，被final修饰的变量不可变。final指的是引用的不可变。</li>
-<li>final参数 表示参数在函数内部不允许修改。</li>
-<li>final类 此类不能被继承</li>
-</ul>
-</li>
-<li>finally 作为异常处理一部分，表示这段语句最终一定被执行。</li>
-<li>finalize 是object类的一个方法。在拉及回收器执行时会调用被回收对象的finalize()方法，<br>可以以覆盖此方法来实现对其他资源的回收，例如关闭文件等，需要注意，一旦垃圾回收器准<br>备好释放对象占用的空间，将首先调用finalize方法，并且在下一次垃圾回收动作才会真正回收占用内存。</li>
-</ul>
-<h3 id="assert-作用"><a href="#assert-作用" class="headerlink" title="assert 作用"></a>assert 作用</h3><ul>
-<li>assert 作为软件调试的方法。</li>
-<li>包括两种表达方式： assert expression1 与 assert expression1：expression2<br>其中expression1表示一个boolean表达式，expression2表示一个基本的类型或者对象。</li>
-</ul>
-<h3 id="volatile-作用"><a href="#volatile-作用" class="headerlink" title="volatile 作用"></a>volatile 作用</h3><ul>
-<li>volatile是一个类型修饰符，被设计用来修饰不同线程访问和修改的变量。</li>
-</ul>
-<h3 id="实现无符号数的右移"><a href="#实现无符号数的右移" class="headerlink" title="实现无符号数的右移"></a>实现无符号数的右移</h3><ul>
-<li>java提供了两种右移运算符，“&gt;&gt;”,”&gt;&gt;&gt;”。”&gt;&gt;” 有符号右移，“&gt;&gt;&gt;”无符号右移。<br>特别注意，在对char、byte、short等类型进行移位前，编译器都会自动将数值转化为int类型。</li>
-</ul>
-<h2 id="字符串与数组"><a href="#字符串与数组" class="headerlink" title="字符串与数组"></a>字符串与数组</h2><h3 id="字符串创建与存储的机制"><a href="#字符串创建与存储的机制" class="headerlink" title="字符串创建与存储的机制"></a>字符串创建与存储的机制</h3><ul>
-<li>字符串的声明和初始化主要有如下两种情况。<ul>
-<li>String s1 = new String(“abc”),String s2 = new String(“abc”),<br>存在两个对象引用s1,s2.两个内容相同的字符串对象”abc”，它们在内存中的地址是不同的，<br>只要使用new总是会生成新的对象。</li>
-<li>对于String s1 = “abc”和String s2 = ”abc”，<strong>在jvm中存在一个字符串池</strong><br>其中保存了很多String对象，并且可以被<strong>共享使用</strong>。因此s1和s2引用的是同一个常量池中的对象。</li>
-<li>new String(“abc”) 创建几个对象。<br>一个或者两个。如果常量池中有abc，则一个。否则创建两个</li>
-</ul>
-</li>
-</ul>
-<h3 id="“-”-equals-hashCode-区别"><a href="#“-”-equals-hashCode-区别" class="headerlink" title="“==” equals hashCode 区别"></a>“==” equals hashCode 区别</h3><ul>
-<li>“==” 运算符用来比较两个变量的值是否相等。也就是说，该运算符用于比较变量对应的<br>的内存中所存储的数值是否相同。要比较两个基本类型的数据或者两个引用变量是否相等，只能使用==运算符<br>。对于引用变量，比较的是是否是同一个对象。</li>
-<li>equals 是 object类提供的方法之一。object中使用的是”==”运算符比较两个对象<br>所以没有覆盖equals的情况下，和“==”是一样的。<br>String类的equals方法比较的是内容是否相等。</li>
-<li>hasCode 方法是从object中继承过来的，也用来鉴定两个对象是否相等。object对象<br>hashCode方法返回对象在内存中地址转换成int值。所以没有重写hashCode的话，任何对象的<br>hashCode都是不等的。</li>
-</ul>
-<h3 id="String-StringBuilder-StringBuffer-StringTokenizer-区别"><a href="#String-StringBuilder-StringBuffer-StringTokenizer-区别" class="headerlink" title="String StringBuilder StringBuffer StringTokenizer 区别"></a>String StringBuilder StringBuffer StringTokenizer 区别</h3><ul>
-<li>String 字符串修改原理如下：当用String 类型来对字符串修改时，其实现的方法是<br>首先创建一个StringBuffer，其次调用StringBuffer的append()方法，最后调用toString方法。</li>
-<li>StringBuilder与StringBuffer类似。但是StringBuilder不是线程安全的。单线程中StrngBuilder效率会高一些。</li>
-<li>StringTokenizer是用来分割字符串的工具。</li>
-</ul>
-<h3 id="java-序列化"><a href="#java-序列化" class="headerlink" title="java 序列化"></a>java 序列化</h3><ul>
-<li>java 提供了两种对象持久化的方式，分别为序列化和外部序列化。</li>
-</ul>
-<h3 id="java平台与内存管理"><a href="#java平台与内存管理" class="headerlink" title="java平台与内存管理"></a>java平台与内存管理</h3><ul>
-<li>GC垃圾回收，回收程序中不再使用的内存。</li>
-<li>垃圾回收器要负责完成3项任务：分配内存、确保被引用对象的内存不被错误的回收以及回收不再被引用的内存空间。</li>
-<li>垃圾回收常用算法。<ul>
-<li>引用计数法</li>
-<li>追踪回收法<ul>
-<li>追踪回收法利用jvm维护的对象引用图，从根节点开始遍历对象的应用图，同时标记遍历到的对象。<br>当遍历结束后，未标记的对象就是目前已经不被引用的对象，可以被回收。</li>
-</ul>
-</li>
-<li>压缩回收算法</li>
-<li>复制回收算法。</li>
-<li>按代价回收算法</li>
-</ul>
-</li>
-<li>可否主动通知jvm进行垃圾回收。<ul>
-<li>由于垃圾回收器的存在，java语言本身并没有提供显示的释放已分配内存的方法。但是可以通过<br>System.gc()方法通知垃圾回收器运行。当然jvm不会保证垃圾回收器马上就会运行。<br>System.gc()会停止所有的响应，去检查内存中是否有可回收的对象。不推荐频繁使用。</li>
-</ul>
-</li>
-</ul>
-<h3 id="java容器"><a href="#java容器" class="headerlink" title="java容器"></a>java容器</h3><ul>
-<li>set接口 两个实现类 HashSet TreeSet，其中TreeSet实现SortedSet接口，因此TreeSet是有序的。</li>
-<li>List接口 实现类：LinkedList ArrayList Vector</li>
-<li>Map接口 实现类 HashMap TreeMap LinkedHashMap WeakHashMap IdentityHashMap</li>
-<li>迭代器（Iterator）是一个对象，它的工作是遍历选择序列中的对象。<ul>
-<li>使用容器的iterator()方法返回一个Iterator，然后通过Iterator的nexxt()方法返回一个元素。</li>
-<li>使用Iterator的hasNext()判断容器中是否还有元素。</li>
-<li>通过remove()方法删除元素。</li>
-</ul>
-</li>
-<li>ArrayList Vector LinkedList区别<ul>
-<li>Vector是线程安全的，ArrayList不是线程安全的，因此vector性能差点。</li>
-<li>LinkedList是采用双向列表来实现的，随机访问效率低，插入效率高，是非线程安全的。</li>
-</ul>
-</li>
-<li>HashMap HashTable TreeMap WeakHashMap区别。<ul>
-<li>HashMap 是 HashTable 的轻量级实现（非线程安全的实现），HashMap空（null）键值（key）<br>HashTable不允许。</li>
-<li>HashMap把HashTable的contains方法去掉，改成containsvalue和containsKey。<br>HashTable继承Dictionary类。HashMap是Map的实现。</li>
-<li>HashTable使用 Enumeration，HashMap使用Iterator。</li>
-<li>WeakHashMap的key是弱引用方式，只要key不再被外部引用，它就可以被垃圾回收器回收。</li>
-</ul>
-</li>
-<li>自定义类型作为HashMap和HashTable的key<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">HashMap&lt;String,String&gt; hm = new HashMap&lt;String,String&gt;();</div><div class="line">Iterator it = hm.entrySet().iterator();</div><div class="line">while(it.hasNext())&#123;</div><div class="line">    Map.Entry entry = (Map.Entry)it.next();</div><div class="line">    String key = (String)entry.getKey();</div><div class="line">    String val = (String)entry.getValue();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h3><ul>
-<li>java使用synchronized关键字来实现同步。实现同步的两种方式：<ul>
-<li>利用同步代码块来实现同步</li>
-<li>利用同步方法来实现同步。</li>
-</ul>
-</li>
-<li>java 多线程，一般有以下三种方式。<ul>
-<li>继承Tread类，重写run()方法</li>
-<li>实现Runnable接口，并实现该接口的run()方法。<ul>
-<li>自定义类并实现Runnable接口，实现run</li>
-<li>创建Thread对象，用实现Runnable接口的对象作为参数实例化Thread对象</li>
-<li>调用Thread的start()方法。</li>
-</ul>
-</li>
-<li>实现Callable接口，重写call()方法</li>
-</ul>
-</li>
-<li>多线程同步的实现方法有哪些<ul>
-<li>synchronized synchronized关键字有两种用法（synchronize方法和synchronized块），此外该关键字可以<br>作用与静态方法，类，某个实例，但是对程序的效率有很大的影响。</li>
-<li>wait()方法与 notify()方法</li>
-<li>Lock</li>
-</ul>
-</li>
-<li>终止线程：stop suspend</li>
-</ul>
-<h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><ul>
-<li><p>单例设计模式</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Test</span><span class="params">()</span></span>&#123;&#125;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Test uniqueInstance = <span class="keyword">new</span> Test();</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Test <span class="title">getInstance</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> uniqueInstance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>工厂设计模式</p>
-<ul>
-<li>工厂模式专门负责实例化大量公共接口类。</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1813,7 +1625,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

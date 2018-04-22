@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="NLP," />
+  <meta name="keywords" content="Machine Learning," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="来自数学之美词典（或者直接列举所有的可能的切分）+统计模型按照语料，计算每种可能的概率，选择最大的一个作为分词结果。 当然穷举所有可能，计算量很大，因此可以使用动态规划方法（DP），使用维特比算法（Viterbi）快速找到最佳分词 深度学习的方法使用双向的Lstm（Bi-Lstm，可以多层）提取上下文的信息，然后做一个标注，比如最长用的BIO标注，每个词初始化为一个随机的向量，作为Bi-Lstm的">
-<meta name="keywords" content="NLP">
+<meta name="description" content="文本特征常见的文本特征包括：一元，二元特征，词性特征，位置信息，以及分词之后词及短语等，当然一般需要去除停用之类的。（后期再补充） 特征提取在找到一些有用的文本特征之后，每个特征可能会有不同的重要程度，或者特征空间太大，因此需要进行特征选择。     特征项要能够确实标识文本内容; 特征项具有将目标文本与其他文本相区分的能力; 特征项的个数不能太多; 特征项分离要比较容易实现  常用的基于打分（或">
+<meta name="keywords" content="Machine Learning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="中文分词">
-<meta property="og:url" content="http://yoursite.com/2017/11/06/中文分词/index.html">
+<meta property="og:title" content="特征提取">
+<meta property="og:url" content="http://yoursite.com/2018/04/22/特征提取/index.html">
 <meta property="og:site_name" content="wwbin的博客">
-<meta property="og:description" content="来自数学之美词典（或者直接列举所有的可能的切分）+统计模型按照语料，计算每种可能的概率，选择最大的一个作为分词结果。 当然穷举所有可能，计算量很大，因此可以使用动态规划方法（DP），使用维特比算法（Viterbi）快速找到最佳分词 深度学习的方法使用双向的Lstm（Bi-Lstm，可以多层）提取上下文的信息，然后做一个标注，比如最长用的BIO标注，每个词初始化为一个随机的向量，作为Bi-Lstm的">
+<meta property="og:description" content="文本特征常见的文本特征包括：一元，二元特征，词性特征，位置信息，以及分词之后词及短语等，当然一般需要去除停用之类的。（后期再补充） 特征提取在找到一些有用的文本特征之后，每个特征可能会有不同的重要程度，或者特征空间太大，因此需要进行特征选择。     特征项要能够确实标识文本内容; 特征项具有将目标文本与其他文本相区分的能力; 特征项的个数不能太多; 特征项分离要比较容易实现  常用的基于打分（或">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-06T11:56:18.107Z">
+<meta property="og:updated_time" content="2018-04-22T13:18:07.277Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="中文分词">
-<meta name="twitter:description" content="来自数学之美词典（或者直接列举所有的可能的切分）+统计模型按照语料，计算每种可能的概率，选择最大的一个作为分词结果。 当然穷举所有可能，计算量很大，因此可以使用动态规划方法（DP），使用维特比算法（Viterbi）快速找到最佳分词 深度学习的方法使用双向的Lstm（Bi-Lstm，可以多层）提取上下文的信息，然后做一个标注，比如最长用的BIO标注，每个词初始化为一个随机的向量，作为Bi-Lstm的">
+<meta name="twitter:title" content="特征提取">
+<meta name="twitter:description" content="文本特征常见的文本特征包括：一元，二元特征，词性特征，位置信息，以及分词之后词及短语等，当然一般需要去除停用之类的。（后期再补充） 特征提取在找到一些有用的文本特征之后，每个特征可能会有不同的重要程度，或者特征空间太大，因此需要进行特征选择。     特征项要能够确实标识文本内容; 特征项具有将目标文本与其他文本相区分的能力; 特征项的个数不能太多; 特征项分离要比较容易实现  常用的基于打分（或">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/06/中文分词/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/22/特征提取/"/>
 
 
 
 
 
-  <title>中文分词 | wwbin的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>特征提取 | wwbin的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/06/中文分词/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/22/特征提取/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wwbin">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">中文分词</h1>
+          <h1 class="post-title" itemprop="name headline">特征提取</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-06T19:29:21+08:00">
-                2017-11-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-22T20:28:27+08:00">
+                2018-04-22
               </time>
             
 
@@ -310,10 +310,49 @@
       
 
       
-        <h4 id="来自数学之美"><a href="#来自数学之美" class="headerlink" title="来自数学之美"></a>来自数学之美</h4><p>词典（或者直接列举所有的可能的切分）+统计模型<br>按照语料，计算每种可能的概率，选择最大的一个作为分词结果。</p>
-<p>当然穷举所有可能，计算量很大，因此可以使用动态规划方法（DP），使用维特比算法（Viterbi）快速找到最佳分词</p>
-<h4 id="深度学习的方法"><a href="#深度学习的方法" class="headerlink" title="深度学习的方法"></a>深度学习的方法</h4><p>使用双向的Lstm（Bi-Lstm，可以多层）提取上下文的信息，然后做一个标注，比如最长用的BIO标注，每个词初始化为一个随机的向量，作为Bi-Lstm的输入。</p>
-<p>或者使用Bi-Lstm-CRF。</p>
+        <h4 id="文本特征"><a href="#文本特征" class="headerlink" title="文本特征"></a>文本特征</h4><p>常见的文本特征包括：一元，二元特征，词性特征，位置信息，以及分词之后词及短语等，当然一般需要去除停用之类的。（后期再补充）</p>
+<h4 id="特征提取"><a href="#特征提取" class="headerlink" title="特征提取"></a>特征提取</h4><p>在找到一些有用的文本特征之后，每个特征可能会有不同的重要程度，或者特征空间太大，因此需要进行特征选择。   </p>
+<ul>
+<li>特征项要能够确实标识文本内容;</li>
+<li>特征项具有将目标文本与其他文本相区分的能力;</li>
+<li>特征项的个数不能太多;</li>
+<li>特征项分离要比较容易实现</li>
+</ul>
+<p>常用的基于打分（或者投票）的特征提取有：</p>
+<ul>
+<li>TFIDF</li>
+<li>卡方</li>
+<li>互信息(Mutual Information)</li>
+<li>期望交叉熵(Expected Cross Entropy)</li>
+<li>比值比（Odds ratio, OR）</li>
+</ul>
+<h4 id="类别不平衡"><a href="#类别不平衡" class="headerlink" title="类别不平衡"></a>类别不平衡</h4><p>很多时候会出现类被不平衡的情况，特别是上述方法，类别多的会占优势。特别是当两个类别非常相似的时候，可以从分词的结果分析，有些应该在在一起的词被分开，导致结果错误的，可以添加到词典里面。</p>
+<p>常用的数据不平衡有一下方法：</p>
+<ul>
+<li>设置损失函数的权重</li>
+<li>欠采样<ul>
+<li>Edited Nearest Neighbor (ENN) :大部分k近邻样本都跟他自己本身的类别不一样</li>
+<li>Repeated Edited Nearest Neighbor：反复删除多类别的数据</li>
+<li>Tomek Link Removal：如果两个类别的数据的最近邻分别数彼此，删除多类别的</li>
+</ul>
+</li>
+<li>过采样方法<ul>
+<li>对少数类有放回的采样（最好控制一个比列，否则容易过拟合）</li>
+<li>Synthetic Minority Oversampling Technique(SMOTE) （这个方法很给力，能够产生新的数据）</li>
+</ul>
+</li>
+<li>EasyEnsemble：我觉得可以把多类别的数据分成几分，同时训练多个模型，然后用集成的方法组合一下。这样不会有欠拟合数据丢失的情况，也会有过采样方法的过拟合的情况。</li>
+</ul>
+<h4 id="自动特征提取"><a href="#自动特征提取" class="headerlink" title="自动特征提取"></a>自动特征提取</h4><p>文本表示是高纬度高稀疏的，特征表达能力很弱。有时候手动提取特征是很麻烦的事情，特别是你对数据没有很深的见解。因此，可以使用神经网络的方法try一下，省时，省力。</p>
+<ul>
+<li>fastText</li>
+<li>TextCNN</li>
+<li>TextRNN 可能短文本效果会好点</li>
+<li>TextRNN + Attention</li>
+<li>TextRCNN 将RNN和CNN结合   </li>
+</ul>
+<p>以上的模型对于深度学习来说都是比较简单的，可以快速尝试或者实现。当然目前还是黑盒子的，不好理解why。</p>
+<hr>
 
       
     </div>
@@ -331,7 +370,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/NLP/" rel="tag"># NLP</a>
+            <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
           
         </div>
       
@@ -344,8 +383,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/06/boot仅剩0字节解决方法/" rel="next" title="boot仅剩0字节解决方法">
-                <i class="fa fa-chevron-left"></i> boot仅剩0字节解决方法
+              <a href="/2018/04/15/机器学习-主题模型-LDA/" rel="next" title="机器学习 主题模型 LDA">
+                <i class="fa fa-chevron-left"></i> 机器学习 主题模型 LDA
               </a>
             
           </div>
@@ -353,10 +392,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/08/差分进化算法/" rel="prev" title="差分进化算法">
-                差分进化算法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -481,7 +516,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#来自数学之美"><span class="nav-number">1.</span> <span class="nav-text">来自数学之美</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#深度学习的方法"><span class="nav-number">2.</span> <span class="nav-text">深度学习的方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#文本特征"><span class="nav-number">1.</span> <span class="nav-text">文本特征</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特征提取"><span class="nav-number">2.</span> <span class="nav-text">特征提取</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类别不平衡"><span class="nav-number">3.</span> <span class="nav-text">类别不平衡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自动特征提取"><span class="nav-number">4.</span> <span class="nav-text">自动特征提取</span></a></li></ol></div>
             
 
           </div>
