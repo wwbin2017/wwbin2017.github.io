@@ -97,7 +97,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/07/15/每周一篇论文之-Attention-is-all-you-need/multi-head-1.png">
 <meta property="og:image" content="http://yoursite.com/2018/07/15/每周一篇论文之-Attention-is-all-you-need/multi-head-2.png">
 <meta property="og:image" content="http://yoursite.com/2018/07/15/每周一篇论文之-Attention-is-all-you-need/decoder.png">
-<meta property="og:updated_time" content="2018-07-15T14:51:14.938Z">
+<meta property="og:updated_time" content="2018-07-15T15:08:26.795Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每周一篇论文之 Attention is all you need">
 <meta name="twitter:description" content="All you need is attention亮点 提出了一个新模型，named Transformer，没有使用CCN和RNN，基于Attention机制 介绍了multi-head attention mechanism 一个新的位置编码 也是一个seq2seq模型 也是一个自回归模型，输出不经依赖输入也依赖以前的输出 在翻译上取得了state-of-the-art 最优结果  atten">
@@ -333,10 +333,10 @@
 <li>CNN需要叠加多层才能获得全局的一个表达</li>
 <li>RNN序列模型，训练很慢</li>
 </ul>
-<h3 id="基本attention机制"><a href="#基本attention机制" class="headerlink" title="基本attention机制"></a>基本attention机制</h3><p><img src="/2018/07/15/每周一篇论文之-Attention-is-all-you-need/basic_attention.png" alt="基本attention"></p>
-<p><img src="/2018/07/15/每周一篇论文之-Attention-is-all-you-need/qkv.png" alt="基本attention"></p>
+<h3 id="基本attention机制"><a href="#基本attention机制" class="headerlink" title="基本attention机制"></a>基本attention机制</h3><p><img src="/2018/07/15/每周一篇论文之-Attention-is-all-you-need/basic_attention.png" alt="基本attention"><br>attention的一个基本思想就是当前的一个输出是和前面所有的输入中的特定输入有关系。因此就是需要取得一个输入的加权和。一个基本的做法就是上一时刻的输出和所有输入求得一个权重，然后加权和。因此是有所偏重的即注意力机制。</p>
+<p><img src="/2018/07/15/每周一篇论文之-Attention-is-all-you-need/qkv.png" alt="基本attention"><br>Q，K，V放到翻译模型里面可以认为分别为上时刻的输出，所有输入，所有输入</p>
 <p><img src="/2018/07/15/每周一篇论文之-Attention-is-all-you-need/公式.png" alt="基本attention"></p>
-<h4 id="transformer"><a href="#transformer" class="headerlink" title="transformer"></a>transformer</h4><p><img src="/2018/07/15/每周一篇论文之-Attention-is-all-you-need/transformer.png" alt="基本attention"></p>
+<h4 id="transformer"><a href="#transformer" class="headerlink" title="transformer"></a>transformer</h4><p>论文中的模型结构如下<br><img src="/2018/07/15/每周一篇论文之-Attention-is-all-you-need/transformer.png" alt="基本attention"></p>
 <h4 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h4><ul>
 <li>像一般模型一样，做了一个embedding，dmodel=512</li>
 </ul>
@@ -344,13 +344,15 @@
 <li>把位置编码和dmodel一样的维数，并且相加，加入位置信息</li>
 <li>在训练阶段为了防止信息泄露，加入负无穷</li>
 </ul>
-<h4 id="encoder"><a href="#encoder" class="headerlink" title="encoder"></a>encoder</h4><p><img src="/2018/07/15/每周一篇论文之-Attention-is-all-you-need/encoder.png" alt="基本attention"><br><img src="/2018/07/15/每周一篇论文之-Attention-is-all-you-need/公式2.png" alt="基本attention"></p>
+<h4 id="encoder"><a href="#encoder" class="headerlink" title="encoder"></a>encoder</h4><p>叠加N层<br><img src="/2018/07/15/每周一篇论文之-Attention-is-all-you-need/encoder.png" alt="基本attention"><br><img src="/2018/07/15/每周一篇论文之-Attention-is-all-you-need/公式2.png" alt="基本attention"></p>
 <h5 id="Multi-head-attention-机制"><a href="#Multi-head-attention-机制" class="headerlink" title="Multi-head attention 机制"></a>Multi-head attention 机制</h5><p><img src="/2018/07/15/每周一篇论文之-Attention-is-all-you-need/multi-head.png" alt="基本attention"><br><img src="/2018/07/15/每周一篇论文之-Attention-is-all-you-need/multi-head-1.png" alt="基本attention"><br><img src="/2018/07/15/每周一篇论文之-Attention-is-all-you-need/multi-head-2.png" alt="基本attention"></p>
+<p>其实直白的讲就是首先做一个相性变换，使得输入不一样，然后，重复多个attention，最后拼接一起。其实这里类似CNN的多个卷积核，提取不同特征，丰富模型的表达能力。</p>
 <h5 id="加入了一些常用技巧"><a href="#加入了一些常用技巧" class="headerlink" title="加入了一些常用技巧"></a>加入了一些常用技巧</h5><ul>
 <li>Residual connections</li>
 <li>Layer normalization</li>
 </ul>
-<h5 id="decoder"><a href="#decoder" class="headerlink" title="decoder"></a>decoder</h5><p><img src="/2018/07/15/每周一篇论文之-Attention-is-all-you-need/decoder.png" alt="基本attention"></p>
+<h5 id="decoder"><a href="#decoder" class="headerlink" title="decoder"></a>decoder</h5><p>解码层与编码层基本一样，只不过为了防止信息泄漏，增加了一个masked multi-head attention，其实就是对未来的一个信息设置为负无穷，使得未来的信息不会出现在当前时刻里面。</p>
+<p><img src="/2018/07/15/每周一篇论文之-Attention-is-all-you-need/decoder.png" alt="基本attention"></p>
 <p><a href="https://ricardokleinklein.github.io/2017/11/16/Attention-is-all-you-need.html" target="_blank" rel="external">链接</a></p>
 
       
