@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="选择性记录，习惯性遗忘">
+<meta name="description" content="makefile简要语法基本语法target … : prerequisites …command  target也就是一个目标文件，可以是Object File，也可以是执行文件。还可以是一个标签（Label）。 prerequisites就是，要生成那个target所需要的文件或是目标。    command也就是make需要执行的命令。（任意的Shell命令）  这是一个文件的依赖关系，也就">
 <meta name="keywords" content="c++编译">
 <meta property="og:type" content="article">
 <meta property="og:title" content="make 语法">
 <meta property="og:url" content="http://yoursite.com/2018/07/14/make-语法/index.html">
 <meta property="og:site_name" content="wwbin的博客">
-<meta property="og:description" content="选择性记录，习惯性遗忘">
+<meta property="og:description" content="makefile简要语法基本语法target … : prerequisites …command  target也就是一个目标文件，可以是Object File，也可以是执行文件。还可以是一个标签（Label）。 prerequisites就是，要生成那个target所需要的文件或是目标。    command也就是make需要执行的命令。（任意的Shell命令）  这是一个文件的依赖关系，也就">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-14T13:57:22.148Z">
+<meta property="og:updated_time" content="2018-07-16T16:05:49.617Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="make 语法">
-<meta name="twitter:description" content="选择性记录，习惯性遗忘">
+<meta name="twitter:description" content="makefile简要语法基本语法target … : prerequisites …command  target也就是一个目标文件，可以是Object File，也可以是执行文件。还可以是一个标签（Label）。 prerequisites就是，要生成那个target所需要的文件或是目标。    command也就是make需要执行的命令。（任意的Shell命令）  这是一个文件的依赖关系，也就">
 
 
 
@@ -310,7 +310,15 @@
       
 
       
-        
+        <h4 id="makefile简要语法"><a href="#makefile简要语法" class="headerlink" title="makefile简要语法"></a>makefile简要语法</h4><p>基本语法<br>target … : prerequisites …<br>command</p>
+<ul>
+<li>target也就是一个目标文件，可以是Object File，也可以是执行文件。还可以是一个标签（Label）。</li>
+<li>prerequisites就是，要生成那个target所需要的文件或是目标。   </li>
+<li>command也就是make需要执行的命令。（任意的Shell命令）</li>
+</ul>
+<p>这是一个文件的依赖关系，也就是说，target这一个或多个的目标文件依赖于prerequisites中的文件，其生成规则定义在command中。说白一点就是说，prerequisites中如果有一个以上的文件比target文件要新的话，command所定义的命令就会被执行。这就是Makefile的规则。也就是Makefile中最核心的内容。</p>
+<p><a href="https://www.cnblogs.com/mfryf/p/3305778.html" target="_blank" rel="external">Makefile</a></p>
+
       
     </div>
     
@@ -404,8 +412,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -420,7 +437,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -458,6 +475,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#makefile简要语法"><span class="nav-number">1.</span> <span class="nav-text">makefile简要语法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
