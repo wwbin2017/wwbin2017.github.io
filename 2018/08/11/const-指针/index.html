@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="c++编译," />
+  <meta name="keywords" content="C++," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="g++程序运行步骤1234预处理 　　.i .ii文件　　　　     gcc -E helloworld.cpp -o helloworld.i编译 　　　.s文件　　　　         gcc -S helloworld.cpp -o helloworld.s汇编 　　　.o .obj文件　　　　 　　gcc -c helloworld.cpp -o helloworld.o链接 　　　.l">
-<meta name="keywords" content="c++编译">
+<meta name="description" content="const 和 指针容易混淆的地方1234567891011121314151617181920212223242526272829303132int main()&amp;#123;        // 引用&amp;amp; 和常量修饰const        int a = 0;        const int &amp;amp;r1 = a; // const 只是限定r1不能修改，但是a本身是可以修改的">
+<meta name="keywords" content="C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="c++编译">
-<meta property="og:url" content="http://yoursite.com/2018/07/14/c-编译/index.html">
+<meta property="og:title" content="const 指针">
+<meta property="og:url" content="http://yoursite.com/2018/08/11/const-指针/index.html">
 <meta property="og:site_name" content="wwbin的博客">
-<meta property="og:description" content="g++程序运行步骤1234预处理 　　.i .ii文件　　　　     gcc -E helloworld.cpp -o helloworld.i编译 　　　.s文件　　　　         gcc -S helloworld.cpp -o helloworld.s汇编 　　　.o .obj文件　　　　 　　gcc -c helloworld.cpp -o helloworld.o链接 　　　.l">
+<meta property="og:description" content="const 和 指针容易混淆的地方1234567891011121314151617181920212223242526272829303132int main()&amp;#123;        // 引用&amp;amp; 和常量修饰const        int a = 0;        const int &amp;amp;r1 = a; // const 只是限定r1不能修改，但是a本身是可以修改的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-14T13:43:12.306Z">
+<meta property="og:updated_time" content="2018-08-11T07:22:57.817Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="c++编译">
-<meta name="twitter:description" content="g++程序运行步骤1234预处理 　　.i .ii文件　　　　     gcc -E helloworld.cpp -o helloworld.i编译 　　　.s文件　　　　         gcc -S helloworld.cpp -o helloworld.s汇编 　　　.o .obj文件　　　　 　　gcc -c helloworld.cpp -o helloworld.o链接 　　　.l">
+<meta name="twitter:title" content="const 指针">
+<meta name="twitter:description" content="const 和 指针容易混淆的地方1234567891011121314151617181920212223242526272829303132int main()&amp;#123;        // 引用&amp;amp; 和常量修饰const        int a = 0;        const int &amp;amp;r1 = a; // const 只是限定r1不能修改，但是a本身是可以修改的">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/14/c-编译/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/11/const-指针/"/>
 
 
 
 
 
-  <title>c++编译 | wwbin的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>const 指针 | wwbin的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/14/c-编译/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/11/const-指针/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wwbin">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">c++编译</h1>
+          <h1 class="post-title" itemprop="name headline">const 指针</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-14T17:36:26+08:00">
-                2018-07-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-11T15:21:09+08:00">
+                2018-08-11
               </time>
             
 
@@ -310,14 +310,7 @@
       
 
       
-        <h3 id="g"><a href="#g" class="headerlink" title="g++"></a>g++</h3><p>程序运行步骤<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">预处理 　　.i .ii文件　　　　     gcc -E helloworld.cpp -o helloworld.i</div><div class="line">编译 　　　.s文件　　　　         gcc -S helloworld.cpp -o helloworld.s</div><div class="line">汇编 　　　.o .obj文件　　　　 　　gcc -c helloworld.cpp -o helloworld.o</div><div class="line">链接 　　　.lib .a文件</div></pre></td></tr></table></figure></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">g++ helloworld.cc # a.out</div><div class="line">g++ helloworld.cc -o helloworld #编译输出文件 helloworld</div><div class="line">g++ helloworld.cc world.cc hello.h-o helloworld # 多文件编译</div></pre></td></tr></table></figure>
-<h3 id="静态库与动态库"><a href="#静态库与动态库" class="headerlink" title="静态库与动态库"></a>静态库与动态库</h3><ul>
-<li>静态库 .a (linux) .lib (windows)</li>
-<li>动态库 .so (linux) .dll (windows)</li>
-<li>gcc时，用-I和-L分别制定库名和库路径<h4 id="静态库"><a href="#静态库" class="headerlink" title="静态库"></a>静态库</h4>1 创建print.c和print.h,其中helloworld中用到了print这个函数，如果直接运行会报错说找不到print这个函数。<br>2 先print.c编译成二进制文件print.o<br>g++ -c print.c -o print.o<br>3 再用ar这个工具将add.o做成静态库<br>ar -r libprint.a print.o<br>4 这样就可以调用了，即在编译的时候加上库的名字，路径并申明为静态库-static等参数即可。<br>g++ helloworld.c -l libprint -L ./ -static -o helloworld<br>5 注意要其他地方也要用的话要把print.h也拷贝过去才能用</li>
-</ul>
-<h4 id="动态库"><a href="#动态库" class="headerlink" title="动态库"></a>动态库</h4><p>1.首先创建libmyprint.so，即利用print.c这个函数生成动态库<br>g++ -shared -fPIC -o libmyprint.so print.c<br>-share指为共享的，-fPIC表示position independent code位置无关，这是动态库特性<br>2.指定动态库生成可执行文件，-L.表示当前文件夹，-l myprint表示去找libmyprint.so这个动态库文件。<br>g++ helloworld.c -L ./ -l myprint<br>3.直接使用会抱错，找不到动态库，要指定动态库的路径<br>./a.out会报错<br>LD_LIBRARY_PATH=. ./a.out指定当前库的路径后在运行就可以了<br>4.如果要一直用，可以将.so文件的目录添加到/etc/ld.so.conf里面，然后再执行ldconfig就行了，具体如下面：</p>
+        <h4 id="const-和-指针容易混淆的地方"><a href="#const-和-指针容易混淆的地方" class="headerlink" title="const 和 指针容易混淆的地方"></a>const 和 指针容易混淆的地方</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">        <span class="comment">// 引用&amp; 和常量修饰const</span></div><div class="line">        <span class="keyword">int</span> a = <span class="number">0</span>;</div><div class="line">        <span class="keyword">const</span> <span class="keyword">int</span> &amp;r1 = a; <span class="comment">// const 只是限定r1不能修改，但是a本身是可以修改的</span></div><div class="line">        a = <span class="number">1</span>;</div><div class="line">        <span class="comment">// int &amp;r4 = 1;  #错误，右边得是对象</span></div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment">//指针和const</span></div><div class="line">        <span class="keyword">const</span> <span class="keyword">double</span> pi = <span class="number">3.14</span>;</div><div class="line">        <span class="comment">// double *ptr = &amp;pi;   # 错误因为ptr是普通指针 \</span></div><div class="line">                                其实就是两边类型不一致，<span class="keyword">double</span> 和 <span class="keyword">const</span> <span class="keyword">double</span></div><div class="line">        <span class="keyword">const</span>  <span class="keyword">double</span> *cptr = &amp;pi; <span class="comment">// cptr并没有限定cptr是const，\</span></div><div class="line">                                        cptr还是可以改变的。</div><div class="line">        <span class="comment">// 指针的类型必须与所指向的类型保持一致</span></div><div class="line">        <span class="comment">// 存在两个例外</span></div><div class="line">        <span class="keyword">double</span> dval = <span class="number">3.14</span>;</div><div class="line">        cptr = &amp;dval;   <span class="comment">// 不能通过cptr改变值</span></div><div class="line"></div><div class="line">        <span class="comment">// const 指针</span></div><div class="line">        <span class="keyword">int</span> errNum = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> *<span class="keyword">const</span> curErr = &amp;errNum; <span class="comment">//curErr是const，其值不允许修改，\</span></div><div class="line">                                        即不能指向其他对象，但是可以改变对象的值</div><div class="line"></div><div class="line">        *curErr = <span class="number">10</span>;</div><div class="line">        <span class="keyword">const</span> <span class="keyword">double</span>* <span class="keyword">const</span> pip = &amp;pi;<span class="comment">//pip的值不允许修改，同时也不允许通过*pip修改</span></div><div class="line">        <span class="comment">//*pip = 0.0;  错误</span></div><div class="line"></div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -335,7 +328,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/c-编译/" rel="tag"># c++编译</a>
+            <a href="/tags/C/" rel="tag"># C++</a>
           
         </div>
       
@@ -348,8 +341,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/14/前端之小结/" rel="next" title="前端之小结">
-                <i class="fa fa-chevron-left"></i> 前端之小结
+              <a href="/2018/08/05/SVM-SMO算法/" rel="next" title="SVM-SMO算法">
+                <i class="fa fa-chevron-left"></i> SVM-SMO算法
               </a>
             
           </div>
@@ -357,10 +350,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/14/bloom-filter/" rel="prev" title="bloom filter">
-                bloom filter <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -485,7 +474,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#g"><span class="nav-number">1.</span> <span class="nav-text">g++</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态库与动态库"><span class="nav-number">2.</span> <span class="nav-text">静态库与动态库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#静态库"><span class="nav-number">2.1.</span> <span class="nav-text">静态库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态库"><span class="nav-number">2.2.</span> <span class="nav-text">动态库</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#const-和-指针容易混淆的地方"><span class="nav-number">1.</span> <span class="nav-text">const 和 指针容易混淆的地方</span></a></li></ol></div>
             
 
           </div>
