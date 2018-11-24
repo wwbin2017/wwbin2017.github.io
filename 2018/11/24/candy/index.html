@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="HIVE基础," />
+  <meta name="keywords" content="leetcode," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Hive介绍 Hive是基于Hadoop的一个数据仓库工具，可以将结构化的数据文件映射为一张数据库表，并提供类SQL查询功能。 Hive是SQL解析引擎，它将SQL语句转译成M/R Job然后在Hadoop执行。">
-<meta name="keywords" content="HIVE基础">
+<meta name="description" content="There are N children standing in a line. Each child is assigned a rating value. You are giving candies to these children subjected to the following requirements: Each child must have at least one cand">
+<meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HIVE基础">
-<meta property="og:url" content="http://yoursite.com/2018/03/24/HIVE基础/index.html">
+<meta property="og:title" content="candy">
+<meta property="og:url" content="http://yoursite.com/2018/11/24/candy/index.html">
 <meta property="og:site_name" content="wwbin的博客">
-<meta property="og:description" content="Hive介绍 Hive是基于Hadoop的一个数据仓库工具，可以将结构化的数据文件映射为一张数据库表，并提供类SQL查询功能。 Hive是SQL解析引擎，它将SQL语句转译成M/R Job然后在Hadoop执行。">
+<meta property="og:description" content="There are N children standing in a line. Each child is assigned a rating value. You are giving candies to these children subjected to the following requirements: Each child must have at least one cand">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-25T15:26:35.136Z">
+<meta property="og:updated_time" content="2018-11-24T15:55:26.496Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HIVE基础">
-<meta name="twitter:description" content="Hive介绍 Hive是基于Hadoop的一个数据仓库工具，可以将结构化的数据文件映射为一张数据库表，并提供类SQL查询功能。 Hive是SQL解析引擎，它将SQL语句转译成M/R Job然后在Hadoop执行。">
+<meta name="twitter:title" content="candy">
+<meta name="twitter:description" content="There are N children standing in a line. Each child is assigned a rating value. You are giving candies to these children subjected to the following requirements: Each child must have at least one cand">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/24/HIVE基础/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/24/candy/"/>
 
 
 
 
 
-  <title>HIVE基础 | wwbin的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>candy | wwbin的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/24/HIVE基础/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/24/candy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wwbin">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HIVE基础</h1>
+          <h1 class="post-title" itemprop="name headline">candy</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-24T00:15:20+08:00">
-                2018-03-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-24T23:53:58+08:00">
+                2018-11-24
               </time>
             
 
@@ -310,10 +310,10 @@
       
 
       
-        <h4 id="Hive介绍"><a href="#Hive介绍" class="headerlink" title="Hive介绍"></a>Hive介绍</h4><ul>
-<li>Hive是基于Hadoop的一个数据仓库工具，可以将结构化的数据文件映射为一张数据库表，并提供类SQL查询功能。</li>
-<li>Hive是SQL解析引擎，它将SQL语句转译成M/R Job然后在Hadoop执行。</li>
-</ul>
+        <p>There are N children standing in a line. Each child is assigned a rating value.</p>
+<p>You are giving candies to these children subjected to the following requirements:</p>
+<p>Each child must have at least one candy.<br>Children with a higher rating get more candies than their neighbors.<br>What is the minimum candies you must give?</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">candy</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;ratings)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(ratings.size() &lt;=<span class="number">1</span>) <span class="keyword">return</span> ratings.size();</div><div class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> pre = <span class="number">1</span>;</div><div class="line">        <span class="keyword">int</span> sum = <span class="number">1</span>;</div><div class="line">        <span class="keyword">int</span> gap = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt; ratings.size(); i++)&#123;</div><div class="line">            <span class="keyword">if</span>(ratings[i] &lt; ratings[i<span class="number">-1</span>])&#123;</div><div class="line">                <span class="keyword">if</span>(pre &lt;= <span class="number">1</span>)&#123;</div><div class="line">                    <span class="keyword">if</span>(gap &gt; <span class="number">1</span>)&#123;</div><div class="line">                        sum -= <span class="number">1</span>;</div><div class="line">                        gap--;</div><div class="line">                    &#125;</div><div class="line">                    sum += i - index;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">if</span>(pre &gt; <span class="number">2</span>)</div><div class="line">                    gap = pre <span class="number">-1</span>;</div><div class="line">                pre = <span class="number">1</span>;</div><div class="line">                sum += pre;</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span>(ratings[i] == ratings[i<span class="number">-1</span>])&#123;</div><div class="line">                index = i;</div><div class="line">                pre = <span class="number">1</span>;</div><div class="line">                sum+=pre;</div><div class="line">                gap = <span class="number">0</span>;</div><div class="line">            &#125;<span class="keyword">else</span> &#123;</div><div class="line">                pre += <span class="number">1</span>;</div><div class="line">                sum += pre;</div><div class="line">                index = i;</div><div class="line">                gap = <span class="number">0</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> sum;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -331,7 +331,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/HIVE基础/" rel="tag"># HIVE基础</a>
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
           
         </div>
       
@@ -344,8 +344,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/23/shell编程每天一点-01/" rel="next" title="shell编程每天一点 01">
-                <i class="fa fa-chevron-left"></i> shell编程每天一点 01
+              <a href="/2018/08/11/const-指针/" rel="next" title="const 指针">
+                <i class="fa fa-chevron-left"></i> const 指针
               </a>
             
           </div>
@@ -353,10 +353,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/25/HIVE基础-01/" rel="prev" title="HIVE基础 01">
-                HIVE基础 01 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -408,17 +404,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -471,22 +458,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hive介绍"><span class="nav-number">1.</span> <span class="nav-text">Hive介绍</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
