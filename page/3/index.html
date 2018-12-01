@@ -242,6 +242,129 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/27/Git使用基础-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wwbin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wwbin的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/27/Git使用基础-01/" itemprop="url">Git使用基础 01</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-27T21:57:39+08:00">
+                2018-03-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>git 放弃本地修改<br>如果在修改时发现修改错误，而要放弃本地修改时，</p>
+<h4 id="第一种情况：未使用-git-add-缓存代码时。"><a href="#第一种情况：未使用-git-add-缓存代码时。" class="headerlink" title="第一种情况：未使用 git add 缓存代码时。"></a>第一种情况：未使用 git add 缓存代码时。</h4><p>可以使用 git checkout – filepathname (比如： git checkout – readme.md  ，不要忘记中间的 “–” ，不写就成了检出分支了！！)。放弃所以的文件修改可以使用 git checkout .  命令。<br>此命令用来放弃掉所有还没有加入到缓存区（就是 git add 命令）的修改：内容修改与整个文件删除。但是此命令不会删除掉刚新建的文件。因为刚新建的文件还没已有加入到 git 的管理系统中。所以对于git是未知的。自己手动删除就好了。</p>
+<h4 id="第二种情况：已经使用了-git-add-缓存了代码。"><a href="#第二种情况：已经使用了-git-add-缓存了代码。" class="headerlink" title="第二种情况：已经使用了  git add 缓存了代码。"></a>第二种情况：已经使用了  git add 缓存了代码。</h4><p>可以使用  git reset HEAD filepathname （比如： git reset HEAD readme.md）来放弃指定文件的缓存，放弃所以的缓存可以使用 git reset HEAD . 命令。<br>此命令用来清除 git  对于文件修改的缓存。相当于撤销 git add 命令所在的工作。在使用本命令后，本地的修改并不会消失，而是回到了如（一）所示的状态。继续用（一）中的操作，就可以放弃本地的修改。</p>
+<h4 id="第三种情况：已经用-git-commit-提交了代码。"><a href="#第三种情况：已经用-git-commit-提交了代码。" class="headerlink" title="第三种情况：已经用 git commit  提交了代码。"></a>第三种情况：已经用 git commit  提交了代码。</h4><p>可以使用 git reset –hard HEAD^ 来回退到上一次commit的状态。此命令可以用来回退到任意版本：git reset –hard  commitid<br>你可以使用 git log 命令来查看git的提交历史。git log 的输出如下,之一这里可以看到第一行就是 commitid：</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/26/shell编程每天一点-03/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1737,149 +1860,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/08/差分进化算法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wwbin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wwbin的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/08/差分进化算法/" itemprop="url">差分进化算法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-08T15:21:31+08:00">
-                2017-11-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="差分简介"><a href="#差分简介" class="headerlink" title="差分简介"></a>差分简介</h4><p>差分进化算法（differential evolution，DE）1995年Store和Price提出的一种计算方法。是一种基于种群的全局搜索算法。</p>
-<h4 id="差分算法原理"><a href="#差分算法原理" class="headerlink" title="差分算法原理"></a>差分算法原理</h4><ul>
-<li><p>初始化</p>
-<ul>
-<li>设$D$为个体的维数，$NP$为种群的规模，$t$为进化的代数，$X(t)$为$t$代种群，首先初始化第0代种群：<br>$$X(0) ={x_1(0),…, x_{NP}(0)}$$</li>
-</ul>
-</li>
-<li><p>变异算子</p>
-<ul>
-<li>针对第$i$个基准向量$x_i(t)$的变异操作是：从种群中选择三个向量$x_{r1}(t)$，$x_{r2}(t)$，$x_{r3}(t)$，其中$r1$，$r2$，$r3$是互不相同的整数,F是DE的缩放因子，在[0,1]之间。<br>DE/rand/1<br>$$V_i(t) = x_{r1}(t) + F*(x_{r2}(t) - x_{r3}(t))$$</li>
-<li>其他变异算子<br>DE/rand/2<br>$$V_i(t) = x_{r1}(t) + F*(x_{r2}(t) - x_{r3}(t)) + F*(x_{r4}(t) - x_{r5}(t))$$<br>DE/best/1<br>$$V_i(t) = x_{best}(t) + F*(x_{r2}(t) - x_{r3}(t))$$<br>DE/best/2<br>$$V_i(t) = x_{best}(t) + F*(x_{r2}(t) - x_{r3}(t) + F*(x_{r4}(t) - x_{r5}(t)$$<br>DE/current-to-best/1<br>$$V_i(t) = x_{i}(t) + F*(x_{best}(t) - x_{i}(t) + F*(x_{r1}(t) - x_{r2}(t)$$  </li>
-</ul>
-</li>
-<li><p>修补算子</p>
-</li>
-<li><p>杂交算子<br>if $ rand_{i}[0,1]&lt;Cr$ or $j=j_{rand}$<br>$$u_{i,j}(t) = v_{i,j}(t) $$<br>otherwise<br>$$u_{i,j}(t) = x_{i,j}(t) $$</p>
-</li>
-<li><p>选择算子<br>DE的选择操作是一种基于贪婪的选择机制，哪个好，选择哪个<br>if $f(X_{i}(t))$&lt;$f(u_{i}(t))$<br>$$X_{i}(t+1)=X_{i}(t)$$<br>if $f(X_{i}(t))$&gt;$f(u_{i}(t))$<br>$$X_{i}(t+1)=u_{i}(t)$$</p>
-</li>
-<li><p>Matlab代码</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">clear all</div><div class="line">clc</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1930,7 +1910,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1943,7 +1923,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
