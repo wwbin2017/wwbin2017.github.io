@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="awk基本用法   变量名 意义     $0 当前记录（作为单个变量）   $1~$n 当前记录的第n个字段，字段间由FS分隔   FS 输入字段分隔符 默认是空格   NF 当前记录中的字段个数，就是有多少列   NR 已经读出的记录数，就是行号，从1开始   RS 输入的记录他隔符默 认为换行符   OFS 输出字段分隔符 默认也是空格   ORS 输出的记录分隔符，默认为换行符   ARG">
+<meta name="description" content="awk基本用法    变量名 意义     $0 当前记录（作为单个变量）   $1~$n 当前记录的第n个字段，字段间由FS分隔   FS 输入字段分隔符 默认是空格   NF 当前记录中的字段个数，就是有多少列   NR 已经读出的记录数，就是行号，从1开始   RS 输入的记录他隔符默 认为换行符   OFS 输出字段分隔符 默认也是空格   ORS 输出的记录分隔符，默认为换行符   AR">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux基础 01 awk用法">
 <meta property="og:url" content="http://yoursite.com/2018/04/03/Linux基础-01-awk用法/index.html">
 <meta property="og:site_name" content="wwbin的博客">
-<meta property="og:description" content="awk基本用法   变量名 意义     $0 当前记录（作为单个变量）   $1~$n 当前记录的第n个字段，字段间由FS分隔   FS 输入字段分隔符 默认是空格   NF 当前记录中的字段个数，就是有多少列   NR 已经读出的记录数，就是行号，从1开始   RS 输入的记录他隔符默 认为换行符   OFS 输出字段分隔符 默认也是空格   ORS 输出的记录分隔符，默认为换行符   ARG">
+<meta property="og:description" content="awk基本用法    变量名 意义     $0 当前记录（作为单个变量）   $1~$n 当前记录的第n个字段，字段间由FS分隔   FS 输入字段分隔符 默认是空格   NF 当前记录中的字段个数，就是有多少列   NR 已经读出的记录数，就是行号，从1开始   RS 输入的记录他隔符默 认为换行符   OFS 输出字段分隔符 默认也是空格   ORS 输出的记录分隔符，默认为换行符   AR">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-04-03T14:53:48.252Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux基础 01 awk用法">
-<meta name="twitter:description" content="awk基本用法   变量名 意义     $0 当前记录（作为单个变量）   $1~$n 当前记录的第n个字段，字段间由FS分隔   FS 输入字段分隔符 默认是空格   NF 当前记录中的字段个数，就是有多少列   NR 已经读出的记录数，就是行号，从1开始   RS 输入的记录他隔符默 认为换行符   OFS 输出字段分隔符 默认也是空格   ORS 输出的记录分隔符，默认为换行符   ARG">
+<meta name="twitter:description" content="awk基本用法    变量名 意义     $0 当前记录（作为单个变量）   $1~$n 当前记录的第n个字段，字段间由FS分隔   FS 输入字段分隔符 默认是空格   NF 当前记录中的字段个数，就是有多少列   NR 已经读出的记录数，就是行号，从1开始   RS 输入的记录他隔符默 认为换行符   OFS 输出字段分隔符 默认也是空格   ORS 输出的记录分隔符，默认为换行符   AR">
 
 
 
@@ -310,7 +310,8 @@
       
 
       
-        <h4 id="awk基本用法"><a href="#awk基本用法" class="headerlink" title="awk基本用法"></a>awk基本用法</h4><table>
+        <h4 id="awk基本用法"><a href="#awk基本用法" class="headerlink" title="awk基本用法"></a>awk基本用法</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>变量名</th>
@@ -408,6 +409,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>在awk中调用系统变量必须用单引号，如果是双引号，则表示字符串<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">str=abcd</div><div class="line">awk '&#123;print '$str'&#125;'   # 结果为abcd</div><div class="line">awk '&#123;print  "$str"&#125;'   # 结果为$Flag</div></pre></td></tr></table></figure></p>
 <p>‘hllo world’</p>
 <p>awk获取外部变量，直接引用不行<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">test='awk code'</div><div class="line">echo | awk '&#123;print test&#125;' test="$test"</div><div class="line">echo | awk -v test="$test" '&#123;print test&#125;'</div></pre></td></tr></table></figure></p>

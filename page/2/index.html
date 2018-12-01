@@ -735,7 +735,8 @@
       
         
           
-            <h4 id="awk基本用法"><a href="#awk基本用法" class="headerlink" title="awk基本用法"></a>awk基本用法</h4><table>
+            <h4 id="awk基本用法"><a href="#awk基本用法" class="headerlink" title="awk基本用法"></a>awk基本用法</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>变量名</th>
@@ -833,6 +834,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>在awk中调用系统变量必须用单引号，如果是双引号，则表示字符串<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">str=abcd</div><div class="line">awk '&#123;print '$str'&#125;'   # 结果为abcd</div><div class="line">awk '&#123;print  "$str"&#125;'   # 结果为$Flag</div></pre></td></tr></table></figure></p>
 <p>‘hllo world’</p>
 <p>awk获取外部变量，直接引用不行<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">test='awk code'</div><div class="line">echo | awk '&#123;print test&#125;' test="$test"</div><div class="line">echo | awk -v test="$test" '&#123;print test&#125;'</div></pre></td></tr></table></figure></p>
@@ -964,16 +966,15 @@
         
           
             <p><a href="https://blog.csdn.net/zdk930519/article/details/54137476" target="_blank" rel="external">markdown数学公式基础</a></p>
-<h4 id="卡方分布的定义"><a href="#卡方分布的定义" class="headerlink" title="卡方分布的定义"></a>卡方分布的定义</h4><p>若$k$个随机变量$Z_1$,…,$Z_k$满足标准的正太分布$N(0,1)$,则：<br>$$X=\sum_{i=1}^k Z_i$$<br>那么$X$服从$\chi$分布，记为</p>
-<p>$$X~\chi^2(k)$$</p>
-<p>其期望和方差分别为：</p>
-<p>$$E(\chi^2)=n$$</p>
-<p>$$D(\chi^2)=2n$$<br>其中$n$为卡方分布的自由度</p>
+<h4 id="卡方分布的定义"><a href="#卡方分布的定义" class="headerlink" title="卡方分布的定义"></a>卡方分布的定义</h4><p>若$k$个随机变量$Z_1$,…,$Z_k$满足标准的正太分布$N(0,1)$,则：</p>
+<script type="math/tex; mode=display">X=\sum_{i=1}^k Z_i</script><p>那么$X$服从$\chi$分布，记为</p>
+<script type="math/tex; mode=display">X~\\chi^2(k)</script><p>其期望和方差分别为：</p>
+<script type="math/tex; mode=display">E(\\chi^2)=n</script><script type="math/tex; mode=display">D(\\chi^2)=2n</script><p>其中$n$为卡方分布的自由度</p>
 <h4 id="卡方检验"><a href="#卡方检验" class="headerlink" title="卡方检验"></a>卡方检验</h4><p>卡方检验主要以卡方分布为基础，主要用于判断变量之间是否相关。<br>一般原假设$H_0$可以是：假设变量之间是相互独立的，或者之间的关系是不显著的。<br>因此在原假设正确的前提下，可以计算卡方值，也就是实际的和理论的偏差有多少。计算公式如下：</p>
-<p>$$\chi^2=\sum \frac{(T-A)^2}{T}$$</p>
-<p>其中T为理论值，A为实际值</p>
+<script type="math/tex; mode=display">\chi^2=\sum \frac{(T-A)^2}{T}</script><p>其中T为理论值，A为实际值</p>
 <p>$\chi^2$用于衡量实际值与理论值的差异程度，这也是卡方检验的核心思想。$\chi^2$包含了以下两个信息：<br>1.实际值与理论值偏差的绝对大小。<br>2.差异程度与理论值的相对大小。</p>
 <h4 id="卡方检验做特征选择"><a href="#卡方检验做特征选择" class="headerlink" title="卡方检验做特征选择"></a>卡方检验做特征选择</h4><p> 可以举个例子如下：<br> 比如我们有一堆分好类别的文本，我们要判断某个词是否属于这个类别，或者说词和类别之间是否独立，我们可以使用卡方检验来做特征选择，选取值比较大的，可以认为是显著相关的。因此我们需要统计下面这个表格：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1004,8 +1005,10 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>首先基于前面的介绍，原假设是词A和类别B之间是独立的<br>因此随机取一个一个文本，这个文本属于这个类别B的概率就是：(50+10)/105=0.57</p>
 <p>因此在假设成立的情况下有：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1036,9 +1039,11 @@
 </tr>
 </tbody>
 </table>
-<p>可以看出，如果词A和类别B独立，则这两个表应该很相近，因此我们计算其卡方值有：<br>$$\chi^2=\frac{(50-31)^2}{31} + \frac{(5-24)^2}{24} + \frac{(10-29)^2}{29} + \frac{(40-21)^2}{21}$$</p>
-<p><strong>因此我们可以就算每个词和每个类别的卡方值，选择其中值比较大的作为其特征，也就是显著与原假设不符的，也即不独立，是相关的。设置阈值。</strong></p>
+</div>
+<p>可以看出，如果词A和类别B独立，则这两个表应该很相近，因此我们计算其卡方值有：</p>
+<script type="math/tex; mode=display">\chi^2=\frac{(50-31)^2}{31} + \frac{(5-24)^2}{24} + \frac{(10-29)^2}{29} + \frac{(40-21)^2}{21}</script><p><strong>因此我们可以就算每个词和每个类别的卡方值，选择其中值比较大的作为其特征，也就是显著与原假设不符的，也即不独立，是相关的。设置阈值。</strong></p>
 <p>对于四表格$\chi^2$的值可以使用如下公式计算：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1069,9 +1074,9 @@
 </tr>
 </tbody>
 </table>
-<p>$$\chi^2=\frac{N*(AD-BC)^2}{(A+B)(C+D)(A+C)(B+D)}$$</p>
-<p>推导如下：<br>$$\chi^2=\frac{(A-p(A+B))^2}{p(A+B)} + \frac{(B-(1-p)(A+B))^2}{(1-p)(A+B)} + $$<br>$$ \frac{(C-p(C+D))^2}{p(C+D)} + \frac{(D-(1-p)(C+D))^2}{(1-p)(C+D)}$$ $$=\frac{N*(AD-BC)^2}{(A+B)(C+D)(A+C)(B+D)}$$</p>
-
+</div>
+<script type="math/tex; mode=display">\chi^2=\frac{N*(AD-BC)^2}{(A+B)(C+D)(A+C)(B+D)}</script><p>推导如下：</p>
+<script type="math/tex; mode=display">\chi^2=\frac{(A-p(A+B))^2}{p(A+B)} + \frac{(B-(1-p)(A+B))^2}{(1-p)(A+B)} +</script><script type="math/tex; mode=display">\frac{(C-p(C+D))^2}{p(C+D)} + \frac{(D-(1-p)(C+D))^2}{(1-p)(C+D)}$$ $$=\frac{N*(AD-BC)^2}{(A+B)(C+D)(A+C)(B+D)}</script>
           
         
       
@@ -1190,7 +1195,8 @@
       
         
           
-            <h4 id="一、移动光标"><a href="#一、移动光标" class="headerlink" title="一、移动光标"></a>一、移动光标</h4><table>
+            <h4 id="一、移动光标"><a href="#一、移动光标" class="headerlink" title="一、移动光标"></a>一、移动光标</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>操作</th>
@@ -1288,7 +1294,9 @@
 </tr>
 </tbody>
 </table>
-<h4 id="二、删除复制"><a href="#二、删除复制" class="headerlink" title="二、删除复制"></a>二、删除复制</h4><table>
+</div>
+<h4 id="二、删除复制"><a href="#二、删除复制" class="headerlink" title="二、删除复制"></a>二、删除复制</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>操作</th>
@@ -1342,7 +1350,9 @@
 </tr>
 </tbody>
 </table>
-<h4 id="三、插入模式"><a href="#三、插入模式" class="headerlink" title="三、插入模式"></a>三、插入模式</h4><table>
+</div>
+<h4 id="三、插入模式"><a href="#三、插入模式" class="headerlink" title="三、插入模式"></a>三、插入模式</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>操作</th>
@@ -1380,7 +1390,9 @@
 </tr>
 </tbody>
 </table>
-<h4 id="四、编辑"><a href="#四、编辑" class="headerlink" title="四、编辑"></a>四、编辑</h4><table>
+</div>
+<h4 id="四、编辑"><a href="#四、编辑" class="headerlink" title="四、编辑"></a>四、编辑</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>操作</th>
@@ -1442,7 +1454,9 @@
 </tr>
 </tbody>
 </table>
-<h4 id="五、查找替换"><a href="#五、查找替换" class="headerlink" title="五、查找替换"></a>五、查找替换</h4><table>
+</div>
+<h4 id="五、查找替换"><a href="#五、查找替换" class="headerlink" title="五、查找替换"></a>五、查找替换</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>操作</th>
@@ -1484,7 +1498,9 @@
 </tr>
 </tbody>
 </table>
-<h4 id="六、退出编辑器"><a href="#六、退出编辑器" class="headerlink" title="六、退出编辑器"></a>六、退出编辑器</h4><table>
+</div>
+<h4 id="六、退出编辑器"><a href="#六、退出编辑器" class="headerlink" title="六、退出编辑器"></a>六、退出编辑器</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>操作</th>
@@ -1514,7 +1530,9 @@
 </tr>
 </tbody>
 </table>
-<h4 id="七、多文件编辑"><a href="#七、多文件编辑" class="headerlink" title="七、多文件编辑"></a>七、多文件编辑</h4><table>
+</div>
+<h4 id="七、多文件编辑"><a href="#七、多文件编辑" class="headerlink" title="七、多文件编辑"></a>七、多文件编辑</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>操作</th>
@@ -1640,7 +1658,9 @@
 </tr>
 </tbody>
 </table>
-<h4 id="八、多标签编辑"><a href="#八、多标签编辑" class="headerlink" title="八、多标签编辑"></a>八、多标签编辑</h4><table>
+</div>
+<h4 id="八、多标签编辑"><a href="#八、多标签编辑" class="headerlink" title="八、多标签编辑"></a>八、多标签编辑</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>操作</th>
@@ -1690,6 +1710,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h4 id="九、执行shell命令"><a href="#九、执行shell命令" class="headerlink" title="九、执行shell命令"></a>九、执行shell命令</h4><p>1、在命令模式下输入”:sh”，可以运行相当于在字符模式下，到输入结束想回到VIM编辑器中用exit，ctrl+D返回VIM编辑器<br>2、可以”!command”，运行结束后自动回到VIM编辑器中<br>3、用“Ctrl+Z“回到shell，用fg返回编辑<br>4、:!make -&gt; 直接在当前目录下运行make指令          </p>
 <h4 id="十、VIM启动项"><a href="#十、VIM启动项" class="headerlink" title="十、VIM启动项"></a>十、VIM启动项</h4><p>-o[n] 以水平分屏的方式打开多个文件<br>-O[n] 以垂直分屏的方式打开多个文件         </p>
 <h4 id="十一、自动排版"><a href="#十一、自动排版" class="headerlink" title="十一、自动排版"></a>十一、自动排版</h4><p>在粘贴了一些代码之后，vim变得比较乱，只要执行gg=G就能搞定</p>
@@ -2083,7 +2104,7 @@
 <h4 id="新建标签"><a href="#新建标签" class="headerlink" title="新建标签"></a>新建标签</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git tag -a v1.4 -m 'my version 1.0'</div></pre></td></tr></table></figure>
 <h4 id="查看标签具体信息"><a href="#查看标签具体信息" class="headerlink" title="查看标签具体信息"></a>查看标签具体信息</h4> <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git show 版本</div></pre></td></tr></table></figure>
 <h4 id="分享标签"><a href="#分享标签" class="headerlink" title="分享标签"></a>分享标签</h4><p> 默认情况下，git push 并不会把标签传送到远端服务器上，只有通过显式命令才能分享标签到远端仓库。其命令格式如同推送分支，运行 git push origin [tagname] 即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin v1.5</div></pre></td></tr></table></figure></p>
-<p> 如果要一次推送所有本地新增的标签上去，可以使用 –tags 选项：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin --tags</div></pre></td></tr></table></figure></p>
+<p> 如果要一次推送所有本地新增的标签上去，可以使用 —tags 选项：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin --tags</div></pre></td></tr></table></figure></p>
 <h4 id="删除标签"><a href="#删除标签" class="headerlink" title="删除标签"></a>删除标签</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git tag -d v1.0</div></pre></td></tr></table></figure>
 
           

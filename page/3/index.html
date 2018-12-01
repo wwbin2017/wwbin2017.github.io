@@ -314,9 +314,9 @@
         
           
             <p>git 放弃本地修改<br>如果在修改时发现修改错误，而要放弃本地修改时，</p>
-<h4 id="第一种情况：未使用-git-add-缓存代码时。"><a href="#第一种情况：未使用-git-add-缓存代码时。" class="headerlink" title="第一种情况：未使用 git add 缓存代码时。"></a>第一种情况：未使用 git add 缓存代码时。</h4><p>可以使用 git checkout – filepathname (比如： git checkout – readme.md  ，不要忘记中间的 “–” ，不写就成了检出分支了！！)。放弃所以的文件修改可以使用 git checkout .  命令。<br>此命令用来放弃掉所有还没有加入到缓存区（就是 git add 命令）的修改：内容修改与整个文件删除。但是此命令不会删除掉刚新建的文件。因为刚新建的文件还没已有加入到 git 的管理系统中。所以对于git是未知的。自己手动删除就好了。</p>
+<h4 id="第一种情况：未使用-git-add-缓存代码时。"><a href="#第一种情况：未使用-git-add-缓存代码时。" class="headerlink" title="第一种情况：未使用 git add 缓存代码时。"></a>第一种情况：未使用 git add 缓存代码时。</h4><p>可以使用 git checkout — filepathname (比如： git checkout — readme.md  ，不要忘记中间的 “—” ，不写就成了检出分支了！！)。放弃所以的文件修改可以使用 git checkout .  命令。<br>此命令用来放弃掉所有还没有加入到缓存区（就是 git add 命令）的修改：内容修改与整个文件删除。但是此命令不会删除掉刚新建的文件。因为刚新建的文件还没已有加入到 git 的管理系统中。所以对于git是未知的。自己手动删除就好了。</p>
 <h4 id="第二种情况：已经使用了-git-add-缓存了代码。"><a href="#第二种情况：已经使用了-git-add-缓存了代码。" class="headerlink" title="第二种情况：已经使用了  git add 缓存了代码。"></a>第二种情况：已经使用了  git add 缓存了代码。</h4><p>可以使用  git reset HEAD filepathname （比如： git reset HEAD readme.md）来放弃指定文件的缓存，放弃所以的缓存可以使用 git reset HEAD . 命令。<br>此命令用来清除 git  对于文件修改的缓存。相当于撤销 git add 命令所在的工作。在使用本命令后，本地的修改并不会消失，而是回到了如（一）所示的状态。继续用（一）中的操作，就可以放弃本地的修改。</p>
-<h4 id="第三种情况：已经用-git-commit-提交了代码。"><a href="#第三种情况：已经用-git-commit-提交了代码。" class="headerlink" title="第三种情况：已经用 git commit  提交了代码。"></a>第三种情况：已经用 git commit  提交了代码。</h4><p>可以使用 git reset –hard HEAD^ 来回退到上一次commit的状态。此命令可以用来回退到任意版本：git reset –hard  commitid<br>你可以使用 git log 命令来查看git的提交历史。git log 的输出如下,之一这里可以看到第一行就是 commitid：</p>
+<h4 id="第三种情况：已经用-git-commit-提交了代码。"><a href="#第三种情况：已经用-git-commit-提交了代码。" class="headerlink" title="第三种情况：已经用 git commit  提交了代码。"></a>第三种情况：已经用 git commit  提交了代码。</h4><p>可以使用 git reset —hard HEAD^ 来回退到上一次commit的状态。此命令可以用来回退到任意版本：git reset —hard  commitid<br>你可以使用 git log 命令来查看git的提交历史。git log 的输出如下,之一这里可以看到第一行就是 commitid：</p>
 
           
         
@@ -441,7 +441,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></div><div class="line">until [ $# -eq 0 ]</div><div class="line">do</div><div class="line">  echo "第一个参数为: $1 参数个数为: $#"</div><div class="line">  shift</div><div class="line">done</div></pre></td></tr></table></figure>
 <p>执行以上程序x_shift.sh：<br>$./x_shift.sh 1 2 3 4<br>结果显示如下：<br>第一个参数为: 1 参数个数为: 4<br>第一个参数为: 2 参数个数为: 3<br>第一个参数为: 3 参数个数为: 2<br>第一个参数为: 4 参数个数为: 1        </p>
 <p>从上可知 shift 命令每执行一次，变量的个数($#)减一，而变量值提前一位，下面代码用 until 和 shift 命令计算所有命令行参数的和。</p>
-<p>#shift 上档命令的应用(x_shift2.sh)<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></div><div class="line">if [ $# -eq 0 ]</div><div class="line">then</div><div class="line">  echo "Usage:x_shift2.sh 参数"</div><div class="line">  exit 1</div><div class="line">fi</div><div class="line">sum=0</div><div class="line">until [ $# -eq 0 ]</div><div class="line">do</div><div class="line">  sum=`expr $sum + $1`</div><div class="line">  shift</div><div class="line">done</div><div class="line">echo "sum is: $sum"</div></pre></td></tr></table></figure></p>
+<h1 id="shift-上档命令的应用-x-shift2-sh"><a href="#shift-上档命令的应用-x-shift2-sh" class="headerlink" title="shift 上档命令的应用(x_shift2.sh)"></a>shift 上档命令的应用(x_shift2.sh)</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></div><div class="line">if [ $# -eq 0 ]</div><div class="line">then</div><div class="line">  echo "Usage:x_shift2.sh 参数"</div><div class="line">  exit 1</div><div class="line">fi</div><div class="line">sum=0</div><div class="line">until [ $# -eq 0 ]</div><div class="line">do</div><div class="line">  sum=`expr $sum + $1`</div><div class="line">  shift</div><div class="line">done</div><div class="line">echo "sum is: $sum"</div></pre></td></tr></table></figure>
 <p>执行上述程序:<br>$x_shift2.sh 10 20 15<br>其显示结果为： 45</p>
 <p>Shift 命令还有另外一个重要用途, Bash 定义了9个位置变量，从 $1 到 $9,这并不意味着用户在命令行只能使用9个参数，借助 shift 命令可以访问多于9个的参数。<br>Shift 命令一次移动参数的个数由其所带的参数指定。例如当 shell 程序处理完前九个命令行参数后，可以使用 shift 9 命令把 $10 移到 $1。</p>
 <p>Shell中判断语句if中-z至-d的意思</p>
@@ -567,7 +567,8 @@
       
         
           
-            <h4 id="常用的"><a href="#常用的" class="headerlink" title="常用的$"></a>常用的$</h4><table>
+            <h4 id="常用的"><a href="#常用的" class="headerlink" title="常用的$"></a>常用的$</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>符号</th>
@@ -605,6 +606,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>$<em> 和 $@ 的区别<br>$</em> 和 $@ 都表示传递给函数或脚本的所有参数，不被双引号(“ “)包含时，都以”$1” “$2” … “$n” 的形式输出所有参数。  但是当它们被双引号(“ “)包含时，”$*“ 会将所有的参数作为一个整体，以”$1 $2 … $n”的形式输出所有参数；”$@” 会将各个参数分开，以”$1” “$2” … “$n” 的形式输出所有参数。</p>
 <p>$()与``都是用于命令替换的<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></div><div class="line">a=$(date +%Y%m%d)</div><div class="line">b=`date +%Y%m%d`</div><div class="line">echo $a</div><div class="line">echo $b</div></pre></td></tr></table></figure></p>
 <p>${} 待补充</p>
@@ -614,6 +616,7 @@
 <p>表达式和运算符之间要有空格，例如 2+2 是不对的，必须写成 2 + 2，这与我们熟悉的大多数编程语言不一样。<br>完整的表达式要被 ` ` 包含，注意这个字符不是常用的单引号.</p>
 <p>[] <em>左右两边有空格</em><br>条件表达式要放在方括号之间，并且要有空格，例如: [$a==$b] 是错误的，必须写成 [ $a == $b ]。</p>
 <h4 id="shell-表达式"><a href="#shell-表达式" class="headerlink" title="shell 表达式"></a>shell 表达式</h4><h5 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h5><p>下表列出了常用的算术运算符，假定变量 a 为 10，变量 b 为 20：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -665,8 +668,10 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>注意：条件表达式要放在方括号之间，并且要有空格，例如: [$a==$b] 是错误的，必须写成 [ $a == $b ]。</p>
 <h5 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h5><p>关系运算符只支持数字，不支持字符串，除非字符串的值是数字。<br>下表列出了常用的关系运算符，假定变量 a 为 10，变量 b 为 20：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -708,7 +713,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h5 id="布尔运算符"><a href="#布尔运算符" class="headerlink" title="布尔运算符"></a>布尔运算符</h5><p>下表列出了常用的布尔运算符，假定变量 a 为 10，变量 b 为 20：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -735,7 +742,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h5 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h5><p>以下介绍 Shell 的逻辑运算符，假定变量 a 为 10，变量 b 为 20:</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -757,8 +766,10 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>使用[[]]</p>
 <h5 id="字符串运算符"><a href="#字符串运算符" class="headerlink" title="字符串运算符"></a>字符串运算符</h5><p>下表列出了常用的字符串运算符，假定变量 a 为 “abc”，变量 b 为 “efg”：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -795,7 +806,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h5 id="文件测试运算符"><a href="#文件测试运算符" class="headerlink" title="文件测试运算符"></a>文件测试运算符</h5><p>文件测试运算符用于检测 Unix 文件的各种属性。<br>属性检测描述如下：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -872,6 +885,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 
           
         
@@ -1237,6 +1251,7 @@
             <h4 id="date"><a href="#date" class="headerlink" title="date"></a>date</h4><p>显示当前时间</p>
 <h4 id="后台运行程序"><a href="#后台运行程序" class="headerlink" title="后台运行程序"></a>后台运行程序</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">source test.sh &amp; #注销会停止</div><div class="line">nohup test.sh &amp;   # 退出继续运行</div></pre></td></tr></table></figure>
 <h4 id="定时任务"><a href="#定时任务" class="headerlink" title="定时任务"></a>定时任务</h4><p>命令 crontab<br>基本格式 :</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1267,6 +1282,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>第1列表示分钟1～59 每分钟用*或者 */1表示</p>
 <p>第2列表示小时1～23（0表示0点）</p>
 <p>第3列表示日期1～31</p>
@@ -1530,6 +1546,7 @@
           
             <h2 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h2><h5 id="新建博客页，md文件"><a href="#新建博客页，md文件" class="headerlink" title="新建博客页，md文件"></a>新建博客页，md文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> hexo new [layout] &lt;title&gt;</span></div></pre></td></tr></table></figure>
 <h5 id="生成静态网页"><a href="#生成静态网页" class="headerlink" title="生成静态网页"></a>生成静态网页</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> hexo generate</span></div><div class="line"><span class="meta">$</span><span class="bash"> hexo -g</span></div></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1539,17 +1556,19 @@
 </thead>
 <tbody>
 <tr>
-<td>-d，–deploy</td>
+<td>-d，—deploy</td>
 <td style="text-align:center">文件生成后立即部署网站</td>
 </tr>
 <tr>
-<td>-w， –watch</td>
+<td>-w， —watch</td>
 <td style="text-align:center">监视文件变动</td>
 </tr>
 </tbody>
 </table>
+</div>
 <h5 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h5><p>server<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> hexo server</span></div></pre></td></tr></table></figure></p>
 <p>启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/。" target="_blank" rel="external">http://localhost:4000/。</a></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1559,19 +1578,20 @@
 </thead>
 <tbody>
 <tr>
-<td>-p, –port</td>
+<td>-p, —port</td>
 <td style="text-align:center">重设端口</td>
 </tr>
 <tr>
-<td>-s, –static</td>
+<td>-s, —static</td>
 <td style="text-align:center">只使用静态文件</td>
 </tr>
 <tr>
-<td>-l, –log</td>
+<td>-l, —log</td>
 <td style="text-align:center">启动日记记录，使用覆盖记录格式</td>
 </tr>
 </tbody>
 </table>
+</div>
 
           
         
