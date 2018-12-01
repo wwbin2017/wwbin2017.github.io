@@ -242,6 +242,131 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/01/regular-expression-matching/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wwbin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wwbin的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/01/regular-expression-matching/" itemprop="url">regular_expression_matching</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-01T11:01:36+08:00">
+                2018-12-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="LeetCode-题目：candy-难度：hard"><a href="#LeetCode-题目：candy-难度：hard" class="headerlink" title="LeetCode 题目：candy 难度：hard"></a>LeetCode 题目：candy 难度：hard</h2><p>Given an input string (s) and a pattern (p), implement regular expression matching with support for ‘.’ and ‘*’.</p>
+<p>‘.’ Matches any single character.<br>‘*’ Matches zero or more of the preceding element.<br>The matching should cover the entire input string (not partial).</p>
+<p>Note:</p>
+<p>s could be empty and contains only lowercase letters a-z.<br>p could be empty and contains only lowercase letters a-z, and characters like . or *.</p>
+<p>这初见这个完全不知道怎么做，看了讨论能，发现暴力法就可以过，记录下，后面在思考下DP方法。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isMatch</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> p)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> isMatch(<span class="number">0</span>,s,<span class="number">0</span>,p);    </div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isMatch</span><span class="params">(<span class="keyword">int</span> i, <span class="built_in">string</span>&amp; s, <span class="keyword">int</span> j, <span class="built_in">string</span> &amp;p)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> sn = s.size(), pn = p.size();</div><div class="line">        <span class="keyword">if</span>(j == pn) <span class="keyword">return</span> i == sn;</div><div class="line">        <span class="keyword">if</span>(j &lt; pn <span class="number">-1</span> &amp;&amp; p[j+<span class="number">1</span>]==<span class="string">'*'</span>) &#123;</div><div class="line">            <span class="comment">// 当出现*的时候，选择不匹配</span></div><div class="line">            <span class="keyword">if</span>(isMatch(i, s, j+<span class="number">2</span>, p))<span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">            <span class="comment">// 当出现*的时候，选择匹配</span></div><div class="line">            <span class="keyword">if</span>(i &lt; sn &amp;&amp; (s[i] == p[j] || p[j] == <span class="string">'.'</span>)) &#123;</div><div class="line">                <span class="keyword">if</span>(isMatch(++i, s, j, p))<span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">if</span>(i &lt; sn &amp;&amp; (s[i] == p[j] || p[j] == <span class="string">'.'</span>)) &#123;</div><div class="line">                <span class="keyword">if</span>(isMatch(++i, s, ++j, p))<span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/24/candy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1397,168 +1522,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/22/特征提取/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wwbin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wwbin的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/22/特征提取/" itemprop="url">特征提取</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-22T20:28:27+08:00">
-                2018-04-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="文本特征"><a href="#文本特征" class="headerlink" title="文本特征"></a>文本特征</h4><p>常见的文本特征包括：一元，二元特征，词性特征，位置信息，以及分词之后词及短语等，当然一般需要去除停用之类的。（后期再补充）</p>
-<h4 id="特征提取"><a href="#特征提取" class="headerlink" title="特征提取"></a>特征提取</h4><p>在找到一些有用的文本特征之后，每个特征可能会有不同的重要程度，或者特征空间太大，因此需要进行特征选择。   </p>
-<ul>
-<li>特征项要能够确实标识文本内容;</li>
-<li>特征项具有将目标文本与其他文本相区分的能力;</li>
-<li>特征项的个数不能太多;</li>
-<li>特征项分离要比较容易实现</li>
-</ul>
-<p>常用的基于打分（或者投票）的特征提取有：</p>
-<ul>
-<li>TFIDF</li>
-<li>卡方</li>
-<li>互信息(Mutual Information)</li>
-<li>期望交叉熵(Expected Cross Entropy)</li>
-<li>比值比（Odds ratio, OR）</li>
-</ul>
-<h4 id="类别不平衡"><a href="#类别不平衡" class="headerlink" title="类别不平衡"></a>类别不平衡</h4><p>很多时候会出现类被不平衡的情况，特别是上述方法，类别多的会占优势。特别是当两个类别非常相似的时候，可以从分词的结果分析，有些应该在在一起的词被分开，导致结果错误的，可以添加到词典里面。</p>
-<p>常用的数据不平衡有一下方法：</p>
-<ul>
-<li>设置损失函数的权重</li>
-<li>欠采样<ul>
-<li>Edited Nearest Neighbor (ENN) :大部分k近邻样本都跟他自己本身的类别不一样</li>
-<li>Repeated Edited Nearest Neighbor：反复删除多类别的数据</li>
-<li>Tomek Link Removal：如果两个类别的数据的最近邻分别数彼此，删除多类别的</li>
-</ul>
-</li>
-<li>过采样方法<ul>
-<li>对少数类有放回的采样（最好控制一个比列，否则容易过拟合）</li>
-<li>Synthetic Minority Oversampling Technique(SMOTE) （这个方法很给力，能够产生新的数据）</li>
-</ul>
-</li>
-<li>EasyEnsemble：我觉得可以把多类别的数据分成几分，同时训练多个模型，然后用集成的方法组合一下。这样不会有欠采样数据丢失的情况，也不会有过采样方法的过拟合的情况。</li>
-</ul>
-<h4 id="自动特征提取"><a href="#自动特征提取" class="headerlink" title="自动特征提取"></a>自动特征提取</h4><p>文本表示是高纬度高稀疏的，特征表达能力很弱。有时候手动提取特征是很麻烦的事情，特别是你对数据没有很深的见解。因此，可以使用神经网络的方法try一下，省时，省力。</p>
-<ul>
-<li>fastText</li>
-<li>TextCNN</li>
-<li>TextRNN 可能短文本效果会好点</li>
-<li>TextRNN + Attention</li>
-<li>TextRCNN 将RNN和CNN结合   </li>
-</ul>
-<p>以上的模型对于深度学习来说都是比较简单的，可以快速尝试或者实现。当然目前还是黑盒子的，不好理解why。</p>
-<hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1609,7 +1572,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
