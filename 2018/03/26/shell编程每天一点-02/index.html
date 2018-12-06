@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="常用的$    符号 意义     $0 当前脚本的文件名     $n 传递给脚本或函数的参数。n 是一个数字，表示第几个参数。例如，第一个参数是$1，第二个参数是$2。     $# 传递给脚本或函数的参数个数。     $* 传递给脚本或函数的所有参数。     $@ 传递给脚本或函数的所有参数。被双引号(“ “)包含时，与 $* 稍有不同，下面将会讲到。     $? 上个命令的退出状态，">
+<meta name="description" content="常用的$   符号 意义     $0 当前脚本的文件名     $n 传递给脚本或函数的参数。n 是一个数字，表示第几个参数。例如，第一个参数是$1，第二个参数是$2。     $# 传递给脚本或函数的参数个数。     $* 传递给脚本或函数的所有参数。     $@ 传递给脚本或函数的所有参数。被双引号(“ “)包含时，与 $* 稍有不同，下面将会讲到。     $? 上个命令的退出状态，或">
 <meta name="keywords" content="SHELL编程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="shell编程每天一点 02">
 <meta property="og:url" content="http://yoursite.com/2018/03/26/shell编程每天一点-02/index.html">
 <meta property="og:site_name" content="wwbin的博客">
-<meta property="og:description" content="常用的$    符号 意义     $0 当前脚本的文件名     $n 传递给脚本或函数的参数。n 是一个数字，表示第几个参数。例如，第一个参数是$1，第二个参数是$2。     $# 传递给脚本或函数的参数个数。     $* 传递给脚本或函数的所有参数。     $@ 传递给脚本或函数的所有参数。被双引号(“ “)包含时，与 $* 稍有不同，下面将会讲到。     $? 上个命令的退出状态，">
+<meta property="og:description" content="常用的$   符号 意义     $0 当前脚本的文件名     $n 传递给脚本或函数的参数。n 是一个数字，表示第几个参数。例如，第一个参数是$1，第二个参数是$2。     $# 传递给脚本或函数的参数个数。     $* 传递给脚本或函数的所有参数。     $@ 传递给脚本或函数的所有参数。被双引号(“ “)包含时，与 $* 稍有不同，下面将会讲到。     $? 上个命令的退出状态，或">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-03-26T15:29:20.597Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shell编程每天一点 02">
-<meta name="twitter:description" content="常用的$    符号 意义     $0 当前脚本的文件名     $n 传递给脚本或函数的参数。n 是一个数字，表示第几个参数。例如，第一个参数是$1，第二个参数是$2。     $# 传递给脚本或函数的参数个数。     $* 传递给脚本或函数的所有参数。     $@ 传递给脚本或函数的所有参数。被双引号(“ “)包含时，与 $* 稍有不同，下面将会讲到。     $? 上个命令的退出状态，">
+<meta name="twitter:description" content="常用的$   符号 意义     $0 当前脚本的文件名     $n 传递给脚本或函数的参数。n 是一个数字，表示第几个参数。例如，第一个参数是$1，第二个参数是$2。     $# 传递给脚本或函数的参数个数。     $* 传递给脚本或函数的所有参数。     $@ 传递给脚本或函数的所有参数。被双引号(“ “)包含时，与 $* 稍有不同，下面将会讲到。     $? 上个命令的退出状态，或">
 
 
 
@@ -310,8 +310,7 @@
       
 
       
-        <h4 id="常用的"><a href="#常用的" class="headerlink" title="常用的$"></a>常用的$</h4><div class="table-container">
-<table>
+        <h4 id="常用的"><a href="#常用的" class="headerlink" title="常用的$"></a>常用的$</h4><table>
 <thead>
 <tr>
 <th>符号</th>
@@ -349,7 +348,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>$<em> 和 $@ 的区别<br>$</em> 和 $@ 都表示传递给函数或脚本的所有参数，不被双引号(“ “)包含时，都以”$1” “$2” … “$n” 的形式输出所有参数。  但是当它们被双引号(“ “)包含时，”$*“ 会将所有的参数作为一个整体，以”$1 $2 … $n”的形式输出所有参数；”$@” 会将各个参数分开，以”$1” “$2” … “$n” 的形式输出所有参数。</p>
 <p>$()与``都是用于命令替换的<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></div><div class="line">a=$(date +%Y%m%d)</div><div class="line">b=`date +%Y%m%d`</div><div class="line">echo $a</div><div class="line">echo $b</div></pre></td></tr></table></figure></p>
 <p>${} 待补充</p>
@@ -359,7 +357,6 @@
 <p>表达式和运算符之间要有空格，例如 2+2 是不对的，必须写成 2 + 2，这与我们熟悉的大多数编程语言不一样。<br>完整的表达式要被 ` ` 包含，注意这个字符不是常用的单引号.</p>
 <p>[] <em>左右两边有空格</em><br>条件表达式要放在方括号之间，并且要有空格，例如: [$a==$b] 是错误的，必须写成 [ $a == $b ]。</p>
 <h4 id="shell-表达式"><a href="#shell-表达式" class="headerlink" title="shell 表达式"></a>shell 表达式</h4><h5 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h5><p>下表列出了常用的算术运算符，假定变量 a 为 10，变量 b 为 20：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -411,10 +408,8 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>注意：条件表达式要放在方括号之间，并且要有空格，例如: [$a==$b] 是错误的，必须写成 [ $a == $b ]。</p>
 <h5 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h5><p>关系运算符只支持数字，不支持字符串，除非字符串的值是数字。<br>下表列出了常用的关系运算符，假定变量 a 为 10，变量 b 为 20：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -456,9 +451,7 @@
 </tr>
 </tbody>
 </table>
-</div>
 <h5 id="布尔运算符"><a href="#布尔运算符" class="headerlink" title="布尔运算符"></a>布尔运算符</h5><p>下表列出了常用的布尔运算符，假定变量 a 为 10，变量 b 为 20：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -485,9 +478,7 @@
 </tr>
 </tbody>
 </table>
-</div>
 <h5 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h5><p>以下介绍 Shell 的逻辑运算符，假定变量 a 为 10，变量 b 为 20:</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -509,10 +500,8 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>使用[[]]</p>
 <h5 id="字符串运算符"><a href="#字符串运算符" class="headerlink" title="字符串运算符"></a>字符串运算符</h5><p>下表列出了常用的字符串运算符，假定变量 a 为 “abc”，变量 b 为 “efg”：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -549,9 +538,7 @@
 </tr>
 </tbody>
 </table>
-</div>
 <h5 id="文件测试运算符"><a href="#文件测试运算符" class="headerlink" title="文件测试运算符"></a>文件测试运算符</h5><p>文件测试运算符用于检测 Unix 文件的各种属性。<br>属性检测描述如下：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -628,7 +615,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 
       
     </div>
@@ -748,7 +734,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -761,7 +747,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
