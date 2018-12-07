@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="差分简介差分进化算法（differential evolution，DE）1995年Store和Price提出的一种计算方法。是一种基于种群的全局搜索算法。 差分算法原理 初始化  设$D$为个体的维数，$NP$为种群的规模，$t$为进化的代数，$X(t)$为$t$代种群，首先初始化第0代种群：$$X(0) ={x_1(0),…, x_{NP}(0)}$$   变异算子  针对第$i$个基准向量$">
+<meta name="description" content="差分简介差分进化算法（differential evolution，DE）1995年Store和Price提出的一种计算方法。是一种基于种群的全局搜索算法。 差分算法原理 初始化  设$D$为个体的维数，$NP$为种群的规模，$t$为进化的代数，$X(t)$为$t$代种群，首先初始化第0代种群：  X(0) ={x\_1(0),..., x\_{NP}(0)}   变异算子  针对第$i$个基准向">
 <meta name="keywords" content="差分进化算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="差分进化算法">
 <meta property="og:url" content="http://yoursite.com/2017/11/08/差分进化算法/index.html">
 <meta property="og:site_name" content="wwbin的博客">
-<meta property="og:description" content="差分简介差分进化算法（differential evolution，DE）1995年Store和Price提出的一种计算方法。是一种基于种群的全局搜索算法。 差分算法原理 初始化  设$D$为个体的维数，$NP$为种群的规模，$t$为进化的代数，$X(t)$为$t$代种群，首先初始化第0代种群：$$X(0) ={x_1(0),…, x_{NP}(0)}$$   变异算子  针对第$i$个基准向量$">
+<meta property="og:description" content="差分简介差分进化算法（differential evolution，DE）1995年Store和Price提出的一种计算方法。是一种基于种群的全局搜索算法。 差分算法原理 初始化  设$D$为个体的维数，$NP$为种群的规模，$t$为进化的代数，$X(t)$为$t$代种群，首先初始化第0代种群：  X(0) ={x\_1(0),..., x\_{NP}(0)}   变异算子  针对第$i$个基准向">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-08T01:14:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="差分进化算法">
-<meta name="twitter:description" content="差分简介差分进化算法（differential evolution，DE）1995年Store和Price提出的一种计算方法。是一种基于种群的全局搜索算法。 差分算法原理 初始化  设$D$为个体的维数，$NP$为种群的规模，$t$为进化的代数，$X(t)$为$t$代种群，首先初始化第0代种群：$$X(0) ={x_1(0),…, x_{NP}(0)}$$   变异算子  针对第$i$个基准向量$">
+<meta name="twitter:description" content="差分简介差分进化算法（differential evolution，DE）1995年Store和Price提出的一种计算方法。是一种基于种群的全局搜索算法。 差分算法原理 初始化  设$D$为个体的维数，$NP$为种群的规模，$t$为进化的代数，$X(t)$为$t$代种群，首先初始化第0代种群：  X(0) ={x\_1(0),..., x\_{NP}(0)}   变异算子  针对第$i$个基准向">
 
 
 
@@ -314,21 +314,23 @@
 <h4 id="差分算法原理"><a href="#差分算法原理" class="headerlink" title="差分算法原理"></a>差分算法原理</h4><ul>
 <li><p>初始化</p>
 <ul>
-<li>设$D$为个体的维数，$NP$为种群的规模，$t$为进化的代数，$X(t)$为$t$代种群，首先初始化第0代种群：<br>$$X(0) ={x_1(0),…, x_{NP}(0)}$$</li>
+<li>设$D$为个体的维数，$NP$为种群的规模，$t$为进化的代数，$X(t)$为$t$代种群，首先初始化第0代种群：  <script type="math/tex; mode=display">X(0) ={x\_1(0),..., x\_{NP}(0)}</script></li>
 </ul>
 </li>
 <li><p>变异算子</p>
 <ul>
-<li>针对第$i$个基准向量$x_i(t)$的变异操作是：从种群中选择三个向量$x_{r1}(t)$，$x_{r2}(t)$，$x_{r3}(t)$，其中$r1$，$r2$，$r3$是互不相同的整数,F是DE的缩放因子，在[0,1]之间。<br>DE/rand/1<br>$$V_i(t) = x_{r1}(t) + F*(x_{r2}(t) - x_{r3}(t))$$</li>
-<li>其他变异算子<br>DE/rand/2<br>$$V_i(t) = x_{r1}(t) + F*(x_{r2}(t) - x_{r3}(t)) + F*(x_{r4}(t) - x_{r5}(t))$$<br>DE/best/1<br>$$V_i(t) = x_{best}(t) + F*(x_{r2}(t) - x_{r3}(t))$$<br>DE/best/2<br>$$V_i(t) = x_{best}(t) + F*(x_{r2}(t) - x_{r3}(t) + F*(x_{r4}(t) - x_{r5}(t)$$<br>DE/current-to-best/1<br>$$V_i(t) = x_{i}(t) + F*(x_{best}(t) - x_{i}(t) + F*(x_{r1}(t) - x_{r2}(t)$$  </li>
+<li>针对第$i$个基准向量$x_i(t)$的变异操作是：从种群中选择三个向量$x_{r1}(t)$，$x_{r2}(t)$，$x_{r3}(t)$，其中$r1$，$r2$，$r3$是互不相同的整数,F是DE的缩放因子，在[0,1]之间。<br>DE/rand/1<script type="math/tex; mode=display">V\_i(t) = x\_{r1}(t) + F*(x\_{r2}(t) - x\_{r3}(t))</script></li>
+<li>其他变异算子<br>DE/rand/2<script type="math/tex; mode=display">V\_i(t) = x\_{r1}(t) + F\*(x\_{r2}(t) - x\_{r3}(t)) + F\*(x\_{r4}(t) - x\_{r5}(t))</script>DE/best/1  <script type="math/tex; mode=display">V\_i(t) = x\_{best}(t) + F\*(x\_{r2}(t) - x\_{r3}(t))</script>DE/best/2  <script type="math/tex; mode=display">V\_i(t) = x\_{best}(t) + F\*(x\_{r2}(t) - x\_{r3}(t) + F\*(x\_{r4}(t) - x\_{r5}(t)</script>DE/current-to-best/1<script type="math/tex; mode=display">V\_i(t) = x\_{i}(t) + F\*(x\_{best}(t) - x\_{i}(t) + F\*(x\_{r1}(t) - x\_{r2}(t)</script></li>
 </ul>
 </li>
 <li><p>修补算子</p>
 </li>
-<li><p>杂交算子<br>if $ rand_{i}[0,1]&lt;Cr$ or $j=j_{rand}$<br>$$u_{i,j}(t) = v_{i,j}(t) $$<br>otherwise<br>$$u_{i,j}(t) = x_{i,j}(t) $$</p>
-</li>
-<li><p>选择算子<br>DE的选择操作是一种基于贪婪的选择机制，哪个好，选择哪个<br>if $f(X_{i}(t))$&lt;$f(u_{i}(t))$<br>$$X_{i}(t+1)=X_{i}(t)$$<br>if $f(X_{i}(t))$&gt;$f(u_{i}(t))$<br>$$X_{i}(t+1)=u_{i}(t)$$</p>
-</li>
+<li><p>杂交算子<br>if $ rand_{i}[0,1]&lt;Cr$ or $j=j_{rand}$  </p>
+<script type="math/tex; mode=display">u\_{i,j}(t) = v\_{i,j}(t)</script><p>otherwise  </p>
+<script type="math/tex; mode=display">u\_{i,j}(t) = x\_{i,j}(t)</script></li>
+<li><p>选择算子<br>DE的选择操作是一种基于贪婪的选择机制，哪个好，选择哪个<br>if $f(X_{i}(t))$&lt;$f(u_{i}(t))$</p>
+<script type="math/tex; mode=display">X\_{i}(t+1)=X\_{i}(t)</script><p>if $f(X_{i}(t))$&gt;$f(u_{i}(t))$</p>
+<script type="math/tex; mode=display">X\_{i}(t+1)=u\_{i}(t)</script></li>
 <li><p>Matlab代码</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">clear all</div><div class="line">clc</div></pre></td></tr></table></figure>
 </li>
