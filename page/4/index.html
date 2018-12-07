@@ -242,6 +242,165 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/23/shell编程每天一点-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wwbin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wwbin的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/23/shell编程每天一点-01/" itemprop="url">shell编程每天一点 01</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-23T23:53:09+08:00">
+                2018-03-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="date"><a href="#date" class="headerlink" title="date"></a>date</h4><p>显示当前时间</p>
+<h4 id="后台运行程序"><a href="#后台运行程序" class="headerlink" title="后台运行程序"></a>后台运行程序</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">source test.sh &amp; #注销会停止</div><div class="line">nohup test.sh &amp;   # 退出继续运行</div></pre></td></tr></table></figure>
+<h4 id="定时任务"><a href="#定时任务" class="headerlink" title="定时任务"></a>定时任务</h4><p>命令 crontab<br>基本格式 :</p>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td style="text-align:center">*</td>
+<td style="text-align:center">*</td>
+<td style="text-align:center">*</td>
+<td style="text-align:center">*</td>
+<td style="text-align:center">command</td>
+</tr>
+<tr>
+<td>分　</td>
+<td style="text-align:center">时　</td>
+<td style="text-align:center">日　</td>
+<td style="text-align:center">月　</td>
+<td style="text-align:center">周　</td>
+<td style="text-align:center">命令</td>
+</tr>
+</tbody>
+</table>
+<p>第1列表示分钟1～59 每分钟用*或者 */1表示</p>
+<p>第2列表示小时1～23（0表示0点）</p>
+<p>第3列表示日期1～31</p>
+<p>第4列表示月份1～12</p>
+<p>第5列标识号星期0～6（0表示星期天）</p>
+<p>第6列要运行的命令<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash">crontab -e <span class="comment"># 默认使用vim打开crontab</span></span></div></pre></td></tr></table></figure></p>
+<p>crontab文件的一些例子：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash">每晚的21:30重启apache。</span></div><div class="line">30 21 * * * /usr/local/etc/rc.d/lighttpd restart</div><div class="line"><span class="meta">#</span><span class="bash">每月1、10、22日</span></div><div class="line">45 4 1,10,22 * * /usr/local/etc/rc.d/lighttpd restart</div><div class="line"><span class="meta">#</span><span class="bash">每天早上6点10分</span></div><div class="line">10 6 * * * date</div><div class="line"><span class="meta">#</span><span class="bash">每两个小时</span></div><div class="line">0 */2 * * * date</div><div class="line"><span class="meta">#</span><span class="bash">晚上11点到早上8点之间每两个小时，早上8点</span></div><div class="line">0 23-7/2，8 * * * date</div><div class="line"><span class="meta">#</span><span class="bash">每个月的4号和每个礼拜的礼拜一到礼拜三的早上11点</span></div><div class="line">0 11 4 * mon-wed date</div><div class="line"><span class="meta">#</span><span class="bash">1月份日早上4点</span></div><div class="line">0 4 1 jan * date</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/23/shell编程每天一点/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -448,8 +607,8 @@
       
         
           
-            <h2 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h2><h5 id="新建博客页，md文件"><a href="#新建博客页，md文件" class="headerlink" title="新建博客页，md文件"></a>新建博客页，md文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> hexo new [layout] &lt;title&gt;</div></pre></td></tr></table></figure>
-<h5 id="生成静态网页"><a href="#生成静态网页" class="headerlink" title="生成静态网页"></a>生成静态网页</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> hexo generate</div><div class="line"><span class="meta">$</span> hexo -g</div></pre></td></tr></table></figure>
+            <h2 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h2><h5 id="新建博客页，md文件"><a href="#新建博客页，md文件" class="headerlink" title="新建博客页，md文件"></a>新建博客页，md文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> hexo new [layout] &lt;title&gt;</span></div></pre></td></tr></table></figure>
+<h5 id="生成静态网页"><a href="#生成静态网页" class="headerlink" title="生成静态网页"></a>生成静态网页</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> hexo generate</span></div><div class="line"><span class="meta">$</span><span class="bash"> hexo -g</span></div></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -468,7 +627,7 @@
 </tr>
 </tbody>
 </table>
-<h5 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h5><p>server<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> hexo server</div></pre></td></tr></table></figure></p>
+<h5 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h5><p>server<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> hexo server</span></div></pre></td></tr></table></figure></p>
 <p>启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/。" target="_blank" rel="external">http://localhost:4000/。</a></p>
 <table>
 <thead>
@@ -1395,145 +1554,6 @@
 <p>当发生冲突的时候，需要打开对应的文件，解决冲突。其中冲突文件中“==========”以上是HEAD内容，以下是需要合并的内容。</p>
 <h4 id="更改提交的操作"><a href="#更改提交的操作" class="headerlink" title="更改提交的操作"></a>更改提交的操作</h4><p>回溯之前的提交<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reset --hard ‘提交的hash值’ #</div></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit amend # 修改提交信息</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/02/GitHub基础/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wwbin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wwbin的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/02/GitHub基础/" itemprop="url">GitHub基础</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-02T22:08:21+08:00">
-                2017-11-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="GitHub提供的主要功能"><a href="#GitHub提供的主要功能" class="headerlink" title="GitHub提供的主要功能"></a>GitHub提供的主要功能</h3><ul>
-<li>Git仓库<ul>
-<li>建立任意个Git仓库</li>
-</ul>
-</li>
-<li>Organization</li>
-<li>Issue<ul>
-<li>将一个任务或者问题分配给一个Issue进行追踪和管理的功能。每一个功能更改或者修改都对应一个Issue，讨论或者修改都以这个Issue为中心。</li>
-</ul>
-</li>
-<li>Wiki<ul>
-<li>协同完成一篇文章。</li>
-</ul>
-</li>
-<li>Pull Request<ul>
-<li>开发者向github推送更改或者添加功能，通过 pull request 提出申请，并且提供对代码讨论的功能。</li>
-</ul>
-</li>
-</ul>
-<hr>
 
           
         
