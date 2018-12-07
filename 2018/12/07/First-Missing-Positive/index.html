@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="差分进化算法," />
+  <meta name="keywords" content="leetcode," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="差分简介差分进化算法（differential evolution，DE）1995年Store和Price提出的一种计算方法。是一种基于种群的全局搜索算法。 差分算法原理 初始化  设$D$为个体的维数，$NP$为种群的规模，$t$为进化的代数，$X(t)$为$t$代种群，首先初始化第0代种群：$$X(0) ={x_1(0),…, x_{NP}(0)}$$   变异算子  针对第$i$个基准向量$">
-<meta name="keywords" content="差分进化算法">
+<meta name="description" content="LeetCode 题目：First Missing Positive 难度：hardGiven an unsorted integer array, find the smallest missing positive integer. Example 1: Input: [1,2,0]Output: 3Example 2: Input: [3,4,-1,1]Output: 2Example 3:">
+<meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="差分进化算法">
-<meta property="og:url" content="http://yoursite.com/2017/11/08/差分进化算法/index.html">
+<meta property="og:title" content="First Missing Positive">
+<meta property="og:url" content="http://yoursite.com/2018/12/07/First-Missing-Positive/index.html">
 <meta property="og:site_name" content="wwbin的博客">
-<meta property="og:description" content="差分简介差分进化算法（differential evolution，DE）1995年Store和Price提出的一种计算方法。是一种基于种群的全局搜索算法。 差分算法原理 初始化  设$D$为个体的维数，$NP$为种群的规模，$t$为进化的代数，$X(t)$为$t$代种群，首先初始化第0代种群：$$X(0) ={x_1(0),…, x_{NP}(0)}$$   变异算子  针对第$i$个基准向量$">
+<meta property="og:description" content="LeetCode 题目：First Missing Positive 难度：hardGiven an unsorted integer array, find the smallest missing positive integer. Example 1: Input: [1,2,0]Output: 3Example 2: Input: [3,4,-1,1]Output: 2Example 3:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-08T09:14:58.226Z">
+<meta property="og:updated_time" content="2018-12-07T14:57:08.244Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="差分进化算法">
-<meta name="twitter:description" content="差分简介差分进化算法（differential evolution，DE）1995年Store和Price提出的一种计算方法。是一种基于种群的全局搜索算法。 差分算法原理 初始化  设$D$为个体的维数，$NP$为种群的规模，$t$为进化的代数，$X(t)$为$t$代种群，首先初始化第0代种群：$$X(0) ={x_1(0),…, x_{NP}(0)}$$   变异算子  针对第$i$个基准向量$">
+<meta name="twitter:title" content="First Missing Positive">
+<meta name="twitter:description" content="LeetCode 题目：First Missing Positive 难度：hardGiven an unsorted integer array, find the smallest missing positive integer. Example 1: Input: [1,2,0]Output: 3Example 2: Input: [3,4,-1,1]Output: 2Example 3:">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/08/差分进化算法/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/12/07/First-Missing-Positive/"/>
 
 
 
 
 
-  <title>差分进化算法 | wwbin的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>First Missing Positive | wwbin的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/08/差分进化算法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/07/First-Missing-Positive/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wwbin">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">差分进化算法</h1>
+          <h1 class="post-title" itemprop="name headline">First Missing Positive</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-08T15:21:31+08:00">
-                2017-11-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-07T22:54:17+08:00">
+                2018-12-07
               </time>
             
 
@@ -310,30 +310,13 @@
       
 
       
-        <h4 id="差分简介"><a href="#差分简介" class="headerlink" title="差分简介"></a>差分简介</h4><p>差分进化算法（differential evolution，DE）1995年Store和Price提出的一种计算方法。是一种基于种群的全局搜索算法。</p>
-<h4 id="差分算法原理"><a href="#差分算法原理" class="headerlink" title="差分算法原理"></a>差分算法原理</h4><ul>
-<li><p>初始化</p>
-<ul>
-<li>设$D$为个体的维数，$NP$为种群的规模，$t$为进化的代数，$X(t)$为$t$代种群，首先初始化第0代种群：<br>$$X(0) ={x_1(0),…, x_{NP}(0)}$$</li>
-</ul>
-</li>
-<li><p>变异算子</p>
-<ul>
-<li>针对第$i$个基准向量$x_i(t)$的变异操作是：从种群中选择三个向量$x_{r1}(t)$，$x_{r2}(t)$，$x_{r3}(t)$，其中$r1$，$r2$，$r3$是互不相同的整数,F是DE的缩放因子，在[0,1]之间。<br>DE/rand/1<br>$$V_i(t) = x_{r1}(t) + F*(x_{r2}(t) - x_{r3}(t))$$</li>
-<li>其他变异算子<br>DE/rand/2<br>$$V_i(t) = x_{r1}(t) + F*(x_{r2}(t) - x_{r3}(t)) + F*(x_{r4}(t) - x_{r5}(t))$$<br>DE/best/1<br>$$V_i(t) = x_{best}(t) + F*(x_{r2}(t) - x_{r3}(t))$$<br>DE/best/2<br>$$V_i(t) = x_{best}(t) + F*(x_{r2}(t) - x_{r3}(t) + F*(x_{r4}(t) - x_{r5}(t)$$<br>DE/current-to-best/1<br>$$V_i(t) = x_{i}(t) + F*(x_{best}(t) - x_{i}(t) + F*(x_{r1}(t) - x_{r2}(t)$$  </li>
-</ul>
-</li>
-<li><p>修补算子</p>
-</li>
-<li><p>杂交算子<br>if $ rand_{i}[0,1]&lt;Cr$ or $j=j_{rand}$<br>$$u_{i,j}(t) = v_{i,j}(t) $$<br>otherwise<br>$$u_{i,j}(t) = x_{i,j}(t) $$</p>
-</li>
-<li><p>选择算子<br>DE的选择操作是一种基于贪婪的选择机制，哪个好，选择哪个<br>if $f(X_{i}(t))$&lt;$f(u_{i}(t))$<br>$$X_{i}(t+1)=X_{i}(t)$$<br>if $f(X_{i}(t))$&gt;$f(u_{i}(t))$<br>$$X_{i}(t+1)=u_{i}(t)$$</p>
-</li>
-<li><p>Matlab代码</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">clear all</div><div class="line">clc</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
+        <h2 id="LeetCode-题目：First-Missing-Positive-难度：hard"><a href="#LeetCode-题目：First-Missing-Positive-难度：hard" class="headerlink" title="LeetCode 题目：First Missing Positive 难度：hard"></a>LeetCode 题目：First Missing Positive 难度：hard</h2><p>Given an unsorted integer array, find the smallest missing positive integer.</p>
+<p>Example 1:</p>
+<p>Input: [1,2,0]<br>Output: 3<br>Example 2:</p>
+<p>Input: [3,4,-1,1]<br>Output: 2<br>Example 3:</p>
+<p>Input: [7,8,9,11,12]<br>Output: 1<br>Note:</p>
+<p>Your algorithm should run in O(n) time and uses constant extra space.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">firstMissingPositive</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> base = <span class="number">100</span>;</div><div class="line">        <span class="keyword">int</span> num[base]&#123;<span class="number">0</span>&#125;;</div><div class="line">        <span class="keyword">for</span>(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it = nums.begin(); it != nums.end(); ++it) &#123;</div><div class="line">            <span class="keyword">if</span>((*it) &lt; <span class="number">1</span>) <span class="keyword">continue</span>;</div><div class="line">            <span class="keyword">int</span> tmp = (*it<span class="number">-1</span>)%base;</div><div class="line">            <span class="keyword">int</span> t = (*it<span class="number">-1</span>)/base;</div><div class="line">            num[tmp] |= (<span class="number">1</span>&lt;&lt;t);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> b = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt; base; ++i) &#123;</div><div class="line">                <span class="keyword">if</span>((num[i]&amp;(<span class="number">1</span>&lt;&lt;b))&lt;=<span class="number">0</span>)&#123;</div><div class="line">                    <span class="keyword">return</span> base*b + (i+<span class="number">1</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            b += <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -351,7 +334,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/差分进化算法/" rel="tag"># 差分进化算法</a>
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
           
         </div>
       
@@ -364,8 +347,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/06/中文分词/" rel="next" title="中文分词">
-                <i class="fa fa-chevron-left"></i> 中文分词
+              <a href="/2018/12/07/Longest-Valid-Parentheses/" rel="next" title="Longest Valid Parentheses">
+                <i class="fa fa-chevron-left"></i> Longest Valid Parentheses
               </a>
             
           </div>
@@ -373,10 +356,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/29/堆排序/" rel="prev" title="堆排序">
-                堆排序 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -501,7 +480,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#差分简介"><span class="nav-number">1.</span> <span class="nav-text">差分简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#差分算法原理"><span class="nav-number">2.</span> <span class="nav-text">差分算法原理</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LeetCode-题目：First-Missing-Positive-难度：hard"><span class="nav-number">1.</span> <span class="nav-text">LeetCode 题目：First Missing Positive 难度：hard</span></a></li></ol></div>
             
 
           </div>
@@ -690,7 +669,7 @@
 
 
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -710,26 +689,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
