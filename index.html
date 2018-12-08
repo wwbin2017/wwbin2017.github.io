@@ -316,7 +316,15 @@
             <h3 id="python-lambda表达式"><a href="#python-lambda表达式" class="headerlink" title="python lambda表达式"></a>python lambda表达式</h3><p>lambda表达式，通常是在需要一个函数，但是又不想单独再定义个函数，也就是匿名函数，匿名函数应该尽量简单<br>Python提供了很多函数式编程的特性，如：map、reduce、filter、sorted等这些函数都支持函数作为参数，lambda函数就可以应用在函数式编程中。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">add = <span class="keyword">lambda</span> x, y : x+y</div><div class="line">add(<span class="number">1</span>,<span class="number">2</span>)  <span class="comment"># 结果为3</span></div><div class="line"><span class="comment"># 将列表中的元素按照绝对值大小进行升序排列</span></div><div class="line">list1 = [<span class="number">3</span>,<span class="number">5</span>,<span class="number">-4</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">-2</span>,<span class="number">-6</span>]</div><div class="line"><span class="comment"># sorted(data, cmp=None, key=None, reverse=False)  </span></div><div class="line">sorted(list1, key=<span class="keyword">lambda</span> x: abs(x))</div><div class="line"><span class="comment"># 当然，可以单独定义函数</span></div><div class="line"><span class="comment"># 只不过这种方式的代码看起来不够Pythonic</span></div><div class="line">list1 = [<span class="number">3</span>,<span class="number">5</span>,<span class="number">-4</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">-2</span>,<span class="number">-6</span>]</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_abs</span><span class="params">(x)</span>:</span></div><div class="line">    <span class="keyword">return</span> abs(x)</div><div class="line">sorted(list1,key=get_abs)</div></pre></td></tr></table></figure></p>
 <p>Python之禅： Explicit is better than implicit（明了胜于晦涩）</p>
 <p>python高级函数， 结合lambda表达式，可以方便很多<br>map、reduce、filter、sorted</p>
-<p>其他概念 “python闭包和装饰器”</p>
+<p>python进阶用法，后期学习下</p>
+<ul>
+<li>装饰器</li>
+<li>元类</li>
+<li>异步IO</li>
+<li>多线程</li>
+<li>数据同步</li>
+<li>闭包</li>
+</ul>
 
           
         
