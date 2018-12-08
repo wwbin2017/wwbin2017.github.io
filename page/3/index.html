@@ -242,6 +242,234 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/03/Linux基础-01-awk用法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="寒江雪">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="寒江雪的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/03/Linux基础-01-awk用法/" itemprop="url">Linux基础 01 awk用法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-03T21:57:57+08:00">
+                2018-04-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="awk基本用法"><a href="#awk基本用法" class="headerlink" title="awk基本用法"></a>awk基本用法</h4><table>
+<thead>
+<tr>
+<th>变量名</th>
+<th style="text-align:center">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$0</td>
+<td style="text-align:center">当前记录（作为单个变量）</td>
+</tr>
+<tr>
+<td>$1~$n</td>
+<td style="text-align:center">当前记录的第n个字段，字段间由FS分隔</td>
+</tr>
+<tr>
+<td>FS</td>
+<td style="text-align:center">输入字段分隔符 默认是空格</td>
+</tr>
+<tr>
+<td>NF</td>
+<td style="text-align:center">当前记录中的字段个数，就是有多少列</td>
+</tr>
+<tr>
+<td>NR</td>
+<td style="text-align:center">已经读出的记录数，就是行号，从1开始</td>
+</tr>
+<tr>
+<td>RS</td>
+<td style="text-align:center">输入的记录他隔符默 认为换行符</td>
+</tr>
+<tr>
+<td>OFS</td>
+<td style="text-align:center">输出字段分隔符 默认也是空格</td>
+</tr>
+<tr>
+<td>ORS</td>
+<td style="text-align:center">输出的记录分隔符，默认为换行符</td>
+</tr>
+<tr>
+<td>ARGC</td>
+<td style="text-align:center">命令行参数个数</td>
+</tr>
+<tr>
+<td>ARGV</td>
+<td style="text-align:center">命令行参数数组</td>
+</tr>
+<tr>
+<td>FILENAME</td>
+<td style="text-align:center">当前输入文件的名字  <em>得注意别重名了</em></td>
+</tr>
+<tr>
+<td>IGNORECASE</td>
+<td style="text-align:center">如果为真，则进行忽略大小写的匹配</td>
+</tr>
+<tr>
+<td>ARGIND</td>
+<td style="text-align:center">当前被处理文件的ARGV标志符</td>
+</tr>
+<tr>
+<td>CONVFMT</td>
+<td style="text-align:center">数字转换格式 %.6g</td>
+</tr>
+<tr>
+<td>ENVIRON</td>
+<td style="text-align:center">UNIX环境变量</td>
+</tr>
+<tr>
+<td>ERRNO</td>
+<td style="text-align:center">UNIX系统错误消息</td>
+</tr>
+<tr>
+<td>FIELDWIDTHS</td>
+<td style="text-align:center">输入字段宽度的空白分隔字符串</td>
+</tr>
+<tr>
+<td>FNR</td>
+<td style="text-align:center">当前记录数</td>
+</tr>
+<tr>
+<td>OFMT</td>
+<td style="text-align:center">数字的输出格式 %.6g</td>
+</tr>
+<tr>
+<td>RSTART</td>
+<td style="text-align:center">被匹配函数匹配的字符串首</td>
+</tr>
+<tr>
+<td>RLENGTH</td>
+<td style="text-align:center">被匹配函数匹配的字符串长度</td>
+</tr>
+<tr>
+<td>SUBSEP</td>
+<td style="text-align:center">\034</td>
+</tr>
+</tbody>
+</table>
+<p>在awk中调用系统变量必须用单引号，如果是双引号，则表示字符串<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">str=abcd</div><div class="line">awk '&#123;print '$str'&#125;'   # 结果为abcd</div><div class="line">awk '&#123;print  "$str"&#125;'   # 结果为$Flag</div></pre></td></tr></table></figure></p>
+<p>‘hllo world’</p>
+<p>awk获取外部变量，直接引用不行<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">test='awk code'</div><div class="line">echo | awk '&#123;print test&#125;' test="$test"</div><div class="line">echo | awk -v test="$test" '&#123;print test&#125;'</div></pre></td></tr></table></figure></p>
+<p>awk 流程控制语句（if,for,while,do)详细介绍</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span>!/bin/bash</div><div class="line">awk 'BEGIN&#123;</div><div class="line">test=100;</div><div class="line"><span class="meta">if(test&gt;</span>90)</div><div class="line">&#123;</div><div class="line">    print "very good";</div><div class="line">&#125;</div><div class="line">else if(test&gt;60)</div><div class="line">&#123;</div><div class="line">    print "good";</div><div class="line">&#125;</div><div class="line">else</div><div class="line">&#123;</div><div class="line">    print "no pass";</div><div class="line">&#125;</div><div class="line">&#125;'</div><div class="line"></div><div class="line">awk 'BEGIN&#123;</div><div class="line">test=100;</div><div class="line">total=0;</div><div class="line">while(i&lt;=test)</div><div class="line">&#123;</div><div class="line">    total+=i;</div><div class="line">    i++;</div><div class="line">&#125;</div><div class="line">print total;</div><div class="line">&#125;'</div><div class="line"></div><div class="line">awk 'BEGIN&#123;</div><div class="line">for(k in ENVIRON)</div><div class="line">&#123;</div><div class="line">    print k"="ENVIRON[k];</div><div class="line">&#125;</div><div class="line">&#125;'</div></pre></td></tr></table></figure>
+<p><a href="http://www.cnblogs.com/chengmo/archive/2010/10/08/1845913.html" target="_blank" rel="external">awk 内置函数</a></p>
+<h4 id="awk数组"><a href="#awk数组" class="headerlink" title="awk数组"></a>awk数组</h4><p>awk其实更像是一个字典类型，因为其下标可以是数字也可以是字符串</p>
+<p><a href="http://www.cnblogs.com/chengmo/archive/2010/10/08/1846190.html" target="_blank" rel="external">awk 数组</a></p>
+<p>判断键值存在以及删除键值：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">awk 'BEGIN&#123;tB["a"]="a1";tB["b"]="b1";</div><div class="line">if( "c" in tB)&#123;print "ok";&#125;;</div><div class="line">for(k in tB)&#123;print k,tB[k];&#125;&#125;'  </div><div class="line"></div><div class="line">awk 'BEGIN&#123;tB["a"]="a1";tB["b"]="b1";</div><div class="line">delete tB["a"];for(k in tB)&#123;print k,tB[k];&#125;&#125;'</div></pre></td></tr></table></figure></p>
+<p>if(key in array) 通过这种方法判断数组中是否包含”key”键值。</p>
+<p>delete array[key]可以删除，对应数组key的，序列值。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/01/卡方检验/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2271,126 +2499,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/25/HIVE基础-01/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="寒江雪">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="寒江雪的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/25/HIVE基础-01/" itemprop="url">HIVE基础 01</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-25T23:32:10+08:00">
-                2018-03-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Hive 架构图<br><img src="/2018/03/25/HIVE基础-01/Hive架构.png" alt="HIVE架构图"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2441,7 +2549,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
