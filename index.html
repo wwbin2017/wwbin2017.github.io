@@ -828,7 +828,7 @@
         
           
             <h3 id="redis-基本操作"><a href="#redis-基本操作" class="headerlink" title="redis 基本操作"></a>redis 基本操作</h3><p>以下实例我们在服务启动时设置最大连接数为 100000：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">redis-server --maxclients 100000</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">redis-server --maxclients 100000</div><div class="line"><span class="meta">#</span><span class="bash"> 客户端连接redis 服务器</span></div><div class="line">redis-cli -h 127.0.0.1 -p 6379 -a password</div><div class="line"><span class="meta">#</span><span class="bash"> 密码输入</span></div><div class="line">redis 127.0.0.1:6379&gt; auth password</div></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>

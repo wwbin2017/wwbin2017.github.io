@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="redis 基本操作以下实例我们在服务启动时设置最大连接数为 100000： 1redis-server --maxclients 100000    items opration     查询键 keys * 查询所有的键，会遍历所有的键值，复杂度O(n)   键总数 dbsize 查询键总数，直接获取redis内置的键总数变量，复杂度O(1)   检查键是否存在 exists key 存在返回">
+<meta name="description" content="redis 基本操作以下实例我们在服务启动时设置最大连接数为 100000： 12345redis-server --maxclients 100000# 客户端连接redis 服务器redis-cli -h 127.0.0.1 -p 6379 -a password# 密码输入redis 127.0.0.1:6379&amp;gt; auth password    items opration">
 <meta name="keywords" content="redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="redis 操作">
 <meta property="og:url" content="http://yoursite.com/2018/12/02/redis-操作/index.html">
 <meta property="og:site_name" content="寒江雪的博客">
-<meta property="og:description" content="redis 基本操作以下实例我们在服务启动时设置最大连接数为 100000： 1redis-server --maxclients 100000    items opration     查询键 keys * 查询所有的键，会遍历所有的键值，复杂度O(n)   键总数 dbsize 查询键总数，直接获取redis内置的键总数变量，复杂度O(1)   检查键是否存在 exists key 存在返回">
+<meta property="og:description" content="redis 基本操作以下实例我们在服务启动时设置最大连接数为 100000： 12345redis-server --maxclients 100000# 客户端连接redis 服务器redis-cli -h 127.0.0.1 -p 6379 -a password# 密码输入redis 127.0.0.1:6379&amp;gt; auth password    items opration">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-08T03:01:48.709Z">
+<meta property="og:updated_time" content="2018-12-08T03:07:30.406Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis 操作">
-<meta name="twitter:description" content="redis 基本操作以下实例我们在服务启动时设置最大连接数为 100000： 1redis-server --maxclients 100000    items opration     查询键 keys * 查询所有的键，会遍历所有的键值，复杂度O(n)   键总数 dbsize 查询键总数，直接获取redis内置的键总数变量，复杂度O(1)   检查键是否存在 exists key 存在返回">
+<meta name="twitter:description" content="redis 基本操作以下实例我们在服务启动时设置最大连接数为 100000： 12345redis-server --maxclients 100000# 客户端连接redis 服务器redis-cli -h 127.0.0.1 -p 6379 -a password# 密码输入redis 127.0.0.1:6379&amp;gt; auth password    items opration">
 
 
 
@@ -311,7 +311,7 @@
 
       
         <h3 id="redis-基本操作"><a href="#redis-基本操作" class="headerlink" title="redis 基本操作"></a>redis 基本操作</h3><p>以下实例我们在服务启动时设置最大连接数为 100000：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">redis-server --maxclients 100000</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">redis-server --maxclients 100000</div><div class="line"><span class="meta">#</span><span class="bash"> 客户端连接redis 服务器</span></div><div class="line">redis-cli -h 127.0.0.1 -p 6379 -a password</div><div class="line"><span class="meta">#</span><span class="bash"> 密码输入</span></div><div class="line">redis 127.0.0.1:6379&gt; auth password</div></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
