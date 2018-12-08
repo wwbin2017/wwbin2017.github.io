@@ -829,6 +829,68 @@
           
             <h3 id="redis-基本操作"><a href="#redis-基本操作" class="headerlink" title="redis 基本操作"></a>redis 基本操作</h3><p>以下实例我们在服务启动时设置最大连接数为 100000：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">redis-server --maxclients 100000</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">items</th>
+<th style="text-align:center">opration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">查询键</td>
+<td style="text-align:center">keys * 查询所有的键，会遍历所有的键值，复杂度O(n)</td>
+</tr>
+<tr>
+<td style="text-align:center">键总数</td>
+<td style="text-align:center">dbsize 查询键总数，直接获取redis内置的键总数变量，复杂度O(1)</td>
+</tr>
+<tr>
+<td style="text-align:center">检查键是否存在</td>
+<td style="text-align:center">exists key 存在返回1，不存在返回0</td>
+</tr>
+<tr>
+<td style="text-align:center">删除键O(k)</td>
+<td style="text-align:center">del key [key…] 返回结果为成功删除键的个数</td>
+</tr>
+<tr>
+<td style="text-align:center">键过期</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">expire key seconds</td>
+<td style="text-align:center">过期自动删除，key在seconds秒后过期</td>
+</tr>
+<tr>
+<td style="text-align:center">expireat key timestamp</td>
+<td style="text-align:center">键在秒级时间戳timestamp后过期</td>
+</tr>
+<tr>
+<td style="text-align:center">pexpire key milliseconds</td>
+<td style="text-align:center">过期自动删除，milliseconds毫秒后过期</td>
+</tr>
+<tr>
+<td style="text-align:center">pexpireat key milliseconds-timestamp</td>
+<td style="text-align:center">key在豪秒级时间戳timestamp后过期</td>
+</tr>
+<tr>
+<td style="text-align:center">ttl</td>
+<td style="text-align:center">查看剩余过期时间，单位：秒（&gt;0剩余过期时间；-1没设置过期时间；-2键不存在）pttl是毫秒</td>
+</tr>
+<tr>
+<td style="text-align:center">键的数据结构类型</td>
+<td style="text-align:center">type key 如果键不存在，则返回none</td>
+</tr>
+<tr>
+<td style="text-align:center">键重命名</td>
+<td style="text-align:center">rename key newkeyrenamenx key newkey 只有newkey不存会被覆盖</td>
+</tr>
+<tr>
+<td style="text-align:center">随机返回一个键</td>
+<td style="text-align:center">randomkey</td>
+</tr>
+</tbody>
+</table>
 
           
         
