@@ -242,6 +242,309 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/01/机器学习-主题模型-LDA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="寒江雪">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="寒江雪的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/01/机器学习-主题模型-LDA/" itemprop="url">机器学习 主题模型 LDA</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-01T15:12:14+08:00">
+                2018-05-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="LDA主题模型原理"><a href="#LDA主题模型原理" class="headerlink" title="LDA主题模型原理"></a>LDA主题模型原理</h4><p>LDA的数学推导还是很复杂的，但是最后的结果却是非常美观，解释比较容易。这里简单介绍一下LDA的一个过程，有时间会详细推导一遍（当然 ‘LDA数学八卦’ 就解释的很详细了）。<br>LDA涉及到的一些数学知识点有：</p>
+<ul>
+<li>先验概率，后验概率（贝叶斯学派），似然函数， 共轭分布</li>
+<li>二项分布，多项分布;Beta分布，Dirichlet分布 （涉及到伪计数）</li>
+<li>gibbs采样，变分推导</li>
+<li>常见的库有sklearn ，gensim， pLDA， LightLDA（python推荐gensim非常好用，速度也特别给力）</li>
+</ul>
+<p><img src="/2018/05/01/机器学习-主题模型-LDA/LDA" alt="LDA网络结构">  </p>
+<ul>
+<li>假设共有m篇文章,一共涉及了K个主题（人为设置）;</li>
+<li>每篇文章(长度为Nm)都有各自的主题分布,主题分布是多项分布,该多项分布的参数服从Dirichlet分布,该Dirichlet分布的参数为α;</li>
+<li>每个主题都有各自的词分布,词分布为多项分布,该多项分布的参数服从Dirichlet分布,该Dirichlet分布的参数为β;</li>
+<li>因此，整个文档的参数过程为：对于某篇文章中的第n个词,首先从该文章的主题分布中采样一个主题,然后在这个主题对应的词分布中采样一个词。不断重复这个随机生成过程,直到m篇文章全部完成上述过程。</li>
+</ul>
+<p>LDA 总结</p>
+<ul>
+<li>由于在词和文档之间加入的主题的概念,可以较好的解决一词多义和多词一义的问题。</li>
+<li>LDA可能对短文本的效果不是很好，可以把短文本连接成长文本</li>
+<li>LDA可以和其他算法相结合。首先使用LDA将长度为N的文档降维到K维(主题的数目),同时给出每个主题的概率(主题分布)，有点类似于降维。然后使用其他算法分析文本。</li>
+</ul>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">lda_gibbs</span><span class="params">(doc_word, words_id, k, alpha, beta, iter_num)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line"><span class="string">    LDA模型</span></div><div class="line"><span class="string">    :param doc_word: [[word_id word_id] [word_id word_id]]</span></div><div class="line"><span class="string">    :param words_id: &#123;word:id&#125;</span></div><div class="line"><span class="string">    :param k:  主题数</span></div><div class="line"><span class="string">    :param alpha: 文档主题参数服从dirichlet分布的参数</span></div><div class="line"><span class="string">    :param beta:    主题词参数服从dirichlet分布的参数</span></div><div class="line"><span class="string">    :param iter_num: 迭代次数</span></div><div class="line"><span class="string">    :return: theta 文档主题分布, phi 主题词分布</span></div><div class="line"><span class="string">    """</span></div><div class="line">    doc_topic_count, topic_words_count, doc_word_count = init_param_lda(doc_word, words_id, k)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(iter_num):</div><div class="line">        gibbs_sampling(doc_topic_count, topic_words_count, doc_word, doc_word_count, k, alpha, beta)</div><div class="line">    theta = calc_theta(doc_topic_count, alpha)</div><div class="line">    phi = calc_phi(topic_words_count, beta)</div><div class="line">    save_model(theta, phi)</div><div class="line">    <span class="keyword">return</span> theta, phi</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">calc_theta</span><span class="params">(doc_topic_count, alpha)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line"><span class="string">    计算文档主题分布</span></div><div class="line"><span class="string">    :param doc_topic_count: np.array dim=[document, topic]</span></div><div class="line"><span class="string">    :param alpha:</span></div><div class="line"><span class="string">    :return: theta np.array dim=[document, topic]</span></div><div class="line"><span class="string">    """</span></div><div class="line">    dim = doc_topic_count.shape</div><div class="line">    theta = np.zeros(dim)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(dim[<span class="number">0</span>]):</div><div class="line">        sum_i = sum(doc_topic_count[i, :]) + dim[<span class="number">1</span>]*alpha</div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(dim[<span class="number">1</span>]):</div><div class="line">            theta[i, j] = (doc_topic_count[i, j] + alpha)*<span class="number">1.0</span>/sum_i</div><div class="line">    <span class="keyword">return</span> theta</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">calc_phi</span><span class="params">(topic_words_count, beta)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line"><span class="string">    计算主题词分布</span></div><div class="line"><span class="string">    :param topic_words_count: np.array [topic, word]</span></div><div class="line"><span class="string">    :param beta:</span></div><div class="line"><span class="string">    :return: phi np.array [topic, word]</span></div><div class="line"><span class="string">    """</span></div><div class="line">    dim = topic_words_count.shape</div><div class="line">    phi = np.zeros(dim)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(dim[<span class="number">0</span>]):</div><div class="line">        sum_i = sum(topic_words_count[i, :]) + dim[<span class="number">1</span>] * beta</div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(dim[<span class="number">1</span>]):</div><div class="line">            phi[i, j] = (topic_words_count[i, j] + beta) * <span class="number">1.0</span> / sum_i</div><div class="line">    <span class="keyword">return</span> phi</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">gibbs_sampling</span><span class="params">(doc_topic_count, topic_words_count, doc_word, doc_word_topic, k, alpha, beta)</span>:</span></div><div class="line">    doc_len = len(doc_word_topic)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(doc_len):</div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(len(doc_word[i])):</div><div class="line">            doc_topic_count[i, doc_word_topic[i][j]] -= <span class="number">1</span></div><div class="line">            topic_words_count[doc_word_topic[i][j], doc_word[i][j]] -= <span class="number">1</span></div><div class="line">            p = np.zeros(k)</div><div class="line">            <span class="keyword">for</span> t_n <span class="keyword">in</span> range(k):</div><div class="line">                p[t_n] = ((doc_topic_count[i, t_n] + alpha)*<span class="number">1.0</span>/(sum(doc_topic_count[i])+k*alpha))\</div><div class="line">                         *((topic_words_count[t_n, doc_word[i][j]] + beta)*<span class="number">1.0</span>/(sum(topic_words_count[t_n, :]) + k*beta))</div><div class="line">                <span class="keyword">if</span> t_n &gt; <span class="number">0</span>:</div><div class="line">                    p[t_n] += p[t_n<span class="number">-1</span>]</div><div class="line">            gs = random.random()*p[k<span class="number">-1</span>]</div><div class="line">            new_topic = <span class="number">0</span></div><div class="line">            <span class="keyword">while</span> new_topic &lt; k:</div><div class="line">                <span class="keyword">if</span> p[new_topic] &gt; gs:</div><div class="line">                    <span class="keyword">break</span></div><div class="line">                new_topic += <span class="number">1</span></div><div class="line">            doc_topic_count[i, new_topic] += <span class="number">1</span></div><div class="line">            topic_words_count[new_topic, doc_word[i][j]] += <span class="number">1</span></div><div class="line">            <span class="comment"># 不要忘记更新这个， 否则会出现负数</span></div><div class="line">            doc_word_topic[i][j] = new_topic</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/22/特征提取/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="寒江雪">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="寒江雪的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/22/特征提取/" itemprop="url">特征提取</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-22T20:28:27+08:00">
+                2018-04-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="文本特征"><a href="#文本特征" class="headerlink" title="文本特征"></a>文本特征</h4><p>常见的文本特征包括：一元，二元特征，词性特征，位置信息，以及分词之后词及短语等，当然一般需要去除停用之类的。（后期再补充）</p>
+<h4 id="特征提取"><a href="#特征提取" class="headerlink" title="特征提取"></a>特征提取</h4><p>在找到一些有用的文本特征之后，每个特征可能会有不同的重要程度，或者特征空间太大，因此需要进行特征选择。   </p>
+<ul>
+<li>特征项要能够确实标识文本内容;</li>
+<li>特征项具有将目标文本与其他文本相区分的能力;</li>
+<li>特征项的个数不能太多;</li>
+<li>特征项分离要比较容易实现</li>
+</ul>
+<p>常用的基于打分（或者投票）的特征提取有：</p>
+<ul>
+<li>TFIDF</li>
+<li>卡方</li>
+<li>互信息(Mutual Information)</li>
+<li>期望交叉熵(Expected Cross Entropy)</li>
+<li>比值比（Odds ratio, OR）</li>
+</ul>
+<h4 id="类别不平衡"><a href="#类别不平衡" class="headerlink" title="类别不平衡"></a>类别不平衡</h4><p>很多时候会出现类被不平衡的情况，特别是上述方法，类别多的会占优势。特别是当两个类别非常相似的时候，可以从分词的结果分析，有些应该在在一起的词被分开，导致结果错误的，可以添加到词典里面。</p>
+<p>常用的数据不平衡有一下方法：</p>
+<ul>
+<li>设置损失函数的权重</li>
+<li>欠采样<ul>
+<li>Edited Nearest Neighbor (ENN) :大部分k近邻样本都跟他自己本身的类别不一样</li>
+<li>Repeated Edited Nearest Neighbor：反复删除多类别的数据</li>
+<li>Tomek Link Removal：如果两个类别的数据的最近邻分别数彼此，删除多类别的</li>
+</ul>
+</li>
+<li>过采样方法<ul>
+<li>对少数类有放回的采样（最好控制一个比列，否则容易过拟合）</li>
+<li>Synthetic Minority Oversampling Technique(SMOTE) （这个方法很给力，能够产生新的数据）</li>
+</ul>
+</li>
+<li>EasyEnsemble：我觉得可以把多类别的数据分成几分，同时训练多个模型，然后用集成的方法组合一下。这样不会有欠采样数据丢失的情况，也不会有过采样方法的过拟合的情况。</li>
+</ul>
+<h4 id="自动特征提取"><a href="#自动特征提取" class="headerlink" title="自动特征提取"></a>自动特征提取</h4><p>文本表示是高纬度高稀疏的，特征表达能力很弱。有时候手动提取特征是很麻烦的事情，特别是你对数据没有很深的见解。因此，可以使用神经网络的方法try一下，省时，省力。</p>
+<ul>
+<li>fastText</li>
+<li>TextCNN</li>
+<li>TextRNN 可能短文本效果会好点</li>
+<li>TextRNN + Attention</li>
+<li>TextRCNN 将RNN和CNN结合   </li>
+</ul>
+<p>以上的模型对于深度学习来说都是比较简单的，可以快速尝试或者实现。当然目前还是黑盒子的，不好理解why。</p>
+<hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/14/机器学习-主题模型-pLSA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1940,265 +2243,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/27/Git使用基础-01/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="寒江雪">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="寒江雪的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/27/Git使用基础-01/" itemprop="url">Git使用基础 01</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-27T21:57:39+08:00">
-                2018-03-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>git 放弃本地修改<br>如果在修改时发现修改错误，而要放弃本地修改时，</p>
-<h4 id="第一种情况：未使用-git-add-缓存代码时。"><a href="#第一种情况：未使用-git-add-缓存代码时。" class="headerlink" title="第一种情况：未使用 git add 缓存代码时。"></a>第一种情况：未使用 git add 缓存代码时。</h4><p>可以使用 git checkout – filepathname (比如： git checkout – readme.md  ，不要忘记中间的 “–” ，不写就成了检出分支了！！)。放弃所以的文件修改可以使用 git checkout .  命令。<br>此命令用来放弃掉所有还没有加入到缓存区（就是 git add 命令）的修改：内容修改与整个文件删除。但是此命令不会删除掉刚新建的文件。因为刚新建的文件还没已有加入到 git 的管理系统中。所以对于git是未知的。自己手动删除就好了。</p>
-<h4 id="第二种情况：已经使用了-git-add-缓存了代码。"><a href="#第二种情况：已经使用了-git-add-缓存了代码。" class="headerlink" title="第二种情况：已经使用了  git add 缓存了代码。"></a>第二种情况：已经使用了  git add 缓存了代码。</h4><p>可以使用  git reset HEAD filepathname （比如： git reset HEAD readme.md）来放弃指定文件的缓存，放弃所以的缓存可以使用 git reset HEAD . 命令。<br>此命令用来清除 git  对于文件修改的缓存。相当于撤销 git add 命令所在的工作。在使用本命令后，本地的修改并不会消失，而是回到了如（一）所示的状态。继续用（一）中的操作，就可以放弃本地的修改。</p>
-<h4 id="第三种情况：已经用-git-commit-提交了代码。"><a href="#第三种情况：已经用-git-commit-提交了代码。" class="headerlink" title="第三种情况：已经用 git commit  提交了代码。"></a>第三种情况：已经用 git commit  提交了代码。</h4><p>可以使用 git reset –hard HEAD^ 来回退到上一次commit的状态。此命令可以用来回退到任意版本：git reset –hard  commitid<br>你可以使用 git log 命令来查看git的提交历史。git log 的输出如下,之一这里可以看到第一行就是 commitid：</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/26/shell编程每天一点-03/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="寒江雪">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="寒江雪的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/26/shell编程每天一点-03/" itemprop="url">shell编程每天一点 03</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-26T23:00:14+08:00">
-                2018-03-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="shell-shift"><a href="#shell-shift" class="headerlink" title="shell shift"></a>shell shift</h4><p>Shell编程中Shift的用法</p>
-<p>位置参数可以用shift命令左移。比如shift 3表示原来的$4现在变成$1，原来的$5现在变成$2等等，原来的$1、$2、$3丢弃，$0不移动。不带参数的shift命令相当于shift 1。<br>非常有用的 Unix 命令:shift。我们知道，对于位置变量或命令行参数，其个数必须是确定的，或者当 Shell 程序不知道其个数时，可以把所有参数一起赋值给变量$*。若用户要求 Shell 在不知道位置变量个数的情况下，还能逐个的把参数一一处理，也就是在 $1 后为 $2,在 $2 后面为 $3 等。在 shift 命令执行前变量 $1 的值在 shift 命令执行后就不可用了。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></div><div class="line">until [ $# -eq 0 ]</div><div class="line">do</div><div class="line">  echo "第一个参数为: $1 参数个数为: $#"</div><div class="line">  shift</div><div class="line">done</div></pre></td></tr></table></figure>
-<p>执行以上程序x_shift.sh：<br>$./x_shift.sh 1 2 3 4<br>结果显示如下：<br>第一个参数为: 1 参数个数为: 4<br>第一个参数为: 2 参数个数为: 3<br>第一个参数为: 3 参数个数为: 2<br>第一个参数为: 4 参数个数为: 1        </p>
-<p>从上可知 shift 命令每执行一次，变量的个数($#)减一，而变量值提前一位，下面代码用 until 和 shift 命令计算所有命令行参数的和。</p>
-<p>#shift 上档命令的应用(x_shift2.sh)<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></div><div class="line">if [ $# -eq 0 ]</div><div class="line">then</div><div class="line">  echo "Usage:x_shift2.sh 参数"</div><div class="line">  exit 1</div><div class="line">fi</div><div class="line">sum=0</div><div class="line">until [ $# -eq 0 ]</div><div class="line">do</div><div class="line">  sum=`expr $sum + $1`</div><div class="line">  shift</div><div class="line">done</div><div class="line">echo "sum is: $sum"</div></pre></td></tr></table></figure></p>
-<p>执行上述程序:<br>$x_shift2.sh 10 20 15<br>其显示结果为： 45</p>
-<p>Shift 命令还有另外一个重要用途, Bash 定义了9个位置变量，从 $1 到 $9,这并不意味着用户在命令行只能使用9个参数，借助 shift 命令可以访问多于9个的参数。<br>Shift 命令一次移动参数的个数由其所带的参数指定。例如当 shell 程序处理完前九个命令行参数后，可以使用 shift 9 命令把 $10 移到 $1。</p>
-<p>Shell中判断语句if中-z至-d的意思</p>
-<p>sed<br>crontab 进程不能执行原因</p>
-<p>linux 到远程服务器执行命令和crontab中执行命令提示命令找不到的问题</p>
-<p>一个shell脚本手动执行没有问题，但是配置到crontab中失效，报错环境变量找不到。<br>查看用户环境变量~/.bash_profile、系统环境变量/etc/profile发现环境变量存在，<br>解决方法<br>在.sh脚本中加入source /etc/profile或者source ~/.bash_profile引入环境变量即可解决。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2244,7 +2293,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2257,7 +2306,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

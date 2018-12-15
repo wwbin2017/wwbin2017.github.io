@@ -242,6 +242,272 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/08/差分进化算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="寒江雪">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="寒江雪的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/08/差分进化算法/" itemprop="url">差分进化算法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-08T15:21:31+08:00">
+                2017-11-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="差分简介"><a href="#差分简介" class="headerlink" title="差分简介"></a>差分简介</h4><p>差分进化算法（differential evolution，DE）1995年Store和Price提出的一种计算方法。是一种基于种群的全局搜索算法。</p>
+<h4 id="差分算法原理"><a href="#差分算法原理" class="headerlink" title="差分算法原理"></a>差分算法原理</h4><ul>
+<li><p>初始化</p>
+<ul>
+<li>设$D$为个体的维数，$NP$为种群的规模，$t$为进化的代数，$X(t)$为$t$代种群，首先初始化第0代种群：<br>$$X(0) ={x_1(0),…, x_{NP}(0)}$$</li>
+</ul>
+</li>
+<li><p>变异算子</p>
+<ul>
+<li>针对第$i$个基准向量$x_i(t)$的变异操作是：从种群中选择三个向量$x_{r1}(t)$，$x_{r2}(t)$，$x_{r3}(t)$，其中$r1$，$r2$，$r3$是互不相同的整数,F是DE的缩放因子，在[0,1]之间。<br>DE/rand/1<br>$$V_i(t) = x_{r1}(t) + F*(x_{r2}(t) - x_{r3}(t))$$</li>
+<li>其他变异算子<br>DE/rand/2<br>$$V_i(t) = x_{r1}(t) + F*(x_{r2}(t) - x_{r3}(t)) + F*(x_{r4}(t) - x_{r5}(t))$$<br>DE/best/1<br>$$V_i(t) = x_{best}(t) + F*(x_{r2}(t) - x_{r3}(t))$$<br>DE/best/2<br>$$V_i(t) = x_{best}(t) + F*(x_{r2}(t) - x_{r3}(t) + F*(x_{r4}(t) - x_{r5}(t)$$<br>DE/current-to-best/1<br>$$V_i(t) = x_{i}(t) + F*(x_{best}(t) - x_{i}(t) + F*(x_{r1}(t) - x_{r2}(t)$$  </li>
+</ul>
+</li>
+<li><p>修补算子</p>
+</li>
+<li><p>杂交算子<br>if $ rand_{i}[0,1]&lt;Cr$ or $j=j_{rand}$<br>$$u_{i,j}(t) = v_{i,j}(t) $$<br>otherwise<br>$$u_{i,j}(t) = x_{i,j}(t) $$</p>
+</li>
+<li><p>选择算子<br>DE的选择操作是一种基于贪婪的选择机制，哪个好，选择哪个<br>if $f(X_{i}(t))$&lt;$f(u_{i}(t))$<br>$$X_{i}(t+1)=X_{i}(t)$$<br>if $f(X_{i}(t))$&gt;$f(u_{i}(t))$<br>$$X_{i}(t+1)=u_{i}(t)$$</p>
+</li>
+<li><p>Matlab代码</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">clear all</div><div class="line">clc</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/06/中文分词/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="寒江雪">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="寒江雪的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/06/中文分词/" itemprop="url">中文分词</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-06T19:29:21+08:00">
+                2017-11-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="来自数学之美"><a href="#来自数学之美" class="headerlink" title="来自数学之美"></a>来自数学之美</h4><p>词典（或者直接列举所有的可能的切分）+统计模型<br>按照语料，计算每种可能的概率，选择最大的一个作为分词结果。</p>
+<p>当然穷举所有可能，计算量很大，因此可以使用动态规划方法（DP），使用维特比算法（Viterbi）快速找到最佳分词</p>
+<h4 id="深度学习的方法"><a href="#深度学习的方法" class="headerlink" title="深度学习的方法"></a>深度学习的方法</h4><p>使用双向的Lstm（Bi-Lstm，可以多层）提取上下文的信息，然后做一个标注，比如最长用的BIO标注，每个词初始化为一个随机的向量，作为Bi-Lstm的输入。</p>
+<p>或者使用Bi-Lstm-CRF。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/06/boot仅剩0字节解决方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1512,272 +1778,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/30/Markdown的基本语法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="寒江雪">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="寒江雪的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/30/Markdown的基本语法/" itemprop="url">Markdown的基本语法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-30T21:24:58+08:00">
-                2017-10-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li>markdown注释：可以使用 <strong>&lt;!– 注释 –&gt;</strong><br>$x_i$<br>$x$<br>$\frac{a}{b}$</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/30/Hexo搭建和使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="寒江雪">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="寒江雪的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/30/Hexo搭建和使用/" itemprop="url">Hexo搭建和使用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-30T21:24:23+08:00">
-                2017-10-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>主要简单介绍在ubuntu环境下Hexo的搭建以及一些常用配置和命令的使用</p>
-<h3 id="hexo环境搭建和使用"><a href="#hexo环境搭建和使用" class="headerlink" title="hexo环境搭建和使用"></a>hexo环境搭建和使用</h3><h5 id="hexo环境搭建"><a href="#hexo环境搭建" class="headerlink" title="hexo环境搭建"></a>hexo环境搭建</h5><ul>
-<li>主要参考 <a href="https://hexo.io/" target="_blank" rel="external">Hexo官方文档</a> <a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">中文文档</a>总结</li>
-<li>首先需要安装git和Node.js</li>
-<li><p>安装git</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Windows：下载并安装 git.</div><div class="line">Mac：使用 Homebrew, MacPorts ：brew install git;或下载 安装程序 安装。</div><div class="line">Linux (Ubuntu, Debian)：sudo apt-get install git-core</div><div class="line">Linux (Fedora, Red Hat, CentOS)：sudo yum install git-core</div></pre></td></tr></table></figure>
-</li>
-<li><p>安装Node.js</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">安装 Node.js 的最佳方式是使用 nvm。</div><div class="line">cURL:</div><div class="line">$ curl https://raw.github.com/creationix/nvm/master/install.sh | sh</div><div class="line">Wget:</div><div class="line">$ wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh</div><div class="line">安装完成后， 重启终端 并执行下列命令即可安装 Node.js。</div><div class="line">$ nvm install stable</div></pre></td></tr></table></figure>
-</li>
-<li><p>安装好上述环境后，就可以安装Hexo</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo-cli  不要加sudo</div></pre></td></tr></table></figure>
-</li>
-<li><p>为了部署到github需要安装一个扩展</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
-</li>
-<li><p>有时候需要改变用户名和邮箱</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">设置你的用户名</div><div class="line">git config --global user.name &quot;user_name&quot;  </div><div class="line">设置你的邮箱</div><div class="line">git config --global user.email &quot;email@gmail.com&quot;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="hexo使用"><a href="#hexo使用" class="headerlink" title="hexo使用"></a>hexo使用</h3>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1823,7 +1828,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1836,7 +1841,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
