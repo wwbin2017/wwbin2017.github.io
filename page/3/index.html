@@ -242,6 +242,388 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/14/bloom-filter/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="寒江雪">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="寒江雪的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/14/bloom-filter/" itemprop="url">bloom filter</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-14T20:38:44+08:00">
+                2018-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="bitmap"><a href="#bitmap" class="headerlink" title="bitmap"></a>bitmap</h3><p>bitmap位图可以认为是把一个数映射到一个空间，最常用的就是hash但是hash在数据量大的时候就不管用了或者效率不高了。因此我们可以用位图来给元素做一一映射，一个数据如果在bitmap中其对应的位置为1否则为0。我们做一个简单的统计，计算int为32个bit，因此总共有2^32个数，因此我们需要相当的bit来做一个一一映射。因此需要的空间大小为2^32/(8<em>1024</em>2024)=2^32/2^23=2^9=512M.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">BitMap</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">size_t</span>&gt; <span class="built_in">array</span>;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    BitMap()&#123;&#125;</div><div class="line">    BitMap(<span class="keyword">size_t</span> num)</div><div class="line">    &#123;</div><div class="line">        set_cloumn(num);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">set_cloumn</span><span class="params">(<span class="keyword">size_t</span> num)</span></span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        <span class="comment">// 一个size_t存32个数,32位</span></div><div class="line">        <span class="built_in">array</span>.resize((num&gt;&gt;<span class="number">5</span>)+<span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">size_t</span> calc_index(<span class="keyword">size_t</span> num)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> num&gt;&gt;<span class="number">5</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">size_t</span> calc_pos(<span class="keyword">size_t</span> num)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> num%<span class="number">32</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">add</span><span class="params">(<span class="keyword">size_t</span> num)</span></span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        <span class="keyword">size_t</span> pos = calc_pos(num);</div><div class="line">        <span class="keyword">size_t</span> index = calc_index(num);</div><div class="line">        <span class="keyword">if</span>(index&gt;=<span class="built_in">array</span>.size())</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        <span class="built_in">array</span>[index] |= (<span class="number">0x01</span>&lt;&lt;pos);</div><div class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">clear</span><span class="params">(<span class="keyword">size_t</span> num)</span></span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        <span class="keyword">size_t</span> pos = calc_pos(num);</div><div class="line">        <span class="keyword">size_t</span> index = calc_index(num);</div><div class="line">        <span class="keyword">if</span>(index&gt;=<span class="built_in">array</span>.size())</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        <span class="built_in">array</span>[index] &amp;= ~(<span class="number">0x01</span>&lt;&lt;pos);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">is_contains</span><span class="params">(<span class="keyword">size_t</span> num)</span></span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        <span class="keyword">size_t</span> pos = calc_pos(num);</div><div class="line">        <span class="keyword">size_t</span> index = calc_index(num);</div><div class="line">        <span class="keyword">if</span>(index&gt;=<span class="built_in">array</span>.size())</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        <span class="keyword">if</span>(<span class="built_in">array</span>[index]&amp;(<span class="number">0x01</span>&lt;&lt;pos))</div><div class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="BitMap评价"><a href="#BitMap评价" class="headerlink" title="BitMap评价"></a>BitMap评价</h3><ul>
+<li>可以对空间进行压缩</li>
+<li>快速排序，去重，查询（类似hash，其实就是一个hash，一一映射）</li>
+<li>运算效率高 不做比较，基本上是位运算</li>
+<li>当然以上优点是针对数据比较密集的时候，否则还是有很大浪费的</li>
+</ul>
+<hr>
+<h3 id="Boom-filter"><a href="#Boom-filter" class="headerlink" title="Boom filter"></a>Boom filter</h3><p>Bloom Fliter是Bit-map思想的一种扩展，基本做法就是使用k个hash函数，分别映射到固定范围，因此一个数据会使得k个位置为1,判断元素是否在集合中，是k个位置都为1。因此我们可以知道会存在误判的情况。允许低错误率的场景下，大大地进行空间压缩，是一种拿错误率换取空间的数据结构。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bloom_Filter</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">        Bloom_Filter(<span class="keyword">size_t</span> size)</div><div class="line">                :_capacity(size)</div><div class="line">        &#123;</div><div class="line">                _bitmap.set_cloumn(size);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">const</span> K&amp; key)</span></span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">                _bitmap.add(HashFun1()(key) % _capacity);</div><div class="line">                _bitmap.add(HashFun2()(key) % _capacity);</div><div class="line">                _bitmap.add(HashFun3()(key) % _capacity);</div><div class="line">                _bitmap.add(HashFun4()(key) % _capacity);</div><div class="line">                _bitmap.add(HashFun5()(key) % _capacity);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">bool</span> <span class="title">is_contains</span><span class="params">(<span class="keyword">const</span> K&amp; key)</span></span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">                <span class="keyword">if</span> (!_bitmap.is_contains(HashFun1()(key) % _capacity))</div><div class="line">                        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">                <span class="keyword">if</span> (!_bitmap.is_contains(HashFun2()(key) % _capacity))</div><div class="line">                        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">                <span class="keyword">if</span> (!_bitmap.is_contains(HashFun3()(key) % _capacity))</div><div class="line">                        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">                <span class="keyword">if</span> (!_bitmap.is_contains(HashFun4()(key) % _capacity))</div><div class="line">                        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">                <span class="keyword">if</span> (!_bitmap.is_contains(HashFun5()(key) % _capacity))</div><div class="line">                        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">        &#125;</div><div class="line"><span class="keyword">private</span>:</div><div class="line">        BitMap _bitmap;</div><div class="line">        <span class="keyword">size_t</span> _capacity;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/14/c-编译/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="寒江雪">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="寒江雪的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/14/c-编译/" itemprop="url">c++编译</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-14T17:36:26+08:00">
+                2018-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="g"><a href="#g" class="headerlink" title="g++"></a>g++</h3><p>程序运行步骤<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">预处理 　　.i .ii文件　　　　     gcc -E helloworld.cpp -o helloworld.i</div><div class="line">编译 　　　.s文件　　　　         gcc -S helloworld.cpp -o helloworld.s</div><div class="line">汇编 　　　.o .obj文件　　　　 　　gcc -c helloworld.cpp -o helloworld.o</div><div class="line">链接 　　　.lib .a文件</div></pre></td></tr></table></figure></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">g++ helloworld.cc # a.out</div><div class="line">g++ helloworld.cc -o helloworld #编译输出文件 helloworld</div><div class="line">g++ helloworld.cc world.cc hello.h-o helloworld # 多文件编译</div></pre></td></tr></table></figure>
+<h3 id="静态库与动态库"><a href="#静态库与动态库" class="headerlink" title="静态库与动态库"></a>静态库与动态库</h3><ul>
+<li>静态库 .a (linux) .lib (windows)</li>
+<li>动态库 .so (linux) .dll (windows)</li>
+<li>gcc时，用-I和-L分别制定库名和库路径<h4 id="静态库"><a href="#静态库" class="headerlink" title="静态库"></a>静态库</h4>1 创建print.c和print.h,其中helloworld中用到了print这个函数，如果直接运行会报错说找不到print这个函数。<br>2 先print.c编译成二进制文件print.o<br>g++ -c print.c -o print.o<br>3 再用ar这个工具将add.o做成静态库<br>ar -r libprint.a print.o<br>4 这样就可以调用了，即在编译的时候加上库的名字，路径并申明为静态库-static等参数即可。<br>g++ helloworld.c -l libprint -L ./ -static -o helloworld<br>5 注意要其他地方也要用的话要把print.h也拷贝过去才能用</li>
+</ul>
+<h4 id="动态库"><a href="#动态库" class="headerlink" title="动态库"></a>动态库</h4><p>1.首先创建libmyprint.so，即利用print.c这个函数生成动态库<br>g++ -shared -fPIC -o libmyprint.so print.c<br>-share指为共享的，-fPIC表示position independent code位置无关，这是动态库特性<br>2.指定动态库生成可执行文件，-L.表示当前文件夹，-l myprint表示去找libmyprint.so这个动态库文件。<br>g++ helloworld.c -L ./ -l myprint<br>3.直接使用会抱错，找不到动态库，要指定动态库的路径<br>./a.out会报错<br>LD_LIBRARY_PATH=. ./a.out指定当前库的路径后在运行就可以了<br>4.如果要一直用，可以将.so文件的目录添加到/etc/ld.so.conf里面，然后再执行ldconfig就行了，具体如下面：</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/14/前端之小结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="寒江雪">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="寒江雪的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/14/前端之小结/" itemprop="url">前端之小结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-14T15:37:31+08:00">
+                2018-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>前端和js的一个简单总结</p>
+<h4 id="共用一个页面模板"><a href="#共用一个页面模板" class="headerlink" title="共用一个页面模板"></a>共用一个页面模板</h4><ul>
+<li>设置不同id，根据id做不同处理</li>
+</ul>
+<h4 id="设置form点击不跳转"><a href="#设置form点击不跳转" class="headerlink" title="设置form点击不跳转"></a>设置form点击不跳转</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">from</span> <span class="attr">target</span>=<span class="string">"frame"</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">id</span>=<span class="string">"###"</span> <span class="attr">name</span>=<span class="string">"frame"</span> <span class="attr">style</span>=<span class="string">"display:none;"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="提交其他数据"><a href="#提交其他数据" class="headerlink" title="提交其他数据"></a>提交其他数据</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">value</span>=<span class="string">"data"</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="设置点击提交数据到后台"><a href="#设置点击提交数据到后台" class="headerlink" title="设置点击提交数据到后台"></a>设置点击提交数据到后台</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="undefined">    function submitForm(my_form)&#123;</span></div><div class="line"><span class="undefined">        var form = document.getElementById(my_form);</span></div><div class="line"><span class="undefined">        form.submit();</span></div><div class="line"><span class="undefined">    &#125;</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/01/机器学习-主题模型-LDA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -977,30 +1359,30 @@
 <table>
 <thead>
 <tr>
-<th></th>
 <th style="text-align:center">类别B</th>
-<th>非类别B</th>
-<th>统计</th>
+<th style="text-align:center">非类别B</th>
+<th style="text-align:center">统计</th>
+<th style="text-align:center">:–:</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>  包含词A</td>
+<td style="text-align:center">包含词A</td>
 <td style="text-align:center">50</td>
-<td>5</td>
-<td>55</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">55</td>
 </tr>
 <tr>
-<td>  不包含词A</td>
+<td style="text-align:center">不包含词A</td>
 <td style="text-align:center">10</td>
-<td>40</td>
-<td>50</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">50</td>
 </tr>
 <tr>
-<td>  统计</td>
+<td style="text-align:center">统计</td>
 <td style="text-align:center">60</td>
-<td>45</td>
-<td>105</td>
+<td style="text-align:center">45</td>
+<td style="text-align:center">105</td>
 </tr>
 </tbody>
 </table>
@@ -1875,374 +2257,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/27/Git使用基础-04-origin/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="寒江雪">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="寒江雪的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/27/Git使用基础-04-origin/" itemprop="url">Git使用基础 04 origin</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-27T22:21:55+08:00">
-                2018-03-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>代码库（repository）可以是本地的，也可以是github上的。默认情况origin指向本地的代码库托管在Github上的版本。<br>git为你默认创建了一个指向远端代码库的origin<br>使用<br>git remove -v 查看<br>origin就是一个名字，是在clone一个托管在Github上代码库时，git默认创建的指向这个远程代码库的标签</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/27/Git使用基础-03-之标签/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="寒江雪">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="寒江雪的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/27/Git使用基础-03-之标签/" itemprop="url">Git使用基础 03 之标签</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-27T22:11:52+08:00">
-                2018-03-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="查看标签"><a href="#查看标签" class="headerlink" title="查看标签"></a>查看标签</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git tag</div><div class="line">git tag -l 'v1.4.2.*' # 查看特定的标签</div></pre></td></tr></table></figure>
-<h4 id="新建标签"><a href="#新建标签" class="headerlink" title="新建标签"></a>新建标签</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git tag -a v1.4 -m 'my version 1.0'</div></pre></td></tr></table></figure>
-<h4 id="查看标签具体信息"><a href="#查看标签具体信息" class="headerlink" title="查看标签具体信息"></a>查看标签具体信息</h4> <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git show 版本</div></pre></td></tr></table></figure>
-<h4 id="分享标签"><a href="#分享标签" class="headerlink" title="分享标签"></a>分享标签</h4><p> 默认情况下，git push 并不会把标签传送到远端服务器上，只有通过显式命令才能分享标签到远端仓库。其命令格式如同推送分支，运行 git push origin [tagname] 即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin v1.5</div></pre></td></tr></table></figure></p>
-<p> 如果要一次推送所有本地新增的标签上去，可以使用 –tags 选项：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin --tags</div></pre></td></tr></table></figure></p>
-<h4 id="删除标签"><a href="#删除标签" class="headerlink" title="删除标签"></a>删除标签</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git tag -d v1.0</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/27/Git使用基础-02/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="寒江雪">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="寒江雪的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/27/Git使用基础-02/" itemprop="url">Git使用基础 02</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-27T22:05:39+08:00">
-                2018-03-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h4><h4 id="恢复被删除的分支"><a href="#恢复被删除的分支" class="headerlink" title="恢复被删除的分支"></a>恢复被删除的分支</h4> <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span>!/bin/bash</div><div class="line">git branch -d &lt;branch_name&gt;</div></pre></td></tr></table></figure>
-<p> Git会自行负责分支的管理，所以当我们删除一个分支时，Git只是删除了指向相关提交的指针，但该提交对象依然会留在版本库中。</p>
-<p>因此，如果我们知道删除分支时的散列值，就可以将某个删除的分支恢复过来。在已知提交的散列值的情况下恢复某个分支：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span>!/bin/bash</div><div class="line">git branch &lt;branch_name&gt; &lt;hash_val&gt;</div></pre></td></tr></table></figure></p>
-<p>可以使用reflog命令找到hash值</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2293,7 +2307,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2306,7 +2320,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2345,7 +2359,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

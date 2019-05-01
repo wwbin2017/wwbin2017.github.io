@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="redis 为什么使用连接池,redis本来是单进程单线程 连接池则可以实现在客户端建立多个链接并且不释放，当需要使用连接的时候通过一定的算法获取已经建立的连接，使用完了以后则还给连接池，这就免去了数据库连接所占用的时间。是不是可以这样理解，连接池只是帮我们同时建立了多个连接。我们也完全可以不用连接池，自己需要的几个连接建立几个连接。连接池只是把这个过程封装了？不知道理解错没。">
+<meta name="description" content="redis 为什么使用连接池,redis本来是单进程单线程 连接池则可以实现在客户端建立多个链接并且不释放，当需要使用连接的时候通过一定的算法获取已经建立的连接，使用完了以后则还给连接池，这就免去了数据库连接所占用的时间。是不是可以这样理解，连接池只是帮我们同时建立了多个连接。我们也完全可以不用连接池，自己需要的几个连接建立几个连接。连接池只是把这个过程封装了？不知道理解错没。 线程池">
 <meta name="keywords" content="redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="redis 基础">
 <meta property="og:url" content="http://yoursite.com/2018/12/15/redis-基础/index.html">
 <meta property="og:site_name" content="寒江雪的博客">
-<meta property="og:description" content="redis 为什么使用连接池,redis本来是单进程单线程 连接池则可以实现在客户端建立多个链接并且不释放，当需要使用连接的时候通过一定的算法获取已经建立的连接，使用完了以后则还给连接池，这就免去了数据库连接所占用的时间。是不是可以这样理解，连接池只是帮我们同时建立了多个连接。我们也完全可以不用连接池，自己需要的几个连接建立几个连接。连接池只是把这个过程封装了？不知道理解错没。">
+<meta property="og:description" content="redis 为什么使用连接池,redis本来是单进程单线程 连接池则可以实现在客户端建立多个链接并且不释放，当需要使用连接的时候通过一定的算法获取已经建立的连接，使用完了以后则还给连接池，这就免去了数据库连接所占用的时间。是不是可以这样理解，连接池只是帮我们同时建立了多个连接。我们也完全可以不用连接池，自己需要的几个连接建立几个连接。连接池只是把这个过程封装了？不知道理解错没。 线程池">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-15T02:40:40.642Z">
+<meta property="og:updated_time" content="2018-12-17T02:13:53.453Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis 基础">
-<meta name="twitter:description" content="redis 为什么使用连接池,redis本来是单进程单线程 连接池则可以实现在客户端建立多个链接并且不释放，当需要使用连接的时候通过一定的算法获取已经建立的连接，使用完了以后则还给连接池，这就免去了数据库连接所占用的时间。是不是可以这样理解，连接池只是帮我们同时建立了多个连接。我们也完全可以不用连接池，自己需要的几个连接建立几个连接。连接池只是把这个过程封装了？不知道理解错没。">
+<meta name="twitter:description" content="redis 为什么使用连接池,redis本来是单进程单线程 连接池则可以实现在客户端建立多个链接并且不释放，当需要使用连接的时候通过一定的算法获取已经建立的连接，使用完了以后则还给连接池，这就免去了数据库连接所占用的时间。是不是可以这样理解，连接池只是帮我们同时建立了多个连接。我们也完全可以不用连接池，自己需要的几个连接建立几个连接。连接池只是把这个过程封装了？不知道理解错没。 线程池">
 
 
 
@@ -312,7 +312,7 @@
       
         <p>redis 为什么使用连接池,redis本来是单进程单线程</p>
 <p>连接池则可以实现在客户端建立多个链接并且不释放，当需要使用连接的时候通过一定的算法获取已经建立的连接，使用完了以后则还给连接池，这就免去了数据库连接所占用的时间。是不是可以这样理解，连接池只是帮我们同时建立了多个连接。我们也完全可以不用连接池，自己需要的几个连接建立几个连接。连接池只是把这个过程封装了？不知道理解错没。</p>
-
+<h3 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h3>
       
     </div>
     
@@ -351,6 +351,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/25/tensorflow-base/" rel="prev" title="tensorflow-base">
+                tensorflow-base <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -402,8 +406,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -418,7 +431,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -431,7 +444,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -457,6 +470,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#线程池"><span class="nav-number">1.</span> <span class="nav-text">线程池</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -470,7 +499,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
