@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="寒江雪的博客">
 <meta property="og:description" content="&amp;amp;（左值引用） 和 &amp;amp;&amp;amp; 右值引用1234void test(int &amp;amp; i) &amp;#123;  i++;&amp;#125;test(1) // 编译不通过，非常量的引用值必须是左值。 &amp;amp;（左值引用）：需要注意的是生命周期，c++ 中的左值就像指针，它可以捕获实实在在的实体，但是我们要注意被捕获值的生命周期。不要随便把生命周期和栈同步的实体传给了它； &amp;amp;&amp;a">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-01T03:40:38.702Z">
+<meta property="og:updated_time" content="2019-05-01T03:53:28.520Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="c++容易混淆的概念">
 <meta name="twitter:description" content="&amp;amp;（左值引用） 和 &amp;amp;&amp;amp; 右值引用1234void test(int &amp;amp; i) &amp;#123;  i++;&amp;#125;test(1) // 编译不通过，非常量的引用值必须是左值。 &amp;amp;（左值引用）：需要注意的是生命周期，c++ 中的左值就像指针，它可以捕获实实在在的实体，但是我们要注意被捕获值的生命周期。不要随便把生命周期和栈同步的实体传给了它； &amp;amp;&amp;a">
@@ -313,10 +313,16 @@
         <h3 id="amp-（左值引用）-和-amp-amp-右值引用"><a href="#amp-（左值引用）-和-amp-amp-右值引用" class="headerlink" title="&amp;（左值引用） 和 &amp;&amp; 右值引用"></a>&amp;（左值引用） 和 &amp;&amp; 右值引用</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> &amp; i)</span> </span>&#123;</div><div class="line">  i++;</div><div class="line">&#125;</div><div class="line">test(<span class="number">1</span>) <span class="comment">// 编译不通过，非常量的引用值必须是左值。</span></div></pre></td></tr></table></figure>
 <p>&amp;（左值引用）：需要注意的是生命周期，<br>c++ 中的左值就像指针，它可以捕获实实在在的实体，但是我们要注意被捕获值的生命周期。不要随便把生命周期和栈同步的实体传给了它；</p>
 <p>&amp;&amp; 右值引用<br>右值其实也是指针，但是它功能是专门捕获匿名的实体（可以理解为编译产生的中间变量）。同时我们要注意，右值在定义时捕获了实体以后，右值的名字就变成了被捕获的实体。</p>
-<h3 id="类类型"><a href="#类类型" class="headerlink" title="类类型"></a>类类型</h3><p>类的声明：仅声明类暂时不定义它<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span>;</span>  <span class="comment">// 类的声明</span></div></pre></td></tr></table></figure></p>
-<p>这种声明被称作 “前向声明”，在它声明之后定义之前是一个不完全类型（incomplete type），即我们知道是个类型，但是不知道内部情况</p>
-<p>不完全类型只能在非常有限的情况下使用：指针或者引用，参数或者返回值（都不会创建类型对象）</p>
-<p>只有类被定义之后，数据成员才能才能被申明成这种类型，所以一个类的成员类型不能是自己（如果可以的话，就会无限循环了）</p>
+<h3 id="类类型"><a href="#类类型" class="headerlink" title="类类型"></a>类类型</h3><p>类的声明：仅声明类暂时不定义它</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span>;</span>  <span class="comment">// 类的声明</span></div></pre></td></tr></table></figure>
+<ol>
+<li><p>这种声明被称作 “前向声明”，在它声明之后定义之前是一个不完全类型（incomplete type），即我们知道是个类型，但是不知道内部情况</p>
+</li>
+<li><p>不完全类型只能在非常有限的情况下使用：指针或者引用，参数或者返回值（都不会创建类型对象）</p>
+</li>
+<li><p>只有类被定义之后，数据成员才能才能被申明成这种类型，所以一个类的成员类型不能是自己（如果可以的话，就会无限循环了）</p>
+</li>
+</ol>
 <h3 id="static"><a href="#static" class="headerlink" title="static"></a>static</h3><ol>
 <li>静态成员的定义和声明要加个关键static。静态成员可以通过双冒号来使用，即&lt;类名&gt;::&lt;静态成员名&gt;。</li>
 <li>初始化静态成员变量要在类的外面进行。初始化的格式如下：数据类型  类名::静态成员变量名 = 初值；<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</div><div class="line">  <span class="keyword">static</span> j = <span class="number">0</span>;</div><div class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt;  i  &lt;&lt; <span class="string">" static j 地址"</span> &lt;&lt; &amp;j&lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
