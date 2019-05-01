@@ -242,6 +242,135 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/07/First-Missing-Positive/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="寒江雪">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="寒江雪的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/07/First-Missing-Positive/" itemprop="url">First Missing Positive</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-07T22:54:17+08:00">
+                2018-12-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="LeetCode-题目：First-Missing-Positive-难度：hard"><a href="#LeetCode-题目：First-Missing-Positive-难度：hard" class="headerlink" title="LeetCode 题目：First Missing Positive 难度：hard"></a>LeetCode 题目：First Missing Positive 难度：hard</h2><p>Given an unsorted integer array, find the smallest missing positive integer.</p>
+<p>Example 1:</p>
+<p>Input: [1,2,0]<br>Output: 3<br>Example 2:</p>
+<p>Input: [3,4,-1,1]<br>Output: 2<br>Example 3:</p>
+<p>Input: [7,8,9,11,12]<br>Output: 1<br>Note:</p>
+<p>Your algorithm should run in O(n) time and uses constant extra space.</p>
+<blockquote>
+<p>初看之下没想到好的解法，后面想到一种比较巧妙的解法。问题的描述是找到最小的正整数。换句话说，数字的出现是否连续，我们可以换成位运算，如果1-100出现，对应的第一位为1，如果100-200出现，对应的第二位为1，如此。最后，我们对每一个位判断是否位1，不为1，则就是缺失的值，时间和空间复杂度满足要求。或许有更优的解法。</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">firstMissingPositive</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> base = <span class="number">100</span>;</div><div class="line">        <span class="keyword">int</span> num[base]&#123;<span class="number">0</span>&#125;;</div><div class="line">        <span class="keyword">for</span>(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it = nums.begin(); it != nums.end(); ++it) &#123;</div><div class="line">            <span class="keyword">if</span>((*it) &lt; <span class="number">1</span>) <span class="keyword">continue</span>;</div><div class="line">            <span class="keyword">int</span> tmp = (*it<span class="number">-1</span>)%base;</div><div class="line">            <span class="keyword">int</span> t = (*it<span class="number">-1</span>)/base;</div><div class="line">            <span class="comment">// 将对一个的位设置为1</span></div><div class="line">            num[tmp] |= (<span class="number">1</span>&lt;&lt;t);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> b = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt; base; ++i) &#123;</div><div class="line">                <span class="comment">// 判断每个数是否存在</span></div><div class="line">                <span class="keyword">if</span>((num[i]&amp;(<span class="number">1</span>&lt;&lt;b))&lt;=<span class="number">0</span>)&#123;</div><div class="line">                    <span class="keyword">return</span> base*b + (i+<span class="number">1</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            b += <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/07/Longest-Valid-Parentheses/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1418,158 +1547,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/15/每周一篇论文之-Attention-is-all-you-need/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="寒江雪">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="寒江雪的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/15/每周一篇论文之-Attention-is-all-you-need/" itemprop="url">每周一篇论文之 Attention is all you need</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-15T22:36:10+08:00">
-                2018-07-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="All-you-need-is-attention"><a href="#All-you-need-is-attention" class="headerlink" title="All you need is attention"></a>All you need is attention</h3><h3 id="亮点"><a href="#亮点" class="headerlink" title="亮点"></a>亮点</h3><ul>
-<li>提出了一个新模型，named Transformer，没有使用CCN和RNN，基于Attention机制</li>
-<li>介绍了multi-head attention mechanism</li>
-<li>一个新的位置编码</li>
-<li>也是一个seq2seq模型</li>
-<li>也是一个自回归模型，输出不经依赖输入也依赖以前的输出</li>
-<li>在翻译上取得了state-of-the-art 最优结果</li>
-</ul>
-<h3 id="attention的好处"><a href="#attention的好处" class="headerlink" title="attention的好处"></a>attention的好处</h3><ul>
-<li>CNN需要叠加多层才能获得全局的一个表达</li>
-<li>RNN序列模型，训练很慢</li>
-</ul>
-<h3 id="基本attention机制"><a href="#基本attention机制" class="headerlink" title="基本attention机制"></a>基本attention机制</h3><p><img src="/2018/07/15/每周一篇论文之-Attention-is-all-you-need/basic_attention.png" alt="基本attention"><br>attention的一个基本思想就是当前的一个输出是和前面所有的输入中的特定输入有关系。因此就是需要取得一个输入的加权和。一个基本的做法就是上一时刻的输出和所有输入求得一个权重，然后加权和。因此是有所偏重的即注意力机制。</p>
-<p><img src="/2018/07/15/每周一篇论文之-Attention-is-all-you-need/qkv.png" alt="基本attention"><br>Q，K，V放到翻译模型里面可以认为分别为上时刻的输出，所有输入，所有输入</p>
-<p><img src="/2018/07/15/每周一篇论文之-Attention-is-all-you-need/公式.png" alt="基本attention"></p>
-<h4 id="transformer"><a href="#transformer" class="headerlink" title="transformer"></a>transformer</h4><p>论文中的模型结构如下<br><img src="/2018/07/15/每周一篇论文之-Attention-is-all-you-need/transformer.png" alt="基本attention"></p>
-<h4 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h4><ul>
-<li>像一般模型一样，做了一个embedding，dmodel=512</li>
-</ul>
-<h4 id="位置编码"><a href="#位置编码" class="headerlink" title="位置编码"></a>位置编码</h4><ul>
-<li>把位置编码和dmodel一样的维数，并且相加，加入位置信息</li>
-<li>在训练阶段为了防止信息泄露，加入负无穷</li>
-</ul>
-<h4 id="encoder"><a href="#encoder" class="headerlink" title="encoder"></a>encoder</h4><p>叠加N层<br><img src="/2018/07/15/每周一篇论文之-Attention-is-all-you-need/encoder.png" alt="基本attention"><br><img src="/2018/07/15/每周一篇论文之-Attention-is-all-you-need/公式2.png" alt="基本attention"></p>
-<h5 id="Multi-head-attention-机制"><a href="#Multi-head-attention-机制" class="headerlink" title="Multi-head attention 机制"></a>Multi-head attention 机制</h5><p><img src="/2018/07/15/每周一篇论文之-Attention-is-all-you-need/multi-head.png" alt="基本attention"><br><img src="/2018/07/15/每周一篇论文之-Attention-is-all-you-need/multi-head-1.png" alt="基本attention"><br><img src="/2018/07/15/每周一篇论文之-Attention-is-all-you-need/multi-head-2.png" alt="基本attention"></p>
-<p>其实直白的讲就是首先做一个相性变换，使得输入不一样，然后，重复多个attention，最后拼接一起。其实这里类似CNN的多个卷积核，提取不同特征，丰富模型的表达能力。</p>
-<h5 id="加入了一些常用技巧"><a href="#加入了一些常用技巧" class="headerlink" title="加入了一些常用技巧"></a>加入了一些常用技巧</h5><ul>
-<li>Residual connections</li>
-<li>Layer normalization</li>
-</ul>
-<h5 id="decoder"><a href="#decoder" class="headerlink" title="decoder"></a>decoder</h5><p>解码层与编码层基本一样，只不过为了防止信息泄漏，增加了一个masked multi-head attention，其实就是对未来的一个信息设置为负无穷，使得未来的信息不会出现在当前时刻里面。</p>
-<p><img src="/2018/07/15/每周一篇论文之-Attention-is-all-you-need/decoder.png" alt="基本attention"></p>
-<p>主要参考<a href="https://ricardokleinklein.github.io/2017/11/16/Attention-is-all-you-need.html" target="_blank" rel="external">链接</a>，加入了一些自己的理解。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1620,7 +1597,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
