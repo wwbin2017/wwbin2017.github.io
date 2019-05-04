@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="机器学习," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="FM算法     线性模型 $$y=\omega{0}+\sum{i=1}^{n} \omega{i} x{i}$$  因子模型 $$y=\omega{0}+\sum{i=1}^{n} \omega{i} x{i}+\sum{i=1}^{n-1} \sum{j=i+1}^{n}x{i} x{j}$$ 其中$v \in \mathbb{R}^{n, k}$, $ \quad&amp;lt;\mathbf">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FM模型">
+<meta property="og:url" content="http://yoursite.com/2019/05/04/FM模型/index.html">
+<meta property="og:site_name" content="寒江雪的博客">
+<meta property="og:description" content="FM算法     线性模型 $$y=\omega{0}+\sum{i=1}^{n} \omega{i} x{i}$$  因子模型 $$y=\omega{0}+\sum{i=1}^{n} \omega{i} x{i}+\sum{i=1}^{n-1} \sum{j=i+1}^{n}x{i} x{j}$$ 其中$v \in \mathbb{R}^{n, k}$, $ \quad&amp;lt;\mathbf">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-04T11:18:49.692Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FM模型">
+<meta name="twitter:description" content="FM算法     线性模型 $$y=\omega{0}+\sum{i=1}^{n} \omega{i} x{i}$$  因子模型 $$y=\omega{0}+\sum{i=1}^{n} \omega{i} x{i}+\sum{i=1}^{n-1} \sum{j=i+1}^{n}x{i} x{j}$$ 其中$v \in \mathbb{R}^{n, k}$, $ \quad&amp;lt;\mathbf">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/04/FM模型/"/>
+
+
+
+
+
+  <title>FM模型 | 寒江雪的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">寒江雪的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">勇敢De心</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/04/FM模型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="寒江雪">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="寒江雪的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">FM模型</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-04T19:17:19+08:00">
+                2019-05-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <center> <h3> FM算法 </h3> </center>
+
+<ol>
+<li><p>线性模型</p>
+<p>$$y=\omega<em>{0}+\sum</em>{i=1}^{n} \omega<em>{i} x</em>{i}$$</p>
+</li>
+<li><p>因子模型</p>
+<p>$$y=\omega<em>{0}+\sum</em>{i=1}^{n} \omega<em>{i} x</em>{i}+\sum<em>{i=1}^{n-1} \sum</em>{j=i+1}^{n}<v_{i}, v_{j}="">x<em>{i} x</em>{j}$$</v_{i},></p>
+<p>其中$v \in \mathbb{R}^{n, k}$, $ \quad&lt;\mathbf{v}<em>{i}, \mathbf{v}</em>{j}&gt;$ <vi,vj>表示的是两个大小为$k$的向量之间的<strong>点积</strong>：</vi,vj></p>
+<p>$$&lt;\mathbf{v}<em>{i}, \mathbf{v}</em>{j}&gt;=\sum<em>{f=1}^{k} v</em>{i, f} \cdot v_{j, f}$$</p>
+</li>
+<li><p>FM模型求解   </p>
+<p>FM模型在基础的线性模型的基础上引入交叉项</p>
+<p>$$y=\omega<em>{0}+\sum</em>{i=1}^{n} \omega<em>{i} x</em>{i}+\sum<em>{i=1}^{n-1} \sum</em>{j=1+1}^{n} \omega<em>{i j} x</em>{i} x_{j}$$</p>
+<p>一般来说数据是非常稀疏的，$w_{i,j}$ 无法通过训练得到。因此，辅助向量$v<em>i$ 对$w</em>{i,j}$进行估计：</p>
+<p>$$\hat{\omega}<em>{i j}=\mathbf{v}</em>{i} \mathbf{v}_{j}^{T}$$</p>
+</li>
+<li><p>交叉项的求解 （时间复杂度 $O(kn)$）</p>
+</li>
+</ol>
+<p>$$\begin{aligned} &amp; \sum<em>{i=1}^{n} \sum</em>{j=i+1}^{n}\left\langle\mathbf{v}<em>{i}, \mathbf{v}</em>{j}\right\rangle x<em>{i} x</em>{j} \=&amp; \frac{1}{2} \sum<em>{i=1}^{n} \sum</em>{j=1}^{n}\left\langle\mathbf{v}<em>{i}, \mathbf{v}</em>{j}\right\rangle x<em>{i} x</em>{j}-\frac{1}{2} \sum<em>{i=1}^{n}\left\langle\mathbf{v}</em>{i}, \mathbf{v}<em>{i}\right\rangle x</em>{i} x_{i} \end{aligned}$$</p>
+<p>$$=\frac{1}{2}\left(\sum<em>{i=1}^{n} \sum</em>{j=1}^{n} \sum<em>{f=1}^{k} v</em>{i, f} v<em>{j, f} x</em>{i} x<em>{j}-\sum</em>{i=1}^{n} \sum<em>{f=1}^{k} v</em>{i, f} v<em>{i, f} x</em>{i} x_{i}\right)$$</p>
+<p>$$=\frac{1}{2} \sum<em>{f=1}^{k}\left(\left(\sum</em>{i=1}^{n} v<em>{i, f} x</em>{i}\right)\left(\sum<em>{j=1}^{n} v</em>{j, f} x<em>{j}\right)-\sum</em>{i=1}^{n} v<em>{i, f}^{2} x</em>{i}^{2}\right)$$</p>
+<p>$$=\frac{1}{2} \sum<em>{f=1}^{k}\left(\left(\sum</em>{i=1}^{n} v<em>{i, f} x</em>{i}\right)^{2}-\sum<em>{i=1}^{n} v</em>{i, f}^{2} x_{i}^{2}\right)​$$</p>
+<ol>
+<li><p>反向梯度</p>
+<p>损失函数（假设是MSE）</p>
+<p>$$\operatorname{loss}^{R}(\hat{y}, y)=\frac{1}{2} \sum_{i=1}^{m}\left(\hat{y}^{(i)}-y^{(i)}\right)^{2}​$$</p>
+<p>梯度：</p>
+<p>$$\frac{\partial \operatorname{loss}^{R}(\hat{y}, y)}{\partial \theta}=(\hat{y}-y) \frac{\partial \hat{y}}{\partial \theta}$$</p>
+<p>$$\frac{\partial}{\partial \theta} \hat{y}(\mathbf{x})=\left{\begin{array}{ll}{1,} &amp; {\text { if } \theta \text { is } w<em>{0}} \ {x</em>{i},} &amp; {\text { if } \theta \text { is } w<em>{i}} \ {x</em>{i} \sum<em>{j=1}^{n} v</em>{j, f} x<em>{j}-v</em>{i, f} x<em>{i}^{2},} &amp; {\text { if } \theta \text { is } v</em>{i, f}}\end{array}\right.$$</p>
+</li>
+<li><p>c++代码实现</p>
+</li>
+</ol>
+<p>fm.h</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"></div><div class="line"><span class="meta"># <span class="meta-keyword">ifndef</span> SRC_FM_</span></div><div class="line"><span class="meta"># <span class="meta-keyword">define</span> SRC_FM_</span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">vector</span>;</div><div class="line"><span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">string</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">FM</span> &#123;</span></div><div class="line">	<span class="keyword">public</span>:</div><div class="line">		FM();</div><div class="line">		~FM();</div><div class="line">		<span class="function"><span class="keyword">void</span> <span class="title">Init</span><span class="params">(<span class="built_in">string</span> file_name, <span class="keyword">int</span> n_sample, <span class="keyword">int</span> n, <span class="keyword">int</span> k)</span></span>;</div><div class="line">		<span class="function"><span class="keyword">void</span> <span class="title">Fit</span><span class="params">(<span class="keyword">int</span> epoch)</span></span>;</div><div class="line">		<span class="function"><span class="keyword">float</span> <span class="title">Predict</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">float</span>&gt; &amp;sample)</span></span>;</div><div class="line">	<span class="keyword">private</span>:</div><div class="line">		<span class="function"><span class="keyword">float</span> <span class="title">GradYToTheta</span><span class="params">(<span class="keyword">int</span> sample, <span class="keyword">int</span> i, <span class="keyword">int</span> f)</span></span>;</div><div class="line">		<span class="function"><span class="keyword">void</span> <span class="title">CalcVDot</span><span class="params">()</span></span>;</div><div class="line">	<span class="keyword">private</span>:</div><div class="line">		<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">float</span>&gt; &gt; data_;</div><div class="line">		<span class="built_in">vector</span>&lt;<span class="keyword">float</span>&gt; y_;</div><div class="line">		<span class="built_in">vector</span>&lt;<span class="keyword">float</span>&gt; w_;</div><div class="line">		<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">float</span>&gt; &gt; v_;</div><div class="line">		<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">float</span>&gt; &gt; v_dot_;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
+<p>fm.cpp</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;fstream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iomanip&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"fm.h"</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="built_in">std</span>::ifstream;</div><div class="line"></div><div class="line">FM::FM() &#123;&#125;</div><div class="line"></div><div class="line">FM::~FM() &#123;&#125;</div><div class="line"></div><div class="line"><span class="keyword">void</span> FM::Init(<span class="built_in">string</span> file_name, <span class="keyword">int</span> n_sample, <span class="keyword">int</span> n, <span class="keyword">int</span> k) &#123;</div><div class="line">	ifstream fin(file_name.c_str());</div><div class="line">	<span class="keyword">if</span>(!fin.is_open()) &#123;</div><div class="line">		<span class="built_in">std</span>::<span class="built_in">cerr</span> &lt;&lt; <span class="string">"opep file failure"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="keyword">void</span> FM::Fit(<span class="keyword">int</span> epoch) &#123;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> ep = <span class="number">0</span>; ep &lt; epoch; ep++) &#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; data_.size(); i++) &#123;</div><div class="line">			<span class="keyword">float</span> y_p = Predict(data_[i]);</div><div class="line">			<span class="keyword">float</span> resid = y_p - y_[i];</div><div class="line">			w_[<span class="number">0</span>] += resid;</div><div class="line">		    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; w_.size(); j++) &#123;</div><div class="line">				w_[j] = resid*data_[i][j<span class="number">-1</span>];</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> iter_i = <span class="number">0</span>; iter_i &lt; v_.size(); iter_i++) &#123;</div><div class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> f = <span class="number">0</span>; f &lt; v_[iter_i].size(); f++) &#123;</div><div class="line">					v_[iter_i][f] += resid*GradYToTheta(i, iter_i, f);</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			CalcVDot();</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">float</span> FM::Predict(<span class="built_in">vector</span>&lt;<span class="keyword">float</span>&gt;&amp; sample) &#123;</div><div class="line">	<span class="keyword">float</span> result = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; w_.size(); i++) &#123;</div><div class="line">		result += sample[i]*w_[i];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sample.size(); i++) &#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j= i+<span class="number">1</span>; j &lt; sample.size(); j++) &#123;</div><div class="line">			result += v_dot_[i][j]*sample[i]*sample[j];</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">void</span> FM::CalcVDot() &#123;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; v_.size(); i++) &#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; v_.size(); j++) &#123;</div><div class="line">			<span class="keyword">float</span> temp = <span class="number">0</span>;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> f = <span class="number">0</span>; f &lt; v_[i].size(); f++) &#123;</div><div class="line">				temp += v_[i][f]*v_[j][f];</div><div class="line">			&#125;</div><div class="line">			v_dot_[i][j] = temp;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">float</span> FM::GradYToTheta(<span class="keyword">int</span> sample, <span class="keyword">int</span> i, <span class="keyword">int</span> f) &#123;</div><div class="line">		<span class="keyword">float</span> sum = <span class="number">0</span>;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> iter_j; iter_j &lt; v_.size(); iter_j++) &#123;</div><div class="line">			sum += v_[iter_j][f]*data_[sample][iter_j];</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="keyword">return</span> data_[sample][i]*(sum - v_[i][f]*data_[sample][i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>//</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/01/c-基础之工厂模式/" rel="next" title="c++基础之工厂模式">
+                <i class="fa fa-chevron-left"></i> c++基础之工厂模式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">寒江雪</p>
+              <p class="site-description motion-element" itemprop="description">选择性记录，习惯性遗忘</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"> FM算法 </span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">寒江雪</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
